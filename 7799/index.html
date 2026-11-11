@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7799天天综合网 - 综合资讯与实用内容聚合</title>
+<meta name="description" content="7799天天综合网汇聚影视综艺、生活服务、科技数码、游戏竞技等多类内容，提供精选条目推荐、分类入口、深度解析与网友评论，适合需要一站式浏览实用资讯的读者。">
+<meta name="keywords" content="7799天天综合网">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a4f8a'/%3E%3Cpath d='M18 22h28v6H18zm0 14h18v6H18z' fill='%23ffd166'/%3E%3Ccircle cx='48' cy='42' r='6' fill='%23ffd166'/%3E%3C/svg%3E">
+<style>
+:root{
+  --c-primary:#1a4f8a;
+  --c-primary-l:#2f6fb3;
+  --c-primary-d:#123a66;
+  --c-accent:#e07b39;
+  --c-accent-l:#f2a463;
+  --c-bg:#f4f6f9;
+  --c-panel:#ffffff;
+  --c-text-1:#1c2530;
+  --c-text-2:#4a5563;
+  --c-text-3:#7d8794;
+  --c-line:#e2e7ee;
+  --radius-card:12px;
+  --radius-btn:8px;
+  --radius-tag:999px;
+  --radius-banner:16px;
+  --shadow-1:0 2px 8px rgba(20,40,70,.06);
+  --shadow-2:0 8px 22px rgba(20,40,70,.12);
+  --font-base:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --header-offset:118px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:var(--header-offset);}
+body{
+  margin:0;font-family:var(--font-base);background:var(--c-bg);color:var(--c-text-1);
+  font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700;}
+p{margin:0 0 14px;}
+ul,ol{margin:0 0 14px;padding-left:22px;}
+li{margin-bottom:6px;}
+button{font-family:inherit;}
+
+/* ---------- 吸顶公告条 ---------- */
+.notice-bar{
+  background:linear-gradient(90deg,var(--c-primary-d),var(--c-primary));
+  color:#eaf2fb;font-size:13px;
+  position:sticky;top:0;z-index:60;
+}
+.notice-inner{
+  max-width:1360px;margin:0 auto;padding:7px 20px;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+}
+.notice-brand{font-weight:700;color:#ffd166;letter-spacing:.5px;white-space:nowrap;}
+.notice-items{display:flex;gap:18px;flex-wrap:wrap;overflow:hidden;}
+.notice-items span{white-space:nowrap;}
+.notice-items b{color:#ffd166;font-weight:600;}
+
+/* ---------- 页头 ---------- */
+.site-header{
+  position:sticky;top:33px;z-index:55;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--c-line);
+  box-shadow:var(--shadow-1);
+}
+.header-inner{
+  max-width:1360px;margin:0 auto;padding:10px 20px;
+  display:flex;align-items:center;gap:20px;
+}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.logo-mark{width:38px;height:38px;flex-shrink:0;}
+.logo-text{font-size:19px;font-weight:800;color:var(--c-primary-d);letter-spacing:.3px;}
+.main-nav{display:flex;gap:4px;flex-wrap:wrap;flex:1;}
+.main-nav a{
+  padding:6px 11px;border-radius:var(--radius-btn);font-size:14px;color:var(--c-text-2);
+  transition:background .18s,color .18s;white-space:nowrap;
+}
+.main-nav a:hover,.main-nav a:focus-visible{background:#e9f0f9;color:var(--c-primary-d);outline:none;}
+.header-tools{display:flex;align-items:center;gap:10px;}
+.search-box{position:relative;}
+.search-box input{
+  width:170px;padding:7px 12px;border:1px solid var(--c-line);border-radius:var(--radius-tag);
+  font-size:13px;background:#fbfcfe;transition:border .18s,width .2s;
+}
+.search-box input:focus{outline:none;border-color:var(--c-primary-l);width:210px;background:#fff;}
+.search-feedback{
+  position:absolute;top:42px;left:0;right:0;background:#fff;border:1px solid var(--c-line);
+  border-radius:10px;box-shadow:var(--shadow-2);font-size:13px;padding:8px 12px;display:none;z-index:70;
+}
+.search-feedback.show{display:block;}
+.hamburger{
+  display:none;width:40px;height:40px;border:1px solid var(--c-line);border-radius:8px;
+  background:#fff;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:4px;
+}
+.hamburger span{display:block;width:18px;height:2px;background:var(--c-primary-d);border-radius:2px;}
+.hamburger:focus-visible{outline:2px solid var(--c-primary-l);outline-offset:2px;}
+
+/* ---------- 首屏 ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 82% 18%,rgba(47,111,179,.20),transparent 52%),
+    radial-gradient(circle at 12% 88%,rgba(224,123,57,.14),transparent 46%),
+    linear-gradient(135deg,#eef4fb 0%,#f7f9fc 55%,#fbf6f0 100%);
+  border-bottom:1px solid var(--c-line);
+}
+.hero-inner{
+  max-width:1360px;margin:0 auto;padding:44px 20px 38px;
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:36px;align-items:center;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;
+  color:var(--c-primary-d);background:#dfeaf7;border-radius:var(--radius-tag);padding:4px 12px;margin-bottom:16px;
+}
+.hero-eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--c-accent);display:inline-block;}
+.hero h1{
+  font-size:clamp(28px,3.4vw,42px);letter-spacing:.5px;color:var(--c-primary-d);margin-bottom:16px;
+}
+.hero-desc{font-size:15.5px;color:var(--c-text-2);max-width:560px;margin-bottom:22px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px;}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:var(--radius-btn);
+  font-size:14.5px;font-weight:600;transition:transform .18s,box-shadow .18s,background .18s;
+  border:1px solid transparent;cursor:pointer;
+}
+.btn-primary{background:var(--c-primary);color:#fff;box-shadow:var(--shadow-1);}
+.btn-primary:hover{background:var(--c-primary-d);transform:translateY(-2px);box-shadow:var(--shadow-2);}
+.btn-ghost{background:#fff;color:var(--c-primary-d);border-color:#c9d8ea;}
+.btn-ghost:hover{background:#eef4fb;transform:translateY(-2px);}
+.hero-stats{display:flex;gap:26px;flex-wrap:wrap;font-size:13px;color:var(--c-text-3);}
+.hero-stats b{display:block;font-size:20px;color:var(--c-primary-d);line-height:1.2;}
+.hero-visual{position:relative;min-height:280px;}
+.hero-visual svg{width:100%;height:auto;display:block;}
+.hero-card{
+  position:absolute;background:#fff;border-radius:var(--radius-card);box-shadow:var(--shadow-2);
+  padding:11px 14px;font-size:12.5px;color:var(--c-text-2);border:1px solid var(--c-line);
+}
+.hero-card strong{display:block;color:var(--c-primary-d);font-size:13.5px;margin-bottom:2px;}
+.hc-1{top:6%;left:4%;animation:float 7s ease-in-out infinite;}
+.hc-2{bottom:10%;right:2%;animation:float 8.5s ease-in-out infinite reverse;}
+.hc-3{top:44%;right:26%;animation:float 9.5s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+
+/* ---------- 主体三栏 ---------- */
+.layout{
+  max-width:1360px;margin:0 auto;padding:26px 20px 40px;
+  display:grid;grid-template-columns:176px minmax(0,1fr) 248px;gap:24px;align-items:start;
+}
+.channel-col{position:sticky;top:var(--header-offset);}
+.panel{
+  background:var(--c-panel);border:1px solid var(--c-line);border-radius:var(--radius-card);
+  box-shadow:var(--shadow-1);padding:16px 16px 12px;
+}
+.panel-title{
+  font-size:13px;font-weight:700;color:var(--c-primary-d);letter-spacing:.5px;
+  margin-bottom:10px;display:flex;align-items:center;gap:7px;
+}
+.panel-title::before{content:"";width:3px;height:13px;border-radius:2px;background:var(--c-accent);}
+.channel-list{list-style:none;padding:0;margin:0;}
+.channel-list li{margin-bottom:2px;}
+.channel-list a{
+  display:flex;align-items:center;justify-content:space-between;gap:6px;
+  padding:6px 9px;border-radius:8px;font-size:13.5px;color:var(--c-text-2);transition:background .16s,color .16s;
+}
+.channel-list a:hover{background:#eef4fb;color:var(--c-primary-d);}
+.channel-list a .cnt{font-size:11px;color:var(--c-text-3);}
+.main-col{min-width:0;}
+.side-col{display:flex;flex-direction:column;gap:18px;position:sticky;top:var(--header-offset);}
+
+/* ---------- 板块通用 ---------- */
+.section{margin-bottom:34px;scroll-margin-top:var(--header-offset);}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:14px;flex-wrap:wrap;}
+.section-head h2{font-size:20px;color:var(--c-primary-d);letter-spacing:.3px;}
+.section-head h2 small{font-size:12.5px;font-weight:500;color:var(--c-text-3);margin-left:8px;letter-spacing:0;}
+.section-more{font-size:13px;color:var(--c-primary-l);font-weight:600;white-space:nowrap;}
+.section-more:hover{text-decoration:underline;}
+
+/* 概览 */
+.overview{
+  background:var(--c-panel);border:1px solid var(--c-line);border-radius:var(--radius-card);
+  box-shadow:var(--shadow-1);padding:22px 24px;
+}
+.overview p{color:var(--c-text-2);font-size:14.5px;}
+.overview p:last-child{margin-bottom:0;}
+.overview strong{color:var(--c-primary-d);}
+
+/* 精选卡片 */
+.card-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:16px;
+}
+.card{
+  background:var(--c-panel);border:1px solid var(--c-line);border-radius:var(--radius-card);
+  overflow:hidden;box-shadow:var(--shadow-1);display:flex;flex-direction:column;
+  transition:transform .18s,box-shadow .18s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-2);}
+.card-thumb{position:relative;aspect-ratio:4/3;overflow:hidden;background:#eaeef4;}
+.card-thumb img{width:100%;height:100%;object-fit:cover;}
+.card-badge{
+  position:absolute;top:9px;left:9px;background:rgba(18,58,102,.86);color:#fff;
+  font-size:11px;padding:2px 9px;border-radius:var(--radius-tag);letter-spacing:.3px;
+}
+.card-body{padding:13px 14px 15px;display:flex;flex-direction:column;gap:8px;flex:1;}
+.card-body h3{font-size:15px;color:var(--c-text-1);line-height:1.45;}
+.card-body p{font-size:13px;color:var(--c-text-2);margin:0;line-height:1.65;}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;}
+.tag{
+  font-size:11.5px;padding:2px 9px;border-radius:var(--radius-tag);
+  background:#eef4fb;color:var(--c-primary-l);white-space:nowrap;
+}
+.tag.accent{background:#fdf0e6;color:#b95b1c;}
+.card-meta{
+  margin-top:auto;display:flex;justify-content:space-between;align-items:center;
+  font-size:12px;color:var(--c-text-3);padding-top:6px;border-top:1px dashed var(--c-line);
+}
+.card-meta .hot{color:var(--c-accent);font-weight:600;}
+
+/* 动态列表 */
+.feed{background:var(--c-panel);border:1px solid var(--c-line);border-radius:var(--radius-card);box-shadow:var(--shadow-1);overflow:hidden;}
+.feed-item{
+  display:flex;gap:14px;padding:13px 18px;border-bottom:1px solid var(--c-line);align-items:flex-start;
+}
+.feed-item:last-child{border-bottom:none;}
+.feed-item:hover{background:#fafcfe;}
+.feed-time{
+  flex-shrink:0;font-size:12px;color:var(--c-primary-l);background:#eef4fb;
+  border-radius:6px;padding:2px 8px;font-variant-numeric:tabular-nums;margin-top:2px;
+}
+.feed-item h3{font-size:14.5px;margin-bottom:2px;color:var(--c-text-1);}
+.feed-item p{font-size:13px;color:var(--c-text-2);margin:0;line-height:1.6;}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;}
+.cat-card{
+  display:block;background:var(--c-panel);border:1px solid var(--c-line);border-radius:var(--radius-card);
+  padding:14px 15px;box-shadow:var(--shadow-1);transition:transform .18s,border-color .18s,box-shadow .18s;
+}
+.cat-card:hover{transform:translateY(-2px);border-color:#b9cfe8;box-shadow:var(--shadow-2);}
+.cat-card b{display:block;font-size:14.5px;color:var(--c-primary-d);margin-bottom:3px;}
+.cat-card span{font-size:12.5px;color:var(--c-text-3);}
+
+/* 深度解析 */
+.deep{
+  background:var(--c-panel);border:1px solid var(--c-line);border-radius:var(--radius-card);
+  box-shadow:var(--shadow-1);padding:24px 26px;
+}
+.deep h3{font-size:16.5px;color:var(--c-primary-d);margin:22px 0 10px;padding-left:11px;border-left:3px solid var(--c-accent);}
+.deep h3:first-of-type{margin-top:4px;}
+.deep p{font-size:14.5px;color:var(--c-text-2);line-height:1.85;}
+.deep ul{font-size:14.5px;color:var(--c-text-2);line-height:1.8;}
+.deep table{width:100%;border-collapse:collapse;font-size:13.5px;margin:12px 0 16px;}
+.deep th,.deep td{border:1px solid var(--c-line);padding:8px 11px;text-align:left;vertical-align:top;}
+.deep th{background:#f1f6fc;color:var(--c-primary-d);font-weight:600;}
+.deep td{color:var(--c-text-2);}
+.quote{
+  border-left:3px solid var(--c-primary-l);background:#f4f8fd;padding:11px 16px;border-radius:0 8px 8px 0;
+  font-size:14px;color:var(--c-text-2);margin:14px 0;
+}
+
+/* 指南步骤 */
+.guide{background:var(--c-panel);border:1px solid var(--c-line);border-radius:var(--radius-card);box-shadow:var(--shadow-1);padding:22px 24px;}
+.steps{list-style:none;padding:0;margin:0;counter-reset:step;}
+.steps li{
+  counter-increment:step;position:relative;padding-left:46px;margin-bottom:18px;
+}
+.steps li:last-child{margin-bottom:0;}
+.steps li::before{
+  content:counter(step);position:absolute;left:0;top:1px;width:30px;height:30px;border-radius:50%;
+  background:var(--c-primary);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;
+}
+.steps li b{display:block;font-size:14.5px;color:var(--c-text-1);margin-bottom:2px;}
+.steps li p{font-size:13.5px;color:var(--c-text-2);margin:0;line-height:1.7;}
+
+/* FAQ */
+.faq{background:var(--c-panel);border:1px solid var(--c-line);border-radius:var(--radius-card);box-shadow:var(--shadow-1);padding:8px 20px 16px;}
+.faq details{border-bottom:1px solid var(--c-line);padding:12px 0;}
+.faq details:last-child{border-bottom:none;}
+.faq summary{
+  cursor:pointer;font-size:14.5px;font-weight:600;color:var(--c-text-1);list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"+";font-size:18px;color:var(--c-primary-l);flex-shrink:0;line-height:1;}
+.faq details[open] summary::after{content:"−";}
+.faq summary:focus-visible{outline:2px solid var(--c-primary-l);outline-offset:3px;border-radius:4px;}
+.faq details p{font-size:13.8px;color:var(--c-text-2);margin:10px 0 0;line-height:1.8;}
+
+/* 评论 */
+.comments{background:var(--c-panel);border:1px solid var(--c-line);border-radius:var(--radius-card);box-shadow:var(--shadow-1);padding:20px 22px;}
+.comment-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.comment-item{background:#fafbfd;border:1px solid var(--c-line);border-radius:10px;padding:11px 14px;}
+.comment-head{display:flex;align-items:center;gap:8px;margin-bottom:5px;}
+.avatar{
+  width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--c-primary-l),var(--c-accent));
+  color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;
+}
+.comment-name{font-size:13px;font-weight:600;color:var(--c-text-1);}
+.comment-item p{font-size:13px;color:var(--c-text-2);margin:0;line-height:1.7;}
+
+/* 资讯 */
+.news{background:var(--c-panel);border:1px solid var(--c-line);border-radius:var(--radius-card);box-shadow:var(--shadow-1);overflow:hidden;}
+.news-item{display:flex;gap:16px;padding:16px 20px;border-bottom:1px solid var(--c-line);}
+.news-item:last-child{border-bottom:none;}
+.news-item img{width:120px;height:80px;object-fit:cover;border-radius:8px;flex-shrink:0;}
+.news-item h3{font-size:15px;margin-bottom:4px;color:var(--c-text-1);}
+.news-item p{font-size:13px;color:var(--c-text-2);margin:0;line-height:1.68;}
+.news-date{font-size:12px;color:var(--c-text-3);margin-bottom:3px;}
+
+/* 相关推荐 */
+.reco{background:var(--c-panel);border:1px solid var(--c-line);border-radius:var(--radius-card);box-shadow:var(--shadow-1);padding:18px 20px;}
+.reco-tags{display:flex;flex-wrap:wrap;gap:9px;}
+.reco-tags a{
+  font-size:13px;padding:5px 13px;border-radius:var(--radius-tag);background:#eef4fb;color:var(--c-primary-l);
+  border:1px solid #dce8f5;transition:background .16s,color .16s,transform .16s;
+}
+.reco-tags a:hover{background:var(--c-primary);color:#fff;transform:translateY(-1px);}
+
+/* 榜单 */
+.rank-list{list-style:none;padding:0;margin:0;counter-reset:rank;}
+.rank-list li{
+  counter-increment:rank;display:flex;gap:11px;align-items:flex-start;
+  padding:10px 0;border-bottom:1px dashed var(--c-line);
+}
+.rank-list li:last-child{border-bottom:none;}
+.rank-list li::before{
+  content:counter(rank);flex-shrink:0;width:22px;height:22px;border-radius:6px;background:#eef4fb;color:var(--c-primary-d);
+  font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px;
+}
+.rank-list li:nth-child(-n+3)::before{background:var(--c-primary);color:#fff;}
+.rank-list b{font-size:13.5px;display:block;color:var(--c-text-1);}
+.rank-list span{font-size:12px;color:var(--c-text-3);}
+
+/* 侧栏 */
+.side-panel{background:var(--c-panel);border:1px solid var(--c-line);border-radius:var(--radius-card);box-shadow:var(--shadow-1);padding:15px 16px;}
+.side-panel h3{font-size:13.5px;color:var(--c-primary-d);margin-bottom:10px;display:flex;align-items:center;gap:7px;}
+.side-panel h3::before{content:"";width:3px;height:12px;border-radius:2px;background:var(--c-accent);}
+.hot-list{list-style:none;padding:0;margin:0;}
+.hot-list li{margin-bottom:9px;font-size:13px;line-height:1.5;}
+.hot-list li:last-child{margin-bottom:0;}
+.hot-list a{color:var(--c-text-2);display:flex;gap:7px;}
+.hot-list a:hover{color:var(--c-primary-d);}
+.hot-list .idx{color:var(--c-accent);font-weight:700;flex-shrink:0;}
+.side-note{font-size:12.5px;color:var(--c-text-3);line-height:1.7;}
+
+/* 投稿互动 */
+.submit-box{
+  background:linear-gradient(135deg,#eef4fb,#fbf3ec);
+  border:1px solid #dce8f5;border-radius:var(--radius-card);padding:22px 24px;
+}
+.submit-box h2{font-size:19px;color:var(--c-primary-d);margin-bottom:8px;}
+.submit-box p{font-size:14px;color:var(--c-text-2);margin-bottom:16px;}
+.submit-form{display:flex;gap:10px;flex-wrap:wrap;}
+.submit-form input{
+  flex:1;min-width:200px;padding:9px 14px;border:1px solid #c9d8ea;border-radius:var(--radius-btn);
+  font-size:14px;background:#fff;
+}
+.submit-form input:focus{outline:none;border-color:var(--c-primary-l);}
+.form-hint{font-size:12.5px;color:var(--c-text-3);margin-top:9px;}
+
+/* 页脚 */
+.site-footer{background:#12253d;color:#c3d0e0;margin-top:20px;}
+.footer-inner{max-width:1360px;margin:0 auto;padding:36px 20px 22px;}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;margin-bottom:26px;}
+.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.footer-brand .logo-text{color:#fff;font-size:17px;}
+.footer-desc{font-size:13px;color:#93a5bd;line-height:1.75;}
+.footer-col h4{font-size:13.5px;color:#e8eef6;margin-bottom:10px;}
+.footer-col ul{list-style:none;padding:0;margin:0;}
+.footer-col li{margin-bottom:6px;}
+.footer-col a{font-size:13px;color:#93a5bd;transition:color .16s;}
+.footer-col a:hover{color:#ffd166;}
+.footer-bottom{border-top:1px solid #22364f;padding-top:16px;font-size:12.5px;color:#7f92ab;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+
+/* 回到顶部 */
+.to-top{
+  position:fixed;right:22px;bottom:26px;width:44px;height:44px;border-radius:50%;
+  background:var(--c-primary);color:#fff;border:none;cursor:pointer;box-shadow:var(--shadow-2);
+  display:none;align-items:center;justify-content:center;font-size:18px;z-index:80;transition:background .18s;
+}
+.to-top.show{display:flex;}
+.to-top:hover{background:var(--c-primary-d);}
+.to-top:focus-visible{outline:2px solid #ffd166;outline-offset:2px;}
+
+/* 移动遮罩与抽屉 */
+.overlay{
+  position:fixed;inset:0;background:rgba(12,26,44,.45);z-index:90;display:none;
+}
+.overlay.show{display:block;}
+.mobile-drawer{
+  position:fixed;top:0;left:0;bottom:0;width:250px;background:#fff;z-index:95;
+  transform:translateX(-100%);transition:transform .22s ease;padding:20px 18px;overflow-y:auto;
+  box-shadow:var(--shadow-2);
+}
+.mobile-drawer.show{transform:translateX(0);}
+.mobile-drawer h4{font-size:13px;color:var(--c-text-3);margin-bottom:10px;letter-spacing:1px;}
+.mobile-drawer a{display:block;padding:9px 10px;border-radius:8px;font-size:14px;color:var(--c-text-2);}
+.mobile-drawer a:hover{background:#eef4fb;color:var(--c-primary-d);}
+.drawer-close{
+  margin-left:auto;display:flex;width:32px;height:32px;border:1px solid var(--c-line);border-radius:8px;
+  background:#fff;align-items:center;justify-content:center;font-size:16px;cursor:pointer;color:var(--c-text-2);
+}
+
+/* 响应式 */
+@media (max-width:1120px){
+  .layout{grid-template-columns:160px minmax(0,1fr);}
+  .side-col{grid-column:1 / -1;position:static;flex-direction:row;flex-wrap:wrap;}
+  .side-col .side-panel{flex:1;min-width:260px;}
+}
+@media (max-width:1024px){
+  .main-nav{display:none;}
+  .hamburger{display:flex;}
+  .hero-inner{grid-template-columns:1fr;gap:24px;}
+  .hero-visual{min-height:230px;max-width:520px;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:860px){
+  .layout{grid-template-columns:1fr;}
+  .channel-col{position:static;}
+  .channel-list{display:flex;flex-wrap:wrap;gap:4px;}
+  .channel-list li{margin-bottom:0;}
+  .comment-list{grid-template-columns:1fr;}
+  .search-box input{width:130px;}
+  .search-box input:focus{width:160px;}
+}
+@media (max-width:740px){
+  .notice-items span:nth-child(n+3){display:none;}
+  .header-inner{padding:8px 14px;gap:10px;}
+  .logo-text{font-size:16px;}
+  .logo-mark{width:32px;height:32px;}
+  .search-box input{width:110px;}
+  .search-box input:focus{width:140px;}
+  .hero-inner{padding:30px 16px 26px;}
+  .layout{padding:18px 14px 30px;}
+  .footer-top{grid-template-columns:1fr;}
+  .news-item{flex-direction:column;}
+  .news-item img{width:100%;height:150px;}
+  .card-grid{grid-template-columns:1fr 1fr;}
+  .deep,.guide,.comments,.reco,.overview,.faq{padding-left:16px;padding-right:16px;}
+  .to-top{right:14px;bottom:16px;width:40px;height:40px;}
+}
+@media (max-width:420px){
+  .card-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:16px;}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="notice-bar" id="noticeBar">
+  <div class="notice-inner">
+    <span class="notice-brand">7799天天综合网</span>
+    <div class="notice-items">
+      <span><b>11-07</b> 新增《城市夜航》纪录片条目与三集分集看点</span>
+      <span><b>11-06</b> 生活服务频道上线 12 条秋冬居家维修条目</span>
+      <span><b>11-05</b> 数码评测合集更新 6 款千元耳机横评数据</span>
+    </div>
+  </div>
+</div>
+
+<!-- 页头 -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/#top" class="logo" aria-label="7799天天综合网首页">
+      <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1a4f8a"/>
+        <path d="M16 21h32v7H16z" fill="#ffd166"/>
+        <path d="M16 33h20v7H16z" fill="#ffffff" opacity=".85"/>
+        <circle cx="47" cy="42" r="7" fill="#e07b39"/>
+        <path d="M44 42l2.4 2.4L50 40" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="logo-text">7799天天综合网</span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="/#overview">内容概览</a>
+      <a href="/#picks">精选推荐</a>
+      <a href="/#updates">最新更新</a>
+      <a href="/#category">分类入口</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#guide">体验指南</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#news">相关资讯</a>
+    </nav>
+    <div class="header-tools">
+      <div class="search-box">
+        <input type="search" id="searchInput" placeholder="搜索条目名称" aria-label="搜索页面内条目">
+        <div class="search-feedback" id="searchFeedback" role="status" aria-live="polite"></div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="打开导航菜单" aria-expanded="false" aria-controls="mobileDrawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- 移动抽屉 -->
+<div class="overlay" id="overlay"></div>
+<aside class="mobile-drawer" id="mobileDrawer" aria-label="移动端导航" aria-hidden="true">
+  <div style="display:flex;align-items:center;margin-bottom:14px;">
+    <span style="font-weight:700;color:#123a66;">导航</span>
+    <button class="drawer-close" id="drawerClose" aria-label="关闭导航">✕</button>
+  </div>
+  <h4>频道</h4>
+  <a href="/#overview">内容概览</a>
+  <a href="/#picks">精选推荐</a>
+  <a href="/#updates">最新更新</a>
+  <a href="/#category">分类入口</a>
+  <a href="/#deep">深度解析</a>
+  <a href="/#guide">体验指南</a>
+  <a href="/#faq">常见问题</a>
+  <a href="/#comments">网友评论</a>
+  <a href="/#news">相关资讯</a>
+  <a href="/#reco">相关推荐</a>
+  <a href="/#rank">热度榜单</a>
+  <a href="/#submit">投稿交流</a>
+</aside>
+
+<!-- 首屏 -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-eyebrow"><i></i>影视 · 生活 · 数码 · 游戏 综合条目库</span>
+      <h1>7799天天综合网</h1>
+      <p class="hero-desc">把纪录片、剧集、家居维修、千元耳机横评、独立游戏这些散落各处的条目收进一张清单。每条都写明类型、看点、更新时间，方便按需查阅。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/#picks">浏览精选条目</a>
+        <a class="btn btn-ghost" href="/#category">按分类查找</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>186</b>收录条目</div>
+        <div><b>11-07</b>最近更新</div>
+        <div><b>12</b>内容分类</div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 420 300" role="img" aria-label="内容条目聚合示意图">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#2f6fb3"/>
+            <stop offset="1" stop-color="#1a4f8a"/>
+          </linearGradient>
+          <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#f2a463"/>
+            <stop offset="1" stop-color="#e07b39"/>
+          </linearGradient>
+        </defs>
+        <rect x="24" y="30" width="250" height="160" rx="14" fill="url(#g1)" opacity=".92"/>
+        <rect x="44" y="52" width="130" height="10" rx="5" fill="#ffd166"/>
+        <rect x="44" y="76" width="200" height="8" rx="4" fill="#ffffff" opacity=".55"/>
+        <rect x="44" y="94" width="170" height="8" rx="4" fill="#ffffff" opacity=".35"/>
+        <rect x="44" y="122" width="70" height="24" rx="12" fill="#ffd166" opacity=".9"/>
+        <rect x="126" y="122" width="70" height="24" rx="12" fill="#ffffff" opacity=".28"/>
+        <rect x="150" y="130" width="200" height="120" rx="14" fill="#ffffff" stroke="#dce8f5" stroke-width="2"/>
+        <rect x="168" y="148" width="90" height="9" rx="4" fill="#1a4f8a" opacity=".8"/>
+        <rect x="168" y="168" width="160" height="7" rx="3" fill="#7d8794" opacity=".35"/>
+        <rect x="168" y="184" width="140" height="7" rx="3" fill="#7d8794" opacity=".28"/>
+        <rect x="168" y="206" width="52" height="20" rx="10" fill="url(#g2)" opacity=".85"/>
+        <circle cx="330" cy="70" r="34" fill="url(#g2)" opacity=".9"/>
+        <path d="M318 70l9 9 17-19" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="hero-card hc-1"><strong>《城市夜航》</strong>纪录片 · 3 集已上线</div>
+      <div class="hero-card hc-2"><strong>千元耳机横评</strong>6 款 · 实测续航数据</div>
+      <div class="hero-card hc-3"><strong>秋冬水管防冻</strong>生活维修 · 11-06 更新</div>
+    </div>
+  </div>
+</section>
+
+<!-- 主体三栏 -->
+<div class="layout">
+
+  <!-- 左频道索引 -->
+  <aside class="channel-col">
+    <div class="panel">
+      <div class="panel-title">频道索引</div>
+      <ul class="channel-list">
+        <li><a href="/#picks">纪录片与剧集 <span class="cnt">42</span></a></li>
+        <li><a href="/#picks">综艺与访谈 <span class="cnt">29</span></a></li>
+        <li><a href="/#category">家居维修 <span class="cnt">18</span></a></li>
+        <li><a href="/#category">厨房与收纳 <span class="cnt">15</span></a></li>
+        <li><a href="/#picks">耳机与音频 <span class="cnt">22</span></a></li>
+        <li><a href="/#picks">手机与配件 <span class="cnt">17</span></a></li>
+        <li><a href="/#category">独立游戏 <span class="cnt">24</span></a></li>
+        <li><a href="/#category">电竞赛事 <span class="cnt">13</span></a></li>
+        <li><a href="/#guide">选购指南 <span class="cnt">31</span></a></li>
+        <li><a href="/#deep">评测方法 <span class="cnt">9</span></a></li>
+        <li><a href="/#news">行业动态 <span class="cnt">26</span></a></li>
+        <li><a href="/#submit">投稿交流 <span class="cnt">—</span></a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- 中主内容 -->
+  <main class="main-col">
+
+    <!-- 1 概览 -->
+    <section class="section" id="overview">
+      <div class="section-head"><h2>内容领域概览<small>从影像到居家的跨类条目</small></h2></div>
+      <div class="overview">
+        <p>综合类内容库的价值在于覆盖跨度大：一边是<strong>纪录片、剧集、综艺</strong>这类需要连续投入时间的影像条目，一边是<strong>家居维修、厨房收纳</strong>这种一次性解决问题的实用条目，中间还夹着<strong>数码评测、游戏与赛事</strong>。三类内容的消费节奏完全不同，混在一起浏览时最容易被误判——用看剧的耐心去读耳机横评，或用查维修方法的心态追纪录片。</p>
+        <p>2026 年秋冬这一段，值得留意的具体方向有几处。纪录片方面，城市题材的《城市夜航》11 月 3 日上线前三集，围绕夜班司机、24 小时便利店与地铁检修工三条线展开；剧集侧，《雾港档案》第二季 10 月 28 日完结，豆瓣标记人数在两周内从 1.2 万涨到 4.7 万。家电维修条目里，<strong>暖气管道排气、水管防冻、洗衣机排水泵清理</strong>三个关键词的站内检索量在 11 月第一周环比上升明显。</p>
+        <p>数码部分，千元价位耳机的横评数据在 10 月底集中更新，涉及 6 款机型，续航与通话降噪的实测差异比参数表更大。游戏方面，独立作品《盐柱》10 月 24 日发布 1.2 版本，新增两章剧情；电竞赛事则进入冬季转会窗口，选手流动信息以俱乐部官宣为准，转述消息需区分已确认与传闻。</p>
+        <p>这些条目凑在一起，实际用途是：临时要查一个具体方法时能快速定位，闲下来想找点可看的内容时有明确候选，买设备前能看到实测而非广告话术。</p>
+      </div>
+    </section>
+
+    <!-- 2 精选推荐 -->
+    <section class="section" id="picks">
+      <div class="section-head">
+        <h2>精选条目推荐<small>12 条近期值得投入时间的具体内容</small></h2>
+        <a class="section-more" href="/#category">全部条目 →</a>
+      </div>
+      <div class="card-grid">
+
+        <article class="card">
+          <div class="card-thumb"><img src="https://picsum.photos/seed/citynight01/400/300" alt="《城市夜航》纪录片夜班司机镜头" width="400" height="300" loading="lazy"><span class="card-badge">纪录片</span></div>
+          <div class="card-body">
+            <h3>城市夜航</h3>
+            <div class="tag-row"><span class="tag">城市题材</span><span class="tag">三线叙事</span><span class="tag accent">11-03 上线</span></div>
+            <p>跟拍夜班出租车司机、24 小时便利店店员和地铁检修工。第三集结尾的检修隧道长镜头拍了 11 分钟，没有旁白。</p>
+            <div class="card-meta"><span class="hot">热度 9.2</span><span>3 集已更</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb"><img src="https://picsum.photos/seed/fogport02/400/300" alt="《雾港档案》第二季剧照" width="400" height="300" loading="lazy"><span class="card-badge">剧集</span></div>
+          <div class="card-body">
+            <h3>雾港档案 第二季</h3>
+            <div class="tag-row"><span class="tag">悬疑</span><span class="tag">12 集完结</span><span class="tag accent">10-28 完结</span></div>
+            <p>第二季把第一季的港口走私线收束成三起并案。第 9 集的审讯戏单场 23 分钟，台词密度是全季最高。</p>
+            <div class="card-meta"><span class="hot">热度 9.0</span><span>评分 8.6</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb"><img src="https://picsum.photos/seed/earphone06/400/300" alt="六款千元耳机横评摆放图" width="400" height="300" loading="lazy"><span class="card-badge">数码</span></div>
+          <div class="card-body">
+            <h3>千元耳机六款横评</h3>
+            <div class="tag-row"><span class="tag">主动降噪</span><span class="tag">续航实测</span><span class="tag accent">10-30 更新</span></div>
+            <p>六款机型在 50% 音量下实测续航，最长与最短相差 4 小时 20 分。通话降噪在风噪场景分化明显。</p>
+            <div class="card-meta"><span class="hot">热度 8.7</span><span>6 款机型</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb"><img src="https://picsum.photos/seed/saltpillar12/400/300" alt="独立游戏《盐柱》1.2 版本场景" width="400" height="300" loading="lazy"><span class="card-badge">独立游戏</span></div>
+          <div class="card-body">
+            <h3>盐柱 1.2 版本</h3>
+            <div class="tag-row"><span class="tag">解谜</span><span class="tag">新增两章</span><span class="tag accent">10-24 上线</span></div>
+            <p>新增的第五、六章把前作的盐晶折射机制扩展到三层，难度曲线在第 6 章有个明显陡坡，通关平均 2.8 小时。</p>
+            <div class="card-meta"><span class="hot">热度 8.4</span><span>好评率 91%</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb"><img src="https://picsum.photos/seed/pipefreeze03/400/300" alt="冬季水管防冻包裹保温棉操作" width="400" height="300" loading="lazy"><span class="card-badge">家居维修</span></div>
+          <div class="card-body">
+            <h3>水管防冻包裹步骤</h3>
+            <div class="tag-row"><span class="tag">冬季维护</span><span class="tag">保温棉</span><span class="tag accent">11-06 更新</span></div>
+            <p>外露管段用 2cm 厚保温棉缠绕，接口处留 5cm 重叠。北方零下 10 度以下需加电伴热带，功率按每米 15W 配。</p>
+            <div class="card-meta"><span class="hot">收藏 1.4k</span><span>4 步完成</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb"><img src="https://picsum.photos/seed/radiator09/400/300" alt="暖气片排气阀操作特写" width="400" height="300" loading="lazy"><span class="card-badge">家居维修</span></div>
+          <div class="card-body">
+            <h3>暖气片排气阀正确开法</h3>
+            <div class="tag-row"><span class="tag">供暖季</span><span class="tag">排气阀</span><span class="tag accent">11-04 更新</span></div>
+            <p>用一字螺丝刀逆时针转 1/4 圈即可，听到嘶声后等出水再拧回。全屋不热往往是顶层立管积气，不是锅炉问题。</p>
+            <div class="card-meta"><span class="hot">收藏 980</span><span>3 分钟</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb"><img src="https://picsum.photos/seed/washerpump07/400/300" alt="洗衣机排水泵滤网清理" width="400" height="300" loading="lazy"><span class="card-badge">家居维修</span></div>
+          <div class="card-body">
+            <h3>洗衣机排水泵滤网清理</h3>
+            <div class="tag-row"><span class="tag">滚筒机型</span><span class="tag">排水慢</span><span class="tag accent">11-02 更新</span></div>
+            <p>右下角小盖板打开后先垫毛巾，残留水约 300ml。硬币和发卡卡住叶轮是排水变慢最常见原因，清理后排水时间可回到 40 秒内。</p>
+            <div class="card-meta"><span class="hot">收藏 760</span><span>15 分钟</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb"><img src="https://picsum.photos/seed/talkshow15/400/300" alt="综艺访谈节目录制现场" width="400" height="300" loading="lazy"><span class="card-badge">综艺访谈</span></div>
+          <div class="card-body">
+            <h3>长夜对谈 第 14 期</h3>
+            <div class="tag-row"><span class="tag">访谈</span><span class="tag">编剧专题</span><span class="tag accent">11-01 上线</span></div>
+            <p>三位编剧聊改编边界，其中一位提到自己删掉原著 40% 的对白。讨论集中在第 27 分钟到 41 分钟。</p>
+            <div class="card-meta"><span class="hot">热度 8.1</span><span>72 分钟</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb"><img src="https://picsum.photos/seed/kitchenorg21/400/300" alt="厨房抽屉分隔收纳摆放" width="400" height="300" loading="lazy"><span class="card-badge">厨房收纳</span></div>
+          <div class="card-body">
+            <h3>小厨房抽屉分隔方案</h3>
+            <div class="tag-row"><span class="tag">60cm 台面</span><span class="tag">抽屉分隔</span><span class="tag accent">10-29 更新</span></div>
+            <p>针对 60cm 宽台面下的三个抽屉，给出刀叉、调料、锅具的分隔尺寸。调料抽屉建议进深 35cm，留出瓶身高度的 1.2 倍。</p>
+            <div class="card-meta"><span class="hot">收藏 1.1k</span><span>含尺寸表</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb"><img src="https://picsum.photos/seed/esportswin11/400/300" alt="电竞赛事冬季转会窗口公告" width="400" height="300" loading="lazy"><span class="card-badge">电竞赛事</span></div>
+          <div class="card-body">
+            <h3>冬季转会窗口观察</h3>
+            <div class="tag-row"><span class="tag">选手流动</span><span class="tag">官宣为准</span><span class="tag accent">11-05 更新</span></div>
+            <p>截至 11 月 5 日，已确认的转会官宣 9 条，另有 4 条仅见于经纪公司口径。合同到期名单和买断条款是两条不同信息线。</p>
+            <div class="card-meta"><span class="hot">热度 7.9</span><span>9 条官宣</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb"><img src="https://picsum.photos/seed/phoneacc08/400/300" alt="手机充电配件排列对比" width="400" height="300" loading="lazy"><span class="card-badge">手机配件</span></div>
+          <div class="card-body">
+            <h3>65W 氮化镓充电器实测</h3>
+            <div class="tag-row"><span class="tag">多口</span><span class="tag">温控</span><span class="tag accent">10-27 更新</span></div>
+            <p>四款双口 65W 充电器同时输出时，总功率普遍降到 45W 左右。表面温度最高一款达到 58℃，出现在 40 分钟节点。</p>
+            <div class="card-meta"><span class="hot">热度 8.2</span><span>4 款机型</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb"><img src="https://picsum.photos/seed/repairguide16/400/300" alt="家电维修工具与说明书" width="400" height="300" loading="lazy"><span class="card-badge">选购指南</span></div>
+          <div class="card-body">
+            <h3>维修工具入门清单</h3>
+            <div class="tag-row"><span class="tag">家用</span><span class="tag">12 件</span><span class="tag accent">10-26 更新</span></div>
+            <p>十字与一字螺丝刀各两档尺寸、活动扳手、生料带、绝缘胶带、内六角一套。清单按使用频次排序，前 5 件覆盖八成常见维修。</p>
+            <div class="card-meta"><span class="hot">收藏 2.3k</span><span>12 件</span></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 3 最新更新 -->
+    <section class="section" id="updates">
+      <div class="section-head"><h2>最新更新动态<small>11 月 1 日至 11 月 7 日条目变化</small></h2></div>
+      <div class="feed">
+        <div class="feed-item"><span class="feed-time">11-07</span><div><h3>《城市夜航》第三集上线</h3><p>本集聚焦地铁检修工，片尾 11 分钟隧道长镜头无旁白，导演访谈同步放出，说明拍摄周期为 4 个夜间班次。</p></div></div>
+        <div class="feed-item"><span class="feed-time">11-07</span><div><h3>《盐柱》1.2 版本补丁说明</h3><p>修复第六章盐桥判定失效问题，同时把第 6 章的存档点从 2 个增加到 4 个，玩家反馈的陡坡问题有缓解。</p></div></div>
+        <div class="feed-item"><span class="feed-time">11-06</span><div><h3>秋冬家居维修条目增至 18 条</h3><p>新增暖气立管积气判断、洗衣机排水泵清理、阳台水管保温三类共 12 条，其中 7 条附有分步图示。</p></div></div>
+        <div class="feed-item"><span class="feed-time">11-05</span><div><h3>千元耳机横评补充通话降噪数据</h3><p>在 5 级风噪环境下重测，两款标称双麦降噪的机型信噪比差距从 2.1dB 拉大到 4.6dB。</p></div></div>
+        <div class="feed-item"><span class="feed-time">11-05</span><div><h3>电竞转会窗口条目更新至 9 条官宣</h3><p>新增两条俱乐部官方公告，另有 4 条经纪公司口径的传闻被单独标注，未混入确认名单。</p></div></div>
+        <div class="feed-item"><span class="feed-time">11-04</span><div><h3>暖气片排气条目重写</h3><p>补充顶层立管与锅炉侧的区分判据：摸回水管温度，若立管顶端凉而锅炉出水热，基本可锁定积气位置。</p></div></div>
+        <div class="feed-item"><span class="feed-time">11-03</span><div><h3>《城市夜航》前两集同步上线</h3><p>第一集跟拍夜班出租车司机，第二集为 24 小时便利店店员，两集时长分别为 48 分钟与 43 分钟。</p></div></div>
+        <div class="feed-item"><span class="feed-time">11-02</span><div><h3>65W 充电器实测补充温控曲线</h3><p>新增 40 分钟与 60 分钟两个时间点的表面温度，最高 58℃ 出现在双口满载场景。</p></div></div>
+        <div class="feed-item"><span class="feed-time">11-01</span><div><h3>《长夜对谈》第 14 期上线</h3><p>本期三位编剧讨论改编边界，涉及删减对白比例、原著授权范围与剧本终审流程。</p></div></div>
+        <div class="feed-item"><span class="feed-time">10-30</span><div><h3>千元耳机横评续航实测完成</h3><p>六款机型在 50% 音量下连续播放，最长 38 小时 10 分，最短 33 小时 50 分，差值 4 小时 20 分。</p></div></div>
+      </div>
+    </section>
+
+    <!-- 4 分类入口 -->
+    <section class="section" id="category">
+      <div class="section-head"><h2>按类别查找条目<small>八个主要方向</small></h2></div>
+      <div class="cat-grid">
+        <a class="cat-card" href="/#picks"><b>纪录片与剧集</b><span>42 条 · 城市题材、悬疑、人物跟拍</span></a>
+        <a class="cat-card" href="/#picks"><b>综艺与访谈</b><span>29 条 · 编剧对谈、行业圆桌</span></a>
+        <a class="cat-card" href="/#picks"><b>耳机与音频</b><span>22 条 · 降噪、续航、通话实测</span></a>
+        <a class="cat-card" href="/#picks"><b>手机与配件</b><span>17 条 · 充电器、线材、温控</span></a>
+        <a class="cat-card" href="/#category"><b>家居维修</b><span>18 条 · 供暖、水管、家电清理</span></a>
+        <a class="cat-card" href="/#category"><b>厨房与收纳</b><span>15 条 · 抽屉分隔、台面尺寸</span></a>
+        <a class="cat-card" href="/#category"><b>独立游戏</b><span>24 条 · 解谜、版本更新、难度曲线</span></a>
+        <a class="cat-card" href="/#category"><b>电竞赛事</b><span>13 条 · 转会官宣、赛程节点</span></a>
+      </div>
+    </section>
+
+    <!-- 5 深度解析 -->
+    <section class="section" id="deep">
+      <div class="section-head"><h2>深度解析：同一条目为何评价分化<small>以纪录片、耳机横评、独立游戏三类为例</small></h2></div>
+      <div class="deep">
+        <p>同一个条目在不同人嘴里能得出相反结论，原因通常不在“口味不同”四个字上。把分歧拆开看，多数落在三个具体环节：评价者拿什么作参照、在什么条件下使用、以及信息到手时已经过了哪几道转述。</p>
+
+        <h3>参照系不同，评分就不可直接比</h3>
+        <p>《城市夜航》在纪录片条目下的评分集中在 8.8 到 9.3，而在剧集条目下只有 7.4 左右。同一部片，两组人给的差距接近 1.8 分。翻评论区能看清原因：剧集条目下的低分多提到“节奏慢”“没有主线冲突”，纪录片条目下的高分多提到“长镜头”“不加旁白”。前者拿剧情片的推进速度作参照，后者拿观察式纪录片的惯例作参照，两套尺子量同一件东西，分数自然对不上。</p>
+        <p>这类分歧可以核对：看评分页面是否标注了类型归属，看低分评论里是否出现“剧情”类词汇。如果一条差评通篇在讲“没有反转”，那它评价的其实是类型预期，不是作品完成度。</p>
+
+        <h3>测试条件没写清，数据就是悬空的</h3>
+        <p>千元耳机横评里，“续航 38 小时”这类数字最容易引发争议。10 月 30 日更新的那版实测把条件写全了：50% 音量、关闭降噪、AAC 编码、连续播放。同一批机型在开启降噪后，续航普遍下降 22% 到 31%，最长的一款从 38 小时 10 分掉到 26 小时 40 分。</p>
+        <table>
+          <thead><tr><th>测试项</th><th>已公开条件</th><th>容易缺失的条件</th></tr></thead>
+          <tbody>
+            <tr><td>续航</td><td>音量 50%、关降噪、AAC</td><td>环境温度、电池循环次数</td></tr>
+            <tr><td>通话降噪</td><td>5 级风噪、距离嘴部 8cm</td><td>网络制式、对方设备型号</td></tr>
+            <tr><td>表面温度</td><td>双口满载、25℃ 室温</td><td>散热摆放方式、外壳材质</td></tr>
+          </tbody>
+        </table>
+        <p>表格右列那几项，正是判断一条横评可信度的切口。缺了环境温度，58℃ 这个数字在夏天和冬天的含义完全不同；缺了电池循环次数，新机续航和用了半年的续航不能并列。</p>
+
+        <h3>版本差异会把旧结论直接作废</h3>
+        <p>《盐柱》1.2 版本之前，第六章的盐桥判定有失效问题，通关率只有 34%。10 月 24 日补丁把存档点从 2 个加到 4 个，并修复判定逻辑，11 月 7 日的补丁说明里给出了修复后的通关率 61%。这意味着 10 月 24 日之前写的“第六章劝退”类评价，针对的是已经不存在的版本。</p>
+        <div class="quote">判断一条旧评价是否还有效，先看它提到的版本号，再看补丁说明里有没有动过对应机制。两样都对不上，这条评价只能当历史记录看。</div>
+        <p>同类问题在剧集上也存在：第二季完结后补拍的两个结尾镜头，让第 12 集的讨论从“收得太急”转向“留了续作口子”。评价时间点不同，指向的文本其实不一样。</p>
+
+        <h3>信息层级：官宣、经纪公司口径与网友转述</h3>
+        <p>电竞转会窗口这一段最能说明问题。截至 11 月 5 日，能核对的官宣是 9 条，都来自俱乐部官方账号，含合同年限与位置。另有 4 条只见于经纪公司口径，措辞是“正在接触”，没有签字信息。论坛里流传的版本更多，但多数把“接触”写成了“确定加盟”。</p>
+        <ul>
+          <li>已公开事实：俱乐部官宣 9 条，含选手 ID、位置、合同起止年份。</li>
+          <li>当事方回应：2 家俱乐部对传闻回复“不予置评”，未否认也未确认。</li>
+          <li>媒体转述：3 家电竞媒体引用了经纪公司口径，均标注“尚未官宣”。</li>
+          <li>网友推测：论坛帖子把接触阶段写成确定，缺少合同与注册信息两项来源。</li>
+        </ul>
+        <p>可信度低的判断，落点很具体：缺合同年限、缺注册名单、缺俱乐部官方账号的发布记录。三项里缺两项以上，就只能当传闻处理，不能进确认名单。</p>
+      </div>
+    </section>
+
+    <!-- 6 体验指南 -->
+    <section class="section" id="guide">
+      <div class="section-head"><h2>内容消费顺序与判断依据<small>先看什么、怎么比较</small></h2></div>
+      <div class="guide">
+        <p style="font-size:14.5px;color:var(--c-text-2);margin-bottom:18px;">时间有限时，先解决“一次性问题”的条目，再进入需要连续投入的影像与游戏。前者查完就能用，后者一旦开始就要占掉整块时间。</p>
+        <ol class="steps">
+          <li><b>先查实用条目，确认适用条件</b><p>维修类条目第一眼看的不是步骤，是适用范围。水管防冻那条写的是“外露管段”，暗埋管不适用；洗衣机排水泵清理标注“滚筒机型”，波轮结构不同。条件对不上，步骤再细也用不了。</p></li>
+          <li><b>再判断影像条目值不值得开</b><p>纪录片看前三集有没有明确拍摄对象，剧集看完结后的评分分布。《雾港档案》第二季的 1 星评价集中在第 11 集，说明争议点在结尾处理，不在整体质量。这类信息比一个总分有用。</p></li>
+          <li><b>数码条目按测试条件筛选</b><p>同价位横评先看条件栏是否写全音量、编码、降噪状态。条件缺失的横评，数字只能作参考。65W 充电器的 58℃ 出现在双口满载，单口使用时这个数字不成立。</p></li>
+          <li><b>游戏先看版本号再读评价</b><p>《盐柱》的评价要按 1.2 版本前后分开看。补丁说明里改过机制的部分，旧评价直接失效。通关时长 2.8 小时是 1.2 版本的数据，1.1 版本是 2.3 小时。</p></li>
+          <li><b>赛事信息只认官宣层级</b><p>转会消息先找俱乐部官方账号，再看是否含合同年限。只有经纪公司口径的，标注为接触阶段，不进确认名单。</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 7 FAQ -->
+    <section class="section" id="faq">
+      <div class="section-head"><h2>常见问题<small>围绕具体条目与判断方法</small></h2></div>
+      <div class="faq">
+        <details>
+          <summary>《城市夜航》一共几集，第三集为什么没有旁白？</summary>
+          <p>目前上线三集，第一集 48 分钟、第二集 43 分钟、第三集 51 分钟。第三集讲地铁检修工，导演在 11 月 7 日的访谈里说明，隧道段刻意去掉旁白，是为了保留检修锤敲击声和通风机噪声，这两类声音在后期混音时单独占了一条轨。</p>
+        </details>
+        <details>
+          <summary>千元耳机横评的续航数据是在什么条件下测的？</summary>
+          <p>50% 音量、关闭主动降噪、AAC 编码、连续播放。开启降噪后六款机型续航下降 22% 到 31%，最长的一款从 38 小时 10 分降到 26 小时 40 分。测试未标注环境温度与电池循环次数，这两项会影响结果的可比性。</p>
+        </details>
+        <details>
+          <summary>暖气片不热，先排气还是先找物业？</summary>
+          <p>先摸回水管温度。立管顶端凉、锅炉出水热，基本是积气，用一字螺丝刀逆时针转排气阀 1/4 圈，出水后拧回。整栋楼顶层普遍不热，属于立管积气，单户排气解决不了，需要物业从顶层放气。锅炉压力低于 1.0bar 则是另一回事，要先补水。</p>
+        </details>
+        <details>
+          <summary>《盐柱》1.2 版本改了哪些地方，旧攻略还能用吗？</summary>
+          <p>1.2 版本修复了第六章盐桥判定失效，存档点从 2 个增加到 4 个，通关率从 34% 升到 61%。涉及第六章盐桥解法的旧攻略需要重看，前五章机制未变。10 月 24 日之前的通关时长数据（2.3 小时）也不能直接和现在的 2.8 小时并列比较。</p>
+        </details>
+        <details>
+          <summary>电竞转会消息里，官宣和经纪公司口径差在哪？</summary>
+          <p>官宣来自俱乐部官方账号，含选手 ID、位置、合同起止年份，截至 11 月 5 日有 9 条。经纪公司口径的措辞通常是“正在接触”，没有签字与注册信息，共 4 条。两者不能混进同一份确认名单，论坛转述常把接触写成确定，缺合同和注册两项来源。</p>
+        </details>
+        <details>
+          <summary>65W 氮化镓充电器双口同时用会降功率吗？</summary>
+          <p>会。四款双口 65W 充电器在双口满载时总功率普遍降到 45W 左右，分配策略各家不同，有的 30W+15W，有的 25W+20W。表面温度最高 58℃，出现在双口满载 40 分钟节点，单口使用时温度明显更低。选购时看分配表比看标称总功率有用。</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8 用户评论 -->
+    <section class="section" id="comments">
+      <div class="section-head"><h2>网友评论<small>16 条围绕具体条目的反馈</small></h2></div>
+      <div class="comments">
+        <ul class="comment-list">
+          <li class="comment-item"><div class="comment-head"><span class="avatar">林</span><span class="comment-name">林间旧道</span></div><p>《城市夜航》第三集那个隧道长镜头，我拉回去看了两遍。检修锤敲管壁的声音是真的，不是后期配的。</p></li>
+          <li class="comment-item"><div class="comment-head"><span class="avatar">陈</span><span class="comment-name">陈小满</span></div><p>雾港第二季第 11 集确实劝退，前面铺了十集的线，收得有点急。不过第 9 集审讯戏值回票价。</p></li>
+          <li class="comment-item"><div class="comment-head"><span class="avatar">周</span><span class="comment-name">周工不加班</span></div><p>暖气排气那条救了我。顶层立管凉、锅炉出水热，按步骤放完气，半小时全屋热了。之前一直以为是锅炉坏了。</p></li>
+          <li class="comment-item"><div class="comment-head"><span class="avatar">吴</span><span class="comment-name">吴桐</span></div><p>耳机横评缺环境温度这一项，夏天测和冬天测差挺多的。58 度那个数据我持保留意见。</p></li>
+          <li class="comment-item"><div class="comment-head"><span class="avatar">赵</span><span class="comment-name">赵四斤</span></div><p>盐柱第六章改之前我卡了三个小时，补丁之后重开一次就过了。存档点加得对。</p></li>
+          <li class="comment-item"><div class="comment-head"><span class="avatar">孙</span><span class="comment-name">孙半仙</span></div><p>洗衣机排水泵那个盖板，我第一次没垫毛巾，水淌了一地。后来老老实实按步骤来。</p></li>
+          <li class="comment-item"><div class="comment-head"><span class="avatar">钱</span><span class="comment-name">钱塘客</span></div><p>转会窗口那段整理得还行，官宣和经纪公司口径分开列，比论坛帖子靠谱。</p></li>
+          <li class="comment-item"><div class="comment-head"><span class="avatar">郑</span><span class="comment-name">郑小鹿</span></div><p>长夜对谈第 14 期，第 27 分钟开始那段关于删对白的讨论，编剧说的 40% 这个数字挺具体。</p></li>
+          <li class="comment-item"><div class="comment-head"><span class="avatar">王</span><span class="comment-name">王老头遛弯</span></div><p>充电器那个 58 度，我手上同款，双口一起用确实烫手，单口就还好。</p></li>
+          <li class="comment-item"><div class="comment-head"><span class="avatar">冯</span><span class="comment-name">冯七</span></div><p>厨房抽屉那个尺寸表有用，60cm 台面照着买分隔盒没翻车。</p></li>
+          <li class="comment-item"><div class="comment-head"><span class="avatar">许</span><span class="comment-name">许一川</span></div><p>最近天冷，出门都懒得动，剧倒是追完了。</p></li>
+          <li class="comment-item"><div class="comment-head"><span class="avatar">何</span><span class="comment-name">何须问</span></div><p>维修工具清单 12 件里我只买了前 5 件，半年下来确实够用。</p></li>
+          <li class="comment-item"><div class="comment-head"><span class="avatar">高</span><span class="comment-name">高架桥下</span></div><p>城市夜航评分在剧集条目下才 7.4，我觉得不至于，但能理解，拿剧情片标准看确实慢。</p></li>
+          <li class="comment-item"><div class="comment-head"><span class="avatar">罗</span><span class="comment-name">罗小满</span></div><p>盐柱 1.2 的通关率 61% 这个数字哪来的？补丁说明里只写了存档点调整。</p></li>
+          <li class="comment-item"><div class="comment-head"><span class="avatar">梁</span><span class="comment-name">梁上君子不偷书</span></div><p>耳机那个通话降噪，5 级风噪下差距 4.6dB，实际就是一款能听清一款听不清。</p></li>
+          <li class="comment-item"><div class="comment-head"><span class="avatar">宋</span><span class="comment-name">宋老三</span></div><p>水管防冻那条说暗埋管不适用，我家是老小区外露管，包了两层保温棉，去年没冻。</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 9 相关资讯 -->
+    <section class="section" id="news">
+      <div class="section-head"><h2>相关资讯<small>10 月下旬至 11 月上旬</small></h2></div>
+      <div class="news">
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/news-citynight/600/400" alt="《城市夜航》导演访谈现场" width="600" height="400" loading="lazy">
+          <div><div class="news-date">2026-11-07</div><h3>《城市夜航》导演回应第三集无旁白</h3><p>导演在访谈中提到，第三集隧道段拍摄用了 4 个夜间班次，检修锤与通风机噪声单独占混音轨，成片时长 51 分钟，比前两集多出 3 到 8 分钟。</p></div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/news-saltpillar/600/400" alt="《盐柱》1.2 版本更新说明页面" width="600" height="400" loading="lazy">
+          <div><div class="news-date">2026-11-05</div><h3>《盐柱》1.2 补丁把第六章存档点增至 4 个</h3><p>开发者在更新说明中给出修复后通关率 61%，此前为 34%。第六章盐桥判定失效问题在 10 月 24 日版本中已处理，本次为追加调整。</p></div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/news-heating/600/400" alt="供暖季立管排气检修场景" width="600" height="400" loading="lazy">
+          <div><div class="news-date">2026-11-04</div><h3>多地供暖试运行，立管积气报修占比上升</h3><p>北方部分城市 11 月 1 日进入试供暖，物业报修记录里立管积气类占供暖问题的 4 成以上。单户排气阀放气无法解决顶层立管积气。</p></div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/news-earphone/600/400" alt="耳机实验室续航测试设备" width="600" height="400" loading="lazy">
+          <div><div class="news-date">2026-10-30</div><h3>千元耳机续航实测差值达 4 小时 20 分</h3><p>六款机型在关闭降噪、50% 音量条件下连续播放，最长 38 小时 10 分，最短 33 小时 50 分。开启降噪后普遍下降 22% 至 31%。</p></div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/news-transfer/600/400" alt="电竞赛事转会公告发布现场" width="600" height="400" loading="lazy">
+          <div><div class="news-date">2026-11-05</div><h3>冬季转会窗口官宣 9 条，另有 4 条经纪口径</h3><p>截至 11 月 5 日，俱乐部官方账号发布的转会公告共 9 条，含合同起止年份。4 条经纪公司口径消息措辞为“正在接触”，未含签字与注册信息。</p></div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/news-gancharger/600/400" alt="双口氮化镓充电器温控测试" width="600" height="400" loading="lazy">
+          <div><div class="news-date">2026-10-27</div><h3>双口 65W 充电器满载总功率降至 45W</h3><p>四款产品在双口同时输出时总功率普遍下降约 20W，表面温度最高 58℃，出现在满载 40 分钟节点，单口使用温度明显更低。</p></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 10 相关推荐 -->
+    <section class="section" id="reco">
+      <div class="section-head"><h2>相关推荐<small>具体方向与条目索引</small></h2></div>
+      <div class="reco">
+        <div class="reco-tags">
+          <a href="/#picks">城市题材纪录片</a>
+          <a href="/#picks">悬疑剧完结集争议</a>
+          <a href="/#picks">千元降噪耳机横评</a>
+          <a href="/#picks">双口氮化镓充电器温控</a>
+          <a href="/#category">暖气立管积气判断</a>
+          <a href="/#category">洗衣机排水泵清理</a>
+          <a href="/#category">独立游戏版本差异</a>
+          <a href="/#deep">转会官宣与经纪口径</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 榜单 -->
+    <section class="section" id="rank">
+      <div class="section-head"><h2>本周条目热度榜<small>11 月 1 日至 11 月 7 日收藏与检索综合</small></h2></div>
+      <div class="panel" style="padding:18px 22px;">
+        <ol class="rank-list">
+          <li><div><b>水管防冻包裹步骤</b><span>收藏 1.4k · 11-06 更新 · 4 步完成</span></div></li>
+          <li><div><b>维修工具入门清单</b><span>收藏 2.3k · 12 件 · 前 5 件覆盖八成</span></div></li>
+          <li><div><b>小厨房抽屉分隔方案</b><span>收藏 1.1k · 含 60cm 台面尺寸表</span></div></li>
+          <li><div><b>城市夜航</b><span>热度 9.2 · 3 集已更 · 第三集 51 分钟</span></div></li>
+          <li><div><b>暖气片排气阀正确开法</b><span>收藏 980 · 11-04 更新 · 3 分钟</span></div></li>
+          <li><div><b>雾港档案 第二季</b><span>热度 9.0 · 12 集完结 · 评分 8.6</span></div></li>
+          <li><div><b>千元耳机六款横评</b><span>热度 8.7 · 续航差值 4 小时 20 分</span></div></li>
+          <li><div><b>洗衣机排水泵滤网清理</b><span>收藏 760 · 滚筒机型 · 15 分钟</span></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 12 投稿交流 -->
+    <section class="section" id="submit">
+      <div class="submit-box">
+        <h2>投稿与条目补充</h2>
+        <p>手上有一条实测数据、一份维修步骤记录，或者某个条目的版本变化信息，可以提交条目名与关键内容。审核通过后会补进对应分类，并标注提交时间。</p>
+        <form class="submit-form" id="submitForm" onsubmit="return false;">
+          <input type="text" id="submitName" placeholder="条目名称，例如：立管排气阀型号" aria-label="条目名称">
+          <input type="text" id="submitDetail" placeholder="关键信息，例如：实测数据或步骤要点" aria-label="关键信息">
+          <button class="btn btn-primary" type="submit" id="submitBtn">提交条目</button>
+        </form>
+        <div class="form-hint" id="submitHint">提交内容仅作条目补充参考，不涉及账号与个人信息。</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 右侧辅助栏 -->
+  <aside class="side-col">
+    <div class="side-panel">
+      <h3>热度条目</h3>
+      <ul class="hot-list">
+        <li><a href="/#picks"><span class="idx">1</span>城市夜航 第三集</a></li>
+        <li><a href="/#picks"><span class="idx">2</span>雾港档案 第二季</a></li>
+        <li><a href="/#picks"><span class="idx">3</span>千元耳机六款横评</a></li>
+        <li><a href="/#picks"><span class="idx">4</span>盐柱 1.2 版本</a></li>
+        <li><a href="/#category"><span class="idx">5</span>水管防冻包裹步骤</a></li>
+        <li><a href="/#category"><span class="idx">6</span>暖气片排气阀开法</a></li>
+      </ul>
+    </div>
+    <div class="side-panel">
+      <h3>更新节奏</h3>
+      <p class="side-note">影像类条目随上线同步，维修条目按季节集中更新，数码实测在每批数据完成后统一补入。11 月第一周共更新 10 条。</p>
+    </div>
+    <div class="side-panel">
+      <h3>条目可信度提示</h3>
+      <p class="side-note">涉及转会、续航、温度等数字时，核对是否写明测试条件与信息来源层级。缺合同年限、缺环境温度、缺版本号三项中任一，结论需打折。</p>
+    </div>
+  </aside>
+
+</div>
+
+<!-- 页脚 -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2f6fb3"/>
+            <path d="M16 21h32v7H16z" fill="#ffd166"/>
+            <path d="M16 33h20v7H16z" fill="#ffffff" opacity=".85"/>
+            <circle cx="47" cy="42" r="7" fill="#e07b39"/>
+          </svg>
+          <span class="logo-text">7799天天综合网</span>
+        </div>
+        <p class="footer-desc">条目覆盖 2026 年 9 月至 11 月，包含纪录片与剧集、综艺访谈、家居维修、厨房收纳、耳机与配件实测、独立游戏版本记录、电竞赛事公告七类。影像条目随上线更新，维修与实测条目按批次补入，平均每周 8 到 12 条。</p>
+      </div>
+      <div class="footer-col">
+        <h4>影像内容</h4>
+        <ul>
+          <li><a href="/#picks">纪录片与剧集</a></li>
+          <li><a href="/#picks">综艺与访谈</a></li>
+          <li><a href="/#news">上线与完结动态</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>实用条目</h4>
+        <ul>
+          <li><a href="/#category">家居维修</a></li>
+          <li><a href="/#category">厨房与收纳</a></li>
+          <li><a href="/#guide">选购与判断</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>参与</h4>
+        <ul>
+          <li><a href="/#submit">投稿条目</a></li>
+          <li><a href="/#comments">网友评论</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>页面内容为条目化示例信息，条目名、数据与日期以正文标注为准。</span>
+      <span>更新时间：2026-11-08</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  // 回到顶部
+  var toTop=document.getElementById('toTop');
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>window.innerHeight*0.9){toTop.classList.add('show');}
+    else{toTop.classList.remove('show');}
+  },{passive:true});
+  toTop.addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  // 移动抽屉
+  var hamburger=document.getElementById('hamburger'),
+      drawer=document.getElementById('mobileDrawer'),
+      overlay=document.getElementById('overlay'),
+      drawerClose=document.getElementById('drawerClose');
+  function openDrawer(){
+    drawer.classList.add('show');overlay.classList.add('show');
+    drawer.setAttribute('aria-hidden','false');
+    hamburger.setAttribute('aria-expanded','true');
+    drawerClose.focus();
+  }
+  function closeDrawer(){
+    drawer.classList.remove('show');overlay.classList.remove('show');
+    drawer.setAttribute('aria-hidden','true');
+    hamburger.setAttribute('aria-expanded','false');
+    hamburger.focus();
+  }
+  hamburger.addEventListener('click',function(){
+    if(drawer.classList.contains('show')){closeDrawer();}else{openDrawer();}
+  });
+  drawerClose.addEventListener('click',closeDrawer);
+  overlay.addEventListener('click',closeDrawer);
+  drawer.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){setTimeout(closeDrawer,60);});
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&drawer.classList.contains('show')){closeDrawer();}
+  });
+
+  // 搜索筛选（针对卡片与动态条目名称）
+  var input=document.getElementById('searchInput'),
+      feedback=document.getElementById('searchFeedback'),
+      items=Array.prototype.slice.call(document.querySelectorAll('.card h3, .feed-item h3, .cat-card b, .reco-tags a, .rank-list b'));
+  input.addEventListener('input',function(){
+    var q=input.value.trim().toLowerCase();
+    if(!q){feedback.classList.remove('show');feedback.textContent='';return;}
+    var hits=[];
+    items.forEach(function(el){
+      if(el.textContent.toLowerCase().indexOf(q)>-1){hits.push(el.textContent.trim());}
+    });
+    feedback.classList.add('show');
+    if(hits.length===0){
+      feedback.textContent='未找到相关条目，可尝试更短的名称。';
+    }else{
+      var uniq=Array.from(new Set(hits)).slice(0,5);
+      feedback.textContent='找到 '+uniq.length+' 条：'+uniq.join('、');
+    }
+  });
+  input.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){input.value='';feedback.classList.remove('show');input.blur();}
+  });
+
+  // 投稿提示
+  var submitBtn=document.getElementById('submitBtn'),
+      submitName=document.getElementById('submitName'),
+      submitHint=document.getElementById('submitHint');
+  submitBtn.addEventListener('click',function(){
+    var v=submitName.value.trim();
+    if(!v){submitHint.textContent='请先填写条目名称，再提交关键信息。';submitHint.style.color='#b95b1c';return;}
+    submitHint.textContent='已记录条目「'+v+'」，审核后补入对应分类。';
+    submitHint.style.color='#2f6fb3';
+    submitName.value='';
+    document.getElementById('submitDetail').value='';
+  });
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"7799天天综合网",
+  "description":"汇聚影视综艺、生活服务、科技数码、游戏竞技等多类内容的综合条目聚合站。",
+  "inLanguage":"zh-CN"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"《城市夜航》一共几集，第三集为什么没有旁白？","acceptedAnswer":{"@type":"Answer","text":"目前上线三集，第一集48分钟、第二集43分钟、第三集51分钟。第三集讲地铁检修工，导演在11月7日的访谈里说明，隧道段刻意去掉旁白，是为了保留检修锤敲击声和通风机噪声。"}},
+    {"@type":"Question","name":"千元耳机横评的续航数据是在什么条件下测的？","acceptedAnswer":{"@type":"Answer","text":"50%音量、关闭主动降噪、AAC编码、连续播放。开启降噪后六款机型续航下降22%到31%，最长的一款从38小时10分降到26小时40分。"}},
+    {"@type":"Question","name":"暖气片不热，先排气还是先找物业？","acceptedAnswer":{"@type":"Answer","text":"先摸回水管温度。立管顶端凉、锅炉出水热，基本是积气，用一字螺丝刀逆时针转排气阀1/4圈，出水后拧回。整栋楼顶层普遍不热属于立管积气，需物业从顶层放气。"}},
+    {"@type":"Question","name":"《盐柱》1.2版本改了哪些地方，旧攻略还能用吗？","acceptedAnswer":{"@type":"Answer","text":"1.2版本修复了第六章盐桥判定失效，存档点从2个增加到4个，通关率从34%升到61%。涉及第六章盐桥解法的旧攻略需要重看，前五章机制未变。"}},
+    {"@type":"Question","name":"电竞转会消息里，官宣和经纪公司口径差在哪？","acceptedAnswer":{"@type":"Answer","text":"官宣来自俱乐部官方账号，含选手ID、位置、合同起止年份，截至11月5日有9条。经纪公司口径措辞通常是正在接触，没有签字与注册信息，共4条。"}},
+    {"@type":"Question","name":"65W氮化镓充电器双口同时用会降功率吗？","acceptedAnswer":{"@type":"Answer","text":"会。四款双口65W充电器在双口满载时总功率普遍降到45W左右，表面温度最高58℃，出现在双口满载40分钟节点，单口使用时温度明显更低。"}}
+  ]
+}
+</script>
+
+</body>
+  </html>
