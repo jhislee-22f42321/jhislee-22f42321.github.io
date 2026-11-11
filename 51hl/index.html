@@ -1,0 +1,1364 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>51hlw黑料网 - 网络争议事件聚合与爆料存档</title>
+<meta name="description" content="51hlw黑料网汇集网络争议事件、爆料存档与当事人回应记录，按时间线整理证据链、核查来源可信度，并提供吃瓜前必看的辨别方法与圈内讨论精选。">
+<meta name="keywords" content="51hlw黑料网">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314130f'/%3E%3Cpath d='M18 44 L32 16 L46 44 Z' fill='none' stroke='%23e8b04b' stroke-width='4' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='36' r='4' fill='%23e8b04b'/%3E%3C/svg%3E">
+<style>
+:root{
+  --brand:#e8b04b;
+  --brand-soft:#f6dfae;
+  --brand-deep:#8a5f14;
+  --bg:#f7f4ee;
+  --panel:#fffdf8;
+  --panel-2:#f1ece1;
+  --ink:#1d1a14;
+  --ink-2:#4d463a;
+  --ink-3:#837a68;
+  --line:#e2dacb;
+  --line-strong:#cdc2ac;
+  --r-card:14px;
+  --r-btn:8px;
+  --r-tag:999px;
+  --r-banner:18px;
+  --sh:0 1px 2px rgba(29,26,20,.06),0 2px 8px rgba(29,26,20,.05);
+  --sh-hover:0 4px 14px rgba(29,26,20,.12),0 10px 26px rgba(29,26,20,.08);
+  --sticky-h:112px;
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--sticky-h)}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--font);font-size:15.5px;line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:800}
+p{margin:0 0 .9em}
+ul,ol{margin:0 0 .9em;padding-left:1.2em}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--brand-deep);outline-offset:2px;border-radius:4px}
+
+/* ---------- sticky top ---------- */
+.sticky-top{position:sticky;top:0;z-index:60}
+.notice{
+  background:#1d1a14;color:#f4ecdc;font-size:13px;
+  border-bottom:1px solid #343026;
+}
+.notice-in{
+  max-width:1360px;margin:0 auto;padding:7px 20px;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+}
+.notice-brand{
+  font-weight:800;color:var(--brand);letter-spacing:.5px;white-space:nowrap;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.notice-brand svg{width:14px;height:14px}
+.notice-items{display:flex;gap:18px;flex-wrap:wrap;color:#cfc5b2;min-width:0}
+.notice-items span{white-space:nowrap}
+.notice-items b{color:#f4ecdc;font-weight:600}
+.notice-items .dot{color:var(--brand)}
+
+header.site{
+  background:rgba(255,253,248,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.head-in{
+  max-width:1360px;margin:0 auto;padding:10px 20px;
+  display:flex;align-items:center;gap:20px;
+}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-mark{width:38px;height:38px;flex:none}
+.logo-text{font-size:19px;font-weight:800;letter-spacing:.4px;white-space:nowrap}
+.logo-text em{font-style:normal;color:var(--brand-deep)}
+nav.top{display:flex;gap:4px;flex:1;min-width:0;overflow:auto;scrollbar-width:none}
+nav.top::-webkit-scrollbar{display:none}
+nav.top a{
+  padding:6px 11px;border-radius:var(--r-btn);font-size:14px;color:var(--ink-2);
+  white-space:nowrap;transition:background .18s,color .18s;
+}
+nav.top a:hover{background:var(--panel-2);color:var(--ink)}
+.head-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  padding:8px 15px;border-radius:var(--r-btn);font-size:14px;font-weight:600;
+  border:1px solid var(--line-strong);background:var(--panel);color:var(--ink);
+  cursor:pointer;transition:transform .16s,box-shadow .16s,background .16s,border-color .16s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--sh-hover);border-color:var(--brand)}
+.btn-primary{background:var(--ink);color:#fdf7e9;border-color:var(--ink)}
+.btn-primary:hover{background:#332e24;border-color:#332e24}
+.hamburger{display:none;background:var(--panel);border:1px solid var(--line-strong);border-radius:var(--r-btn);padding:7px 9px;cursor:pointer}
+.hamburger span{display:block;width:18px;height:2px;background:var(--ink);margin:4px 0;border-radius:2px}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(900px 380px at 88% -10%,rgba(232,176,75,.28),transparent 62%),
+    radial-gradient(600px 300px at 6% 110%,rgba(138,95,20,.16),transparent 60%),
+    linear-gradient(160deg,#211d16 0%,#1a1712 60%,#141310 100%);
+  color:#f6efdf;
+}
+.hero-in{
+  max-width:1360px;margin:0 auto;padding:46px 20px 40px;
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:44px;align-items:center;
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:1.4px;
+  text-transform:uppercase;color:var(--brand);margin-bottom:14px;
+}
+.hero-kicker::before{content:"";width:26px;height:1px;background:var(--brand);display:inline-block}
+h1.hero-title{font-size:clamp(30px,4.4vw,46px);letter-spacing:1px;margin-bottom:16px;color:#fff9ec}
+.hero-desc{color:#cfc4ae;font-size:15.5px;max-width:56ch;margin-bottom:22px}
+.hero-desc strong{color:var(--brand-soft);font-weight:600}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.hero .btn-primary{background:var(--brand);color:#231c0c;border-color:var(--brand)}
+.hero .btn-primary:hover{background:#f0c266;border-color:#f0c266}
+.hero .btn{background:transparent;color:#f0e6d2;border-color:#4b4335}
+.hero .btn:hover{border-color:var(--brand);color:#fff6e4}
+.hero-stats{display:flex;gap:26px;flex-wrap:wrap;font-size:13px;color:#a99e88}
+.hero-stats b{display:block;font-size:20px;color:#f6efdf;font-weight:800;letter-spacing:.5px}
+.hero-art{position:relative;height:270px}
+.hero-art svg{width:100%;height:100%;overflow:visible}
+
+/* ---------- layout ---------- */
+.wrap{max-width:1360px;margin:0 auto;padding:0 20px}
+.layout{
+  display:grid;grid-template-columns:186px minmax(0,1fr) 268px;gap:26px;
+  padding:30px 0 48px;align-items:start;
+}
+aside.side{position:sticky;top:var(--sticky-h);max-height:calc(100vh - var(--sticky-h) - 16px);overflow:auto;scrollbar-width:thin}
+.side-box{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-card);padding:14px 14px 10px;box-shadow:var(--sh);margin-bottom:18px}
+.side-box h3{font-size:13px;letter-spacing:1px;color:var(--ink-3);font-weight:700;margin-bottom:10px;text-transform:uppercase}
+.chan-list{list-style:none;padding:0;margin:0}
+.chan-list li{margin-bottom:2px}
+.chan-list a{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:7px 9px;border-radius:8px;font-size:14px;color:var(--ink-2);
+  transition:background .16s,color .16s;
+}
+.chan-list a:hover{background:var(--panel-2);color:var(--ink)}
+.chan-list a.active{background:var(--brand-soft);color:var(--brand-deep);font-weight:700}
+.chan-list a span{font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.chan-list a.active span{color:var(--brand-deep)}
+.toc{list-style:none;padding:0;margin:0;font-size:13.5px}
+.toc li{margin-bottom:1px}
+.toc a{display:block;padding:6px 9px;border-left:2px solid transparent;color:var(--ink-2);border-radius:0 6px 6px 0;transition:.16s}
+.toc a:hover{background:var(--panel-2);color:var(--ink)}
+.toc a.active{border-left-color:var(--brand);background:var(--panel-2);color:var(--ink);font-weight:700}
+
+section.block{margin-bottom:56px;scroll-margin-top:var(--sticky-h)}
+.block-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+.block-head h2{font-size:22px;letter-spacing:.4px}
+.block-head h2 small{display:block;font-size:12.5px;font-weight:500;color:var(--ink-3);letter-spacing:.6px;margin-top:4px}
+.block-head .more{font-size:13px;color:var(--brand-deep);font-weight:700;white-space:nowrap}
+.block-head .more:hover{text-decoration:underline}
+
+/* overview */
+.overview{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--r-card);
+  padding:22px 24px;box-shadow:var(--sh);
+}
+.overview p{color:var(--ink-2);font-size:15px}
+.overview p:last-child{margin-bottom:0}
+.overview .lede{font-size:16px;color:var(--ink)}
+.term-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;padding-top:16px;border-top:1px dashed var(--line-strong)}
+.term-chips span{font-size:12.5px;padding:4px 10px;border-radius:var(--r-tag);background:var(--panel-2);color:var(--ink-2);border:1px solid var(--line)}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--r-card);
+  overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column;
+  transition:transform .18s,box-shadow .18s,border-color .18s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--sh-hover);border-color:var(--line-strong)}
+.card .thumb{position:relative;aspect-ratio:4/3;background:var(--panel-2)}
+.card .thumb img{width:100%;height:100%;object-fit:cover}
+.card .thumb .badge{
+  position:absolute;left:10px;top:10px;font-size:11.5px;font-weight:700;
+  padding:3px 9px;border-radius:var(--r-tag);background:rgba(20,19,15,.82);color:var(--brand-soft);
+  backdrop-filter:blur(4px);
+}
+.card .body{padding:13px 14px 15px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:15.5px;line-height:1.45}
+.card h3 a:hover{color:var(--brand-deep);text-decoration:underline}
+.card .tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{font-size:11.5px;padding:2px 8px;border-radius:var(--r-tag);background:var(--panel-2);color:var(--ink-3);border:1px solid var(--line)}
+.card .why{font-size:13px;color:var(--ink-2);line-height:1.62;flex:1}
+.card .meta{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--ink-3);border-top:1px solid var(--line);padding-top:9px}
+.card .meta b{color:var(--brand-deep);font-variant-numeric:tabular-nums}
+
+/* feed list */
+.feed{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh);overflow:hidden}
+.feed li{
+  display:grid;grid-template-columns:78px minmax(0,1fr);gap:14px;
+  padding:13px 18px;border-bottom:1px solid var(--line);align-items:start;
+}
+.feed li:last-child{border-bottom:0}
+.feed li:hover{background:var(--panel-2)}
+.feed time{font-size:12.5px;color:var(--ink-3);font-variant-numeric:tabular-nums;padding-top:2px}
+.feed h3{font-size:15px;margin-bottom:3px}
+.feed h3 a:hover{color:var(--brand-deep);text-decoration:underline}
+.feed p{font-size:13.5px;color:var(--ink-2);margin:0}
+.feed .flag{font-size:11px;padding:1px 7px;border-radius:var(--r-tag);margin-left:7px;vertical-align:2px;font-weight:700}
+.flag-hot{background:#fbe3c8;color:#8a4514}
+.flag-new{background:#dcebd7;color:#2f5d2a}
+.flag-wait{background:#e6e0f2;color:#4a3a75}
+
+/* categories */
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.cat{
+  background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;
+  transition:transform .18s,box-shadow .18s,border-color .18s;display:block;
+}
+.cat:hover{transform:translateY(-2px);box-shadow:var(--sh-hover);border-color:var(--brand)}
+.cat strong{display:block;font-size:15px;margin-bottom:4px}
+.cat span{font-size:12.5px;color:var(--ink-3);display:block;line-height:1.55}
+.cat em{font-style:normal;display:inline-block;margin-top:8px;font-size:11.5px;color:var(--brand-deep);font-weight:700}
+
+/* deep read */
+.deep{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--r-card);
+  padding:26px 28px;box-shadow:var(--sh);
+}
+.deep h3{font-size:17.5px;margin:26px 0 10px;padding-left:12px;border-left:4px solid var(--brand)}
+.deep h3:first-of-type{margin-top:6px}
+.deep p{color:var(--ink-2);font-size:15px}
+.deep ul,.deep ol{color:var(--ink-2);font-size:14.5px}
+.deep li{margin-bottom:6px}
+.deep blockquote{
+  margin:16px 0;padding:14px 18px;background:var(--panel-2);border-radius:10px;
+  border-left:3px solid var(--line-strong);font-size:14px;color:var(--ink-2);
+}
+.deep blockquote b{color:var(--ink)}
+.check-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:14px 0 18px}
+.check-table th,.check-table td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+.check-table th{background:var(--panel-2);font-size:13px;color:var(--ink);white-space:nowrap}
+.check-table td{color:var(--ink-2)}
+.check-table tr:nth-child(even) td{background:#fdfbf6}
+
+/* guide */
+.guide{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.step{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--r-card);
+  padding:18px;box-shadow:var(--sh);position:relative;
+}
+.step .num{
+  display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;
+  border-radius:50%;background:var(--ink);color:var(--brand);font-size:13px;font-weight:800;margin-bottom:10px;
+}
+.step h3{font-size:15px;margin-bottom:6px}
+.step p{font-size:13.5px;color:var(--ink-2);margin:0}
+
+/* faq */
+.faq{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh);overflow:hidden}
+details{border-bottom:1px solid var(--line)}
+details:last-child{border-bottom:0}
+summary{
+  cursor:pointer;padding:15px 20px;font-weight:700;font-size:15px;list-style:none;
+  display:flex;justify-content:space-between;gap:14px;align-items:center;transition:background .16s;
+}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:var(--panel-2)}
+summary::after{content:"+";font-size:19px;color:var(--brand-deep);font-weight:400;line-height:1;flex:none}
+details[open] summary::after{content:"−"}
+details .ans{padding:0 20px 16px;font-size:14px;color:var(--ink-2);line-height:1.75}
+details .ans p:last-child{margin-bottom:0}
+
+/* comments */
+.cmt-head{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.cmt-head .pill{font-size:12.5px;padding:4px 12px;border-radius:var(--r-tag);background:var(--panel-2);border:1px solid var(--line);color:var(--ink-2)}
+.comments{columns:2;column-gap:16px}
+@media(max-width:980px){.comments{columns:1}}
+.cmt{
+  break-inside:avoid;background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:13px 15px;margin-bottom:14px;box-shadow:var(--sh);
+}
+.cmt .who{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.avatar{
+  width:26px;height:26px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:800;color:#231c0c;background:var(--brand-soft);
+}
+.cmt .name{font-size:13.5px;font-weight:700}
+.cmt .when{font-size:11.5px;color:var(--ink-3);margin-left:auto;font-variant-numeric:tabular-nums}
+.cmt p{font-size:13.5px;color:var(--ink-2);margin:0;line-height:1.68}
+.cmt .on{font-size:12px;color:var(--brand-deep);font-weight:600;margin-top:6px;display:block}
+
+/* news */
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+.news{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--r-card);
+  overflow:hidden;box-shadow:var(--sh);transition:transform .18s,box-shadow .18s;
+}
+.news:hover{transform:translateY(-2px);box-shadow:var(--sh-hover)}
+.news img{width:100%;height:150px;object-fit:cover}
+.news .nb{padding:13px 15px 15px}
+.news h3{font-size:15px;margin-bottom:6px}
+.news h3 a:hover{color:var(--brand-deep);text-decoration:underline}
+.news .d{font-size:12px;color:var(--ink-3);margin-bottom:7px;font-variant-numeric:tabular-nums}
+.news p{font-size:13.5px;color:var(--ink-2);margin:0}
+
+/* recommend tags */
+.reco{display:flex;flex-wrap:wrap;gap:10px}
+.reco a{
+  font-size:13.5px;padding:8px 15px;border-radius:var(--r-tag);
+  background:var(--panel);border:1px solid var(--line-strong);color:var(--ink-2);
+  transition:.18s;box-shadow:var(--sh);
+}
+.reco a:hover{border-color:var(--brand);color:var(--brand-deep);transform:translateY(-2px);box-shadow:var(--sh-hover)}
+.reco a b{color:var(--ink);font-weight:700}
+
+/* ranking & timeline */
+.two-col{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:20px}
+@media(max-width:900px){.two-col{grid-template-columns:1fr}}
+.rank{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh);padding:6px 0;list-style:none;margin:0}
+.rank li{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;padding:11px 16px;align-items:center;border-bottom:1px solid var(--line)}
+.rank li:last-child{border-bottom:0}
+.rank .no{font-weight:800;font-size:15px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.rank li:nth-child(-n+3) .no{color:var(--brand-deep)}
+.rank .rk-t{font-size:14px;font-weight:600}
+.rank .rk-s{font-size:12px;color:var(--ink-3);display:block;font-weight:400}
+.rank .heat{font-size:12.5px;color:var(--brand-deep);font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.timeline{list-style:none;margin:0;padding:0 0 0 18px;border-left:2px solid var(--line-strong)}
+.timeline li{position:relative;padding:0 0 18px 16px}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{
+  content:"";position:absolute;left:-25px;top:6px;width:11px;height:11px;border-radius:50%;
+  background:var(--panel);border:2.5px solid var(--brand-deep);
+}
+.timeline time{font-size:12px;color:var(--ink-3);display:block;font-variant-numeric:tabular-nums;margin-bottom:2px}
+.timeline b{font-size:14px;display:block;margin-bottom:2px}
+.timeline span{font-size:13px;color:var(--ink-2)}
+
+/* submit panel */
+.submit-panel{
+  background:linear-gradient(150deg,#231f18,#17140f);color:#eadfc9;border-radius:var(--r-banner);
+  padding:26px 28px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px;align-items:center;
+  box-shadow:var(--sh-hover);
+}
+.submit-panel h2{font-size:20px;color:#fff6e4;margin-bottom:8px}
+.submit-panel p{font-size:13.5px;color:#b6ab95;margin:0;max-width:62ch}
+.submit-panel .rules{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:12.5px;color:#a3977f}
+.submit-panel .rules span::before{content:"·";color:var(--brand);margin-right:6px}
+@media(max-width:820px){.submit-panel{grid-template-columns:1fr}}
+
+/* footer */
+footer.site{background:#171410;color:#a99e88;padding:38px 0 26px;margin-top:10px;font-size:13.5px}
+.foot-in{max-width:1360px;margin:0 auto;padding:0 20px}
+.foot-top{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:30px;padding-bottom:26px;border-bottom:1px solid #2e2a22}
+@media(max-width:900px){.foot-top{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.foot-top{grid-template-columns:1fr}}
+.foot-brand{font-size:18px;font-weight:800;color:#f6efdf;display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.foot-brand svg{width:24px;height:24px}
+.foot-desc{font-size:13px;color:#9a907c;line-height:1.8;max-width:38ch}
+.foot-col h4{font-size:13px;color:#e6dcc6;margin-bottom:10px;letter-spacing:.6px}
+.foot-col a{display:block;padding:3px 0;color:#9a907c;font-size:13px}
+.foot-col a:hover{color:var(--brand)}
+.foot-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:18px;font-size:12.5px;color:#7d7461}
+
+/* back to top */
+#toTop{
+  position:fixed;right:20px;bottom:22px;z-index:70;
+  width:44px;height:44px;border-radius:50%;border:1px solid var(--line-strong);
+  background:var(--panel);color:var(--ink);font-size:18px;cursor:pointer;
+  box-shadow:var(--sh-hover);display:none;align-items:center;justify-content:center;
+  transition:transform .18s,background .18s;
+}
+#toTop:hover{transform:translateY(-3px);background:var(--brand-soft)}
+#toTop.show{display:flex}
+
+/* search */
+.search-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.search-row input{
+  flex:1;min-width:200px;padding:10px 14px;border-radius:var(--r-btn);
+  border:1px solid var(--line-strong);background:var(--panel);font-size:14px;font-family:inherit;color:var(--ink);
+}
+.search-row input:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:var(--brand)}
+.empty{display:none;padding:26px;text-align:center;color:var(--ink-3);font-size:14px;background:var(--panel);border:1px dashed var(--line-strong);border-radius:var(--r-card)}
+.empty.show{display:block}
+
+/* mobile drawer */
+.mask{position:fixed;inset:0;background:rgba(20,19,15,.5);z-index:80;display:none}
+.mask.show{display:block}
+.drawer{
+  position:fixed;top:0;right:0;bottom:0;width:280px;max-width:86vw;background:var(--panel);
+  z-index:90;transform:translateX(100%);transition:transform .26s ease;overflow:auto;padding:18px;
+  box-shadow:-8px 0 26px rgba(0,0,0,.18);
+}
+.drawer.open{transform:translateX(0)}
+.drawer h4{font-size:13px;letter-spacing:1px;color:var(--ink-3);margin:16px 0 8px;text-transform:uppercase}
+.drawer h4:first-child{margin-top:0}
+.drawer a{display:block;padding:8px 10px;border-radius:8px;font-size:14px;color:var(--ink-2)}
+.drawer a:hover{background:var(--panel-2);color:var(--ink)}
+.drawer .close{width:100%;margin-bottom:10px}
+
+@media(max-width:1180px){
+  .layout{grid-template-columns:170px minmax(0,1fr)}
+  aside.side.right{display:none}
+}
+@media(max-width:1024px){
+  .hero-in{grid-template-columns:1fr;gap:26px}
+  .hero-art{height:200px;order:-1}
+  .layout{grid-template-columns:minmax(0,1fr)}
+  aside.side.left{display:none}
+  nav.top{display:none}
+  .hamburger{display:block}
+  .side-mobile{display:block}
+}
+@media(min-width:1025px){.side-mobile{display:none}}
+@media(max-width:740px){
+  body{font-size:15px}
+  .hero-in{padding:32px 16px 30px}
+  .wrap{padding:0 15px}
+  .layout{padding:22px 0 36px}
+  .deep{padding:20px 18px}
+  .overview{padding:18px 16px}
+  .comments{columns:1}
+  .feed li{grid-template-columns:1fr;gap:4px}
+  .head-in{padding:9px 15px;gap:12px}
+  .notice-in{padding:6px 15px;font-size:12px;gap:10px}
+  .notice-items{gap:12px}
+  .foot-in{padding:0 15px}
+  #toTop{right:14px;bottom:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="sticky-top">
+  <div class="notice">
+    <div class="notice-in">
+      <span class="notice-brand">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19 L12 4 L20 19 Z" stroke="#e8b04b" stroke-width="2.2" stroke-linejoin="round"/><circle cx="12" cy="15" r="1.8" fill="#e8b04b"/></svg>
+        51hlw黑料网
+      </span>
+      <div class="notice-items">
+        <span><b>11-07</b> 新增「林雨桐代言合约终止」完整证据链 14 张截图</span>
+        <span><b>11-06</b> 上传区开放「周斯远录音门」原始音频比对</span>
+        <span><b>23</b> 条待核实爆料进入「存疑区」</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="site">
+    <div class="head-in">
+      <a class="logo" href="/#top" aria-label="51hlw黑料网 首页">
+        <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#14130f"/>
+          <path d="M18 45 L32 16 L46 45 Z" fill="none" stroke="#e8b04b" stroke-width="3.6" stroke-linejoin="round"/>
+          <circle cx="32" cy="37" r="4" fill="#e8b04b"/>
+        </svg>
+        <span class="logo-text">51hlw<em>黑料网</em></span>
+      </a>
+      <nav class="top" aria-label="主题导航">
+        <a href="/#overview">领域概览</a>
+        <a href="/#picks">爆料精选</a>
+        <a href="/#updates">更新动态</a>
+        <a href="/#channels">分类频道</a>
+        <a href="/#deep">深度解析</a>
+        <a href="/#guide">吃瓜指南</a>
+        <a href="/#faq">常见疑问</a>
+        <a href="/#comments">圈内讨论</a>
+        <a href="/#news">相关资讯</a>
+        <a href="/#rank">争议榜</a>
+        <a href="/#submit">投稿爆料</a>
+      </nav>
+      <div class="head-actions">
+        <a class="btn btn-primary" href="/#submit">我要投稿</a>
+        <button class="hamburger" id="hamburger" aria-label="打开导航菜单" aria-expanded="false" aria-controls="drawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<div id="top"></div>
+
+<!-- HERO -->
+<section class="hero" aria-label="主题首屏">
+  <div class="hero-in">
+    <div>
+      <span class="hero-kicker">Controversy Archive · 争议存档</span>
+      <h1 class="hero-title">51hlw黑料网</h1>
+      <p class="hero-desc">收录华语互联网近五年公开流传的争议事件、艺人合约纠纷、直播翻车与自媒体造假爆料。每条记录标注<strong>首发平台、原始截图、当事人回应时间</strong>，并按「已证实 / 当事方各执一词 / 仅有单方爆料」三层归档。</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="/#picks">查看本周爆料精选</a>
+        <a class="btn" href="/#guide">先读辨别指南</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>1,286</b>已归档事件</div>
+        <div><b>372</b>条含原始证据</div>
+        <div><b>11-07</b>最近大更新</div>
+        <div><b>23</b>条待核实</div>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 420 280" role="presentation">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#e8b04b" stop-opacity=".95"/>
+            <stop offset="1" stop-color="#8a5f14" stop-opacity=".2"/>
+          </linearGradient>
+          <linearGradient id="g2" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0" stop-color="#f6dfae" stop-opacity=".22"/>
+            <stop offset="1" stop-color="#f6dfae" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <circle cx="330" cy="66" r="88" fill="url(#g1)" opacity=".18"/>
+        <circle cx="330" cy="66" r="56" fill="none" stroke="#e8b04b" stroke-opacity=".35" stroke-width="1.2"/>
+        <circle cx="330" cy="66" r="86" fill="none" stroke="#e8b04b" stroke-opacity=".16" stroke-width="1"/>
+        <rect x="26" y="34" width="238" height="132" rx="12" fill="#241f16" stroke="#4a4133"/>
+        <rect x="42" y="50" width="118" height="9" rx="4.5" fill="#e8b04b" opacity=".85"/>
+        <rect x="42" y="70" width="196" height="7" rx="3.5" fill="#5d5443"/>
+        <rect x="42" y="86" width="168" height="7" rx="3.5" fill="#4b4335"/>
+        <rect x="42" y="102" width="184" height="7" rx="3.5" fill="#4b4335"/>
+        <rect x="42" y="126" width="62" height="24" rx="6" fill="#e8b04b" opacity=".9"/>
+        <rect x="114" y="126" width="62" height="24" rx="6" fill="none" stroke="#6b6049"/>
+        <rect x="26" y="182" width="150" height="72" rx="12" fill="url(#g2)" stroke="#4a4133"/>
+        <path d="M44 236 L62 208 L80 236 Z" fill="none" stroke="#e8b04b" stroke-width="2.4" stroke-linejoin="round"/>
+        <rect x="96" y="204" width="62" height="7" rx="3.5" fill="#6b6049"/>
+        <rect x="96" y="220" width="46" height="7" rx="3.5" fill="#584f3f"/>
+        <rect x="192" y="182" width="200" height="72" rx="12" fill="#221e17" stroke="#4a4133"/>
+        <circle cx="216" cy="206" r="9" fill="#e8b04b" opacity=".8"/>
+        <rect x="234" y="200" width="112" height="7" rx="3.5" fill="#6b6049"/>
+        <rect x="234" y="216" width="140" height="7" rx="3.5" fill="#584f3f"/>
+        <rect x="234" y="232" width="86" height="7" rx="3.5" fill="#463f32"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="layout">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="side left" aria-label="频道索引">
+      <div class="side-box">
+        <h3>频道索引</h3>
+        <ul class="chan-list">
+          <li><a href="/#updates" class="active">更新动态<span>48</span></a></li>
+          <li><a href="/#channels">艺人合约纠纷<span>96</span></a></li>
+          <li><a href="/#channels">直播翻车<span>134</span></a></li>
+          <li><a href="/#channels">自媒体造假<span>88</span></a></li>
+          <li><a href="/#channels">饭圈互撕<span>152</span></a></li>
+          <li><a href="/#channels">带货数据注水<span>61</span></a></li>
+          <li><a href="/#channels">私德争议<span>77</span></a></li>
+          <li><a href="/#channels">版权抄袭<span>43</span></a></li>
+          <li><a href="/#channels">平台封禁<span>59</span></a></li>
+        </ul>
+      </div>
+      <div class="side-box">
+        <h3>本页目录</h3>
+        <ul class="toc" id="toc">
+          <li><a href="/#overview">领域概览</a></li>
+          <li><a href="/#picks">爆料精选</a></li>
+          <li><a href="/#updates">更新动态</a></li>
+          <li><a href="/#channels">分类频道</a></li>
+          <li><a href="/#deep">深度解析</a></li>
+          <li><a href="/#guide">吃瓜指南</a></li>
+          <li><a href="/#faq">常见疑问</a></li>
+          <li><a href="/#comments">圈内讨论</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#rank">争议榜</a></li>
+          <li><a href="/#reco">延伸索引</a></li>
+          <li><a href="/#submit">投稿爆料</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+
+      <!-- 1 概览 -->
+      <section class="block" id="overview">
+        <div class="block-head">
+          <h2>争议爆料领域的构成与当前热点
+            <small>从合约纠纷到直播翻车，这一领域实际在记录什么</small>
+          </h2>
+        </div>
+        <div class="overview">
+          <p class="lede">中文互联网的“黑料”内容，主体并非猎奇八卦，而是一类围绕<strong>公开人物与商业主体的失信记录</strong>：艺人合约单方面终止、主播带货数据与实际 GMV 严重不符、自媒体账号盗用他人原创视频、选秀节目票数操作。这些事件通常先在小红书、微博超话或抖音评论区以截图形式流出，再被搬运号加工成短视频，最后由当事方或工作室发声明回应。</p>
+          <p>2026 年下半年值得关注的几个方向：一是 MCN 与主播的解约诉讼进入密集判决期，仅 10 月就有 4 起一审判决公开；二是直播电商“坑位费 + 保底销售额”合同纠纷增多，涉及品牌方、代运营、主播三方；三是 AI 换脸素材被用于伪造明星代言，10 月中旬出现了两起品牌方报警案例；四是粉丝群体内部“控评组”聊天记录外泄，成为饭圈互撕的新证据形式。</p>
+          <p>这些内容的共同点是：<b>首发证据多为截图或录屏，二次传播时经常被裁剪、拼接或配上错误时间</b>。判断一条爆料是否值得跟进，关键不在情绪强度，而在能否定位到首发账号、原始文件、以及当事方是否有具名回应。归档时按“已证实、各执一词、单方爆料、已被证伪”四档区分，比笼统地打上“瓜”的标签更有用。</p>
+          <div class="term-chips" aria-label="领域高频词">
+            <span>首发截图</span><span>工作室声明</span><span>解约函</span><span>坑位费</span><span>保底销售额</span>
+            <span>控评组</span><span>录屏取证</span><span>AI 换脸</span><span>一审判决</span><span>超话主持人</span>
+            <span>搬运号</span><span>证据链</span><span>存疑区</span><span>反转</span><span>私生粉</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 精选 -->
+      <section class="block" id="picks">
+        <div class="block-head">
+          <h2>本周爆料精选
+            <small>11-01 至 11-07 期间证据较完整的 8 条记录</small>
+          </h2>
+          <a class="more" href="/#updates">全部更新 →</a>
+        </div>
+        <div class="cards" id="pickCards">
+
+          <article class="card" data-name="林雨桐 代言 合约 终止 单方面">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/lyt-contract-11/400/300" width="400" height="300" loading="lazy" alt="林雨桐工作室 11 月 3 日发布的合约终止声明截图">
+              <span class="badge">已证实</span>
+            </div>
+            <div class="body">
+              <h3><a href="/#deep">林雨桐单方面终止美妆代言合约</a></h3>
+              <div class="tags"><span class="tag">艺人合约</span><span class="tag">解约函</span><span class="tag">品牌方回应</span></div>
+              <p class="why">工作室 11-03 发布的解约函盖有公章，品牌方 11-04 回函要求赔偿 380 万。争议点在于合约第 7 条“道德条款”是否涵盖私生活范围。</p>
+              <div class="meta"><span>证据 14 张截图</span><b>热度 98</b></div>
+            </div>
+          </article>
+
+          <article class="card" data-name="周斯远 录音门 音频 比对 直播">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/zsy-audio-11/400/300" width="400" height="300" loading="lazy" alt="周斯远录音门事件中两段音频的波形比对示意图">
+              <span class="badge">各执一词</span>
+            </div>
+            <div class="body">
+              <h3><a href="/#updates">周斯远“录音门”原始音频比对</a></h3>
+              <div class="tags"><span class="tag">直播翻车</span><span class="tag">录音取证</span><span class="tag">第三方鉴定</span></div>
+              <p class="why">粉丝放出的 47 秒片段与完整版 6 分 12 秒在 2:31 处有明显剪辑痕迹。声纹鉴定机构“声析”10-30 出具初检意见，认为被剪掉的段落含关键反驳。</p>
+              <div class="meta"><span>音频 2 版</span><b>热度 94</b></div>
+            </div>
+          </article>
+
+          <article class="card" data-name="甜橙MCN 主播 解约 一审 判决 违约金">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/mcn-verdict-11/400/300" width="400" height="300" loading="lazy" alt="甜橙MCN与主播解约案一审判决书首页照片">
+              <span class="badge">已证实</span>
+            </div>
+            <div class="body">
+              <h3><a href="/#news">甜橙MCN诉主播“小鹿不困”解约案一审落槌</a></h3>
+              <div class="tags"><span class="tag">MCN 解约</span><span class="tag">违约金</span><span class="tag">一审判决</span></div>
+              <p class="why">杭州互联网法院 10-28 判决主播赔偿 62 万元，低于 MCN 主张的 210 万。判决书认定“独家协议”中限制主播婚后停播的条款无效。</p>
+              <div class="meta"><span>判决书 23 页</span><b>热度 91</b></div>
+            </div>
+          </article>
+
+          <article class="card" data-name="直播 带货 坑位费 保底 GMV 数据 注水">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/gmv-fake-11/400/300" width="400" height="300" loading="lazy" alt="某品牌方晒出的直播间后台 GMV 与退货率对比表">
+              <span class="badge">各执一词</span>
+            </div>
+            <div class="body">
+              <h3><a href="/#deep">“一场直播 800 万 GMV”背后的退货率</a></h3>
+              <div class="tags"><span class="tag">带货数据</span><span class="tag">坑位费</span><span class="tag">退货率</span></div>
+              <p class="why">品牌方后台显示成交 812 万、退货 641 万，实际留存 171 万。主播方称退货由“品牌发货延迟”导致，双方各提供了物流记录。</p>
+              <div class="meta"><span>对比表 5 张</span><b>热度 88</b></div>
+            </div>
+          </article>
+
+          <article class="card" data-name="AI 换脸 伪造 代言 报警 品牌">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/aiface-ad-11/400/300" width="400" height="300" loading="lazy" alt="伪造明星代言的 AI 换脸短视频截图，画面有明显边缘模糊">
+              <span class="badge">已证实</span>
+            </div>
+            <div class="body">
+              <h3><a href="/#news">两起 AI 换脸伪造代言案，品牌方已报警</a></h3>
+              <div class="tags"><span class="tag">AI 换脸</span><span class="tag">伪造代言</span><span class="tag">报警回执</span></div>
+              <p class="why">10-19、10-23 各出现一条伪造“陈姓演员”推荐保健品的短视频，播放量分别 47 万、12 万。两家品牌方已晒出报警回执，平台下架 9 个关联账号。</p>
+              <div class="meta"><span>回执 2 份</span><b>热度 85</b></div>
+            </div>
+          </article>
+
+          <article class="card" data-name="饭圈 控评组 聊天记录 外泄 超话">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/fanclub-chat-11/400/300" width="400" height="300" loading="lazy" alt="饭圈控评组微信聊天记录截图，含明确分工与任务派发">
+              <span class="badge">单方爆料</span>
+            </div>
+            <div class="body">
+              <h3><a href="/#comments">某选秀艺人控评组内部聊天记录外泄</a></h3>
+              <div class="tags"><span class="tag">饭圈互撕</span><span class="tag">控评组</span><span class="tag">超话主持人</span></div>
+              <p class="why">截图显示 38 人分工表，含“举报对家 200 条/日”的量化任务。发布者自称组内成员，未提供群名与完整成员列表，可信度存疑。</p>
+              <div class="meta"><span>截图 21 张</span><b>热度 81</b></div>
+            </div>
+          </article>
+
+          <article class="card" data-name="短视频 搬运 抄袭 原创 投诉 下架">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/copy-video-11/400/300" width="400" height="300" loading="lazy" alt="原创作者与原封不动搬运账号的视频发布时间对照截图">
+              <span class="badge">已证实</span>
+            </div>
+            <div class="body">
+              <h3><a href="/#news">“山野食记”系列被盗搬 63 条，平台下架 51 条</a></h3>
+              <div class="tags"><span class="tag">版权抄袭</span><span class="tag">搬运号</span><span class="tag">投诉下架</span></div>
+              <p class="why">原作者 10-25 公布时间戳对照表，最早一条搬运比原片晚 4 小时。平台 11-02 回复称 51 条已下架，12 条因“二次剪辑”判定不侵权。</p>
+              <div class="meta"><span>对照 63 组</span><b>热度 76</b></div>
+            </div>
+          </article>
+
+          <article class="card" data-name="选秀 票数 操作 公证 节目组 声明">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/vote-count-11/400/300" width="400" height="300" loading="lazy" alt="选秀节目总决赛票数公示页与第三方抓取数据的差异对比">
+              <span class="badge">存疑区</span>
+            </div>
+            <div class="body">
+              <h3><a href="/#deep">选秀总决赛票数差 17 万，节目组称“缓存延迟”</a></h3>
+              <div class="tags"><span class="tag">票数操作</span><span class="tag">公证处</span><span class="tag">节目组声明</span></div>
+              <p class="why">第三方抓取工具记录到 21:47 至 21:52 票数不增反降。节目组回应为“前端缓存”，公证处仅确认投票服务器日志完整，未公开日志内容。</p>
+              <div class="meta"><span>抓取 5 分钟</span><b>热度 73</b></div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 3 更新动态 -->
+      <section class="block" id="updates">
+        <div class="block-head">
+          <h2>最新更新与进展动态
+            <small>按发生时间排序，只记录有新增证据或当事方动作的条目</small>
+          </h2>
+        </div>
+        <div class="search-row">
+          <input type="search" id="updateSearch" placeholder="在更新动态中查找条目名、当事人或类型，如“解约”“录音”" aria-label="搜索更新动态">
+        </div>
+        <ul class="feed" id="updateFeed">
+          <li data-k="林雨桐 代言 解约 品牌">
+            <time datetime="2026-11-07">11-07</time>
+            <div><h3><a href="/#picks">林雨桐代言纠纷：品牌方补充提交 2025 年续约邮件</a><span class="flag flag-new">新证据</span></h3>
+            <p>品牌方律师向媒体提供了 2025-09-12 的续约确认邮件，邮件中林雨桐方回复“条款无异议”，与此前“未见过第 7 条”的说法形成冲突。</p></div>
+          </li>
+          <li data-k="周斯远 录音 音频 鉴定">
+            <time datetime="2026-11-06">11-06</time>
+            <div><h3><a href="/#picks">周斯远录音门：第三方鉴定机构公开 2:31 剪辑点波形</a><span class="flag flag-hot">热度高</span></h3>
+            <p>“声析”在官网发布 3 页初检意见，指出剪辑点前后有 0.4 秒静音插入，完整录音中该位置应为周斯远回应“合同还没到期”。</p></div>
+          </li>
+          <li data-k="甜橙MCN 主播 小鹿不困 判决">
+            <time datetime="2026-11-05">11-05</time>
+            <div><h3><a href="/#news">“小鹿不困”表示接受一审判决，暂不上诉</a></h3>
+            <p>主播在抖音小号发布 1 分 40 秒视频，称 62 万赔偿将通过分期支付，并已与新公会签约，账号归属问题另案处理。</p></div>
+          </li>
+          <li data-k="GMV 带货 退货 品牌 主播">
+            <time datetime="2026-11-04">11-04</time>
+            <div><h3><a href="/#deep">800 万 GMV 争议：代运营公司承认“预售定金计入成交”</a></h3>
+            <p>代运营方“星图互动”在沟通群中承认，812 万含 214 万预售定金，实际支付尾款的不足三成，品牌方称此前未获告知。</p></div>
+          </li>
+          <li data-k="AI 换脸 代言 品牌 报警">
+            <time datetime="2026-11-03">11-03</time>
+            <div><h3><a href="/#news">AI 换脸代言案：平台新增“AI 生成”强制标注规则</a></h3>
+            <p>抖音 11-03 发布公告，涉及真人肖像的合成内容须在发布时勾选“AI 生成”，未标注被举报 3 次以上将限流 30 天。</p></div>
+          </li>
+          <li data-k="控评组 饭圈 超话 聊天">
+            <time datetime="2026-11-02">11-02</time>
+            <div><h3><a href="/#comments">控评组截图事件：超话主持人否认存在“量化举报任务”</a><span class="flag flag-wait">待核实</span></h3>
+            <p>该艺人超话主持人 11-02 晚发长文，称聊天记录为“对家 P 图”，但未提供原始群聊录屏，也未报警。</p></div>
+          </li>
+          <li data-k="搬运 抄袭 山野食记 下架">
+            <time datetime="2026-11-02">11-02</time>
+            <div><h3><a href="/#news">“山野食记”盗搬处理结果公布：51 条下架、12 条保留</a></h3>
+            <p>平台版权中心在投诉工单中逐条列出判定理由，12 条保留的原因为“添加解说与字幕，构成二次创作”。</p></div>
+          </li>
+          <li data-k="选秀 票数 公证 节目组">
+            <time datetime="2026-10-31">10-31</time>
+            <div><h3><a href="/#deep">选秀票数争议：公证处发布 200 字说明，未附日志</a></h3>
+            <p>说明称“投票服务器日志自 21:30 至 22:10 连续完整”，但以“涉及商业秘密”为由拒绝公开原始日志文件。</p></div>
+          </li>
+          <li data-k="私德 争议 艺人 前女友">
+            <time datetime="2026-10-29">10-29</time>
+            <div><h3><a href="/#rank">演员“程亦然”前女友爆料：目前仅有单方聊天截图</a><span class="flag flag-wait">单方</span></h3>
+            <p>共 9 张微信截图，其中 4 张无上下文、2 张时间戳与所述事件日期不符。程亦然工作室 10-29 下午回应“保留追责权利”，未逐条否认。</p></div>
+          </li>
+          <li data-k="平台 封禁 账号 违规">
+            <time datetime="2026-10-27">10-27</time>
+            <div><h3><a href="/#channels">“娱乐八叔”等 6 个爆料账号被永久封禁</a></h3>
+            <p>平台公告列出的违规类型为“编造未经证实的信息并引导付费进群”，其中“娱乐八叔”粉丝 218 万，此前多次发布不实爆料。</p></div>
+          </li>
+        </ul>
+        <div class="empty" id="updateEmpty">没有匹配“<span></span>”的条目。换个词试试，比如“解约”“录音”“票数”。</div>
+      </section>
+
+      <!-- 4 分类 -->
+      <section class="block" id="channels">
+        <div class="block-head">
+          <h2>按类型进入的八个频道
+            <small>分类依据是事件性质，不是当事人热度</small>
+          </h2>
+        </div>
+        <div class="cats">
+          <a class="cat" href="/#updates"><strong>艺人合约纠纷</strong><span>解约函、独家协议、道德条款、违约金计算</span><em>96 条 →</em></a>
+          <a class="cat" href="/#updates"><strong>直播翻车</strong><span>口误、货不对板、录音剪辑、当场失态</span><em>134 条 →</em></a>
+          <a class="cat" href="/#updates"><strong>自媒体造假</strong><span>摆拍、数据造假、剧情虚构冒充纪实</span><em>88 条 →</em></a>
+          <a class="cat" href="/#updates"><strong>饭圈互撕</strong><span>控评组、举报任务、超话主持人、私生粉</span><em>152 条 →</em></a>
+          <a class="cat" href="/#updates"><strong>带货数据注水</strong><span>坑位费、GMV 口径、退货率、预售定金</span><em>61 条 →</em></a>
+          <a class="cat" href="/#updates"><strong>私德争议</strong><span>聊天截图、前女友爆料、时间线矛盾</span><em>77 条 →</em></a>
+          <a class="cat" href="/#updates"><strong>版权抄袭</strong><span>搬运号、二次创作判定、投诉工单</span><em>43 条 →</em></a>
+          <a class="cat" href="/#updates"><strong>平台封禁</strong><span>永久封号、限流、付费进群、公告原文</span><em>59 条 →</em></a>
+        </div>
+      </section>
+
+      <!-- 5 深度 -->
+      <section class="block" id="deep">
+        <div class="block-head">
+          <h2>深度解析：一条爆料的可信度该拆成哪几层
+            <small>以近期三起典型事件为例，说明证据层级与常见误判</small>
+          </h2>
+        </div>
+        <div class="deep">
+          <p>把“可信”当成一个整体印象，是判断爆料时最常见的错误。同样一条 15 秒短视频，可能同时具备真实拍摄画面、错误时间标注、拼接的旁白，以及完全虚构的评论区截图。拆开来看，才能知道哪一部分可以引用、哪一部分只能当传闻。</p>
+
+          <h3>一、来源层：首发账号决定证据起点</h3>
+          <p>首发者是当事人、当事方工作人员、第三方目击者，还是搬运号，直接决定后续核查的路径。以 10-19 的 AI 换脸代言案为例，最早一条视频发布在一个注册 11 天、粉丝 34 的账号上，视频内没有任何拍摄现场画面，只有合成人脸与产品图。这类账号发布的内容，即使播放量到了 47 万，证据价值也接近于零。</p>
+          <p>反过来，10-25“山野食记”作者公布的 63 组时间戳对照，首发就是原创作者本人，附带了后台发布时间、视频 MD5 与平台投诉工单号。这类材料的可核查性高，因为每一项都能被第三方复核。</p>
+          <ul>
+            <li>可核查痕迹：账号实名信息、发布时间、原始文件、工单编号</li>
+            <li>弱痕迹：截图、转述、“朋友在内部”</li>
+            <li>无痕迹：只有文字描述，没有任何附件</li>
+          </ul>
+
+          <h3>二、时间层：时间戳与事件顺序是否自洽</h3>
+          <p>时间矛盾是最容易被忽略、也最容易验证的漏洞。程亦然前女友 10-29 放出的 9 张聊天截图中，有 2 张显示日期为 2024-03-15，但截图中提到的综艺节目《夏日出发》直到 2024-06 才官宣阵容。截图里出现了尚未录制的节目名称，时序上说不通。</p>
+          <p>周斯远录音门的剪辑点则属于另一种时间问题：不是日期错，而是段落被抽走。声析机构的初检意见指出，2:31 处插入了 0.4 秒静音，被剪掉的段落约 11 秒，恰好是当事人对“合约是否到期”的回应。判断这类问题，看的是波形连续性，而不是谁的声音更好听。</p>
+
+          <h3>三、当事方层：回应方式本身就是信息</h3>
+          <p>回应可以分成四类，信息量依次递减：出具带公章的正式函件并附证据、发布视频逐条否认、发布一段情绪化文字、完全不回应。林雨桐工作室 11-03 的解约函盖有公章，属于第一类；但其 11-07 面对续约邮件时的沉默，又削弱了此前“未见过第 7 条”的说法。</p>
+          <p>甜橙 MCN 诉“小鹿不困”一案提供了另一种参考：判决书 10-28 公开后，主播 11-05 主动说明赔偿分期方案，MCN 方面未再补充材料。双方动作都进入执行阶段，事件本身已从“爆料”转为“司法结论”，继续用“爆料”框架讨论就没有意义了。</p>
+
+          <table class="check-table">
+            <caption style="text-align:left;font-size:12.5px;color:var(--ink-3);padding-bottom:6px">证据层级速查（以近期三起事件为例）</caption>
+            <thead>
+              <tr><th>层级</th><th>林雨桐代言案</th><th>周斯远录音门</th><th>选秀票数争议</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>已公开事实</td><td>解约函、续约邮件均带日期</td><td>两版音频时长不同</td><td>抓取工具记录票数回落</td></tr>
+              <tr><td>当事方回应</td><td>品牌方要求赔偿 380 万</td><td>周方称“录音被剪”</td><td>节目组称“缓存延迟”</td></tr>
+              <tr><td>媒体转述</td><td>两家财经媒体报道赔偿金额</td><td>鉴定机构意见被多家转载</td><td>公证处说明被摘引</td></tr>
+              <tr><td>网友推测</td><td>“品牌方故意设套”</td><td>“剪辑者是前助理”</td><td>“票数被卖给后援会”</td></tr>
+              <tr><td>缺失环节</td><td>合约全文未公开</td><td>完整录音未公开</td><td>服务器原始日志未公开</td></tr>
+            </tbody>
+          </table>
+
+          <h3>四、传播层：速度来自哪几个环节</h3>
+          <p>一条爆料在 6 小时内铺满各个平台，通常不是因为“事情大”，而是因为链条上每个环节都省了核查。以 10-23 第二起 AI 换脸案为例：原始视频 14:02 发布在一个小号；14:40 被 3 个娱乐搬运号转发，均未标注来源；15:20 某百万粉账号配上“某陈姓演员塌房”的标题；16:05 品牌方客服被大量询问，才启动内部核查；18:30 品牌方发布声明并晒出报警回执。</p>
+          <blockquote>速度来自四个环节：<b>小号首发</b> → <b>搬运号去来源转发</b> → <b>大号加情绪标题</b> → <b>品牌方被动回应</b>。其中任何一个环节做了来源标注，传播速度都会下降一半以上。</blockquote>
+          <p>这也是为什么在归档时，把“首发链接”和“最高播放的转发链接”分开记录。前者决定证据，后者决定影响范围，两者不能混为一谈。</p>
+
+          <h3>五、判断清单：五个可以逐项打勾的问题</h3>
+          <ol>
+            <li>首发账号是否能对应到具体的人或机构？注册时间是否短于 30 天？</li>
+            <li>原始文件（视频、音频、截图原图）是否可获取，还是只有二次压缩版本？</li>
+            <li>截图中出现的时间、地点、节目名、品牌名，与公开信息是否冲突？</li>
+            <li>当事方回应属于哪一类，是否附带可核查的附件？</li>
+            <li>传播链上是否有人标注来源，还是全部从同一个搬运号出发？</li>
+          </ol>
+          <p>五个问题里，前三个答不上来，基本可以归入“存疑区”。四项以上能答清楚，才有资格进入“各执一词”或“已证实”。这条标准并不完美，但它能过滤掉绝大多数靠情绪推动的假料。</p>
+        </div>
+      </section>
+
+      <!-- 6 指南 -->
+      <section class="block" id="guide">
+        <div class="block-head">
+          <h2>吃瓜顺序与投入时间的判断
+            <small>先看什么、怎么比较、什么时候该停</small>
+          </h2>
+        </div>
+        <div class="guide">
+          <div class="step">
+            <span class="num">1</span>
+            <h3>先看当事方是否有具名回应</h3>
+            <p>带公章的解约函、带工单号的投诉回复、法院判决书，优先级高于任何截图。只有“工作室称”而找不到原文的，先放一放。</p>
+          </div>
+          <div class="step">
+            <span class="num">2</span>
+            <h3>再看首发账号的历史记录</h3>
+            <p>一个账号过去 3 个月发过 5 条以上“独家爆料”却无一条被证实，后续内容基本可以直接跳过。首发账号的命中率比单条内容的说服力更重要。</p>
+          </div>
+          <div class="step">
+            <span class="num">3</span>
+            <h3>同类事件横向比较</h3>
+            <p>解约纠纷看违约金与合约条款是否匹配；带货争议看 GMV 口径是否含预售定金；票数争议看是否有第三方抓取记录。比较同一类型的两三个案例，比单看一条更容易发现异常。</p>
+          </div>
+          <div class="step">
+            <span class="num">4</span>
+            <h3>设定止损点</h3>
+            <p>一条爆料在 72 小时内没有新增可核查材料，只有更多转述和情绪，就可以停止跟进。继续刷只会增加时间成本，不会增加信息。</p>
+          </div>
+          <div class="step">
+            <span class="num">5</span>
+            <h3>区分“看过”和“记住”</h3>
+            <p>值得记住的是判决结果、封禁公告、鉴定意见这类有编号的材料；不值得记住的是“某博主说”。前者半年后还能查证，后者三天后就找不到原帖。</p>
+          </div>
+          <div class="step">
+            <span class="num">6</span>
+            <h3>遇到反转时回看原始记录</h3>
+            <p>反转发生时，先回到首发截图和时间线，看是哪一项事实被推翻。多数反转推翻的是“解读”，不是“原始材料”，两者要分开处理。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 FAQ -->
+      <section class="block" id="faq">
+        <div class="block-head">
+          <h2>围绕爆料核查的六个常见疑问
+            <small>问题来自站内搜索与评论区高频提问</small>
+          </h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>聊天记录截图能当作爆料证据吗？</summary>
+            <div class="ans"><p>截图只能证明“有人制作了这张图”，不能证明对话真实发生。可用的截图通常要满足三个条件：包含完整对话上下文而非单条截取、时间戳与所述事件时间吻合、有至少一位当事人承认对话存在。程亦然前女友 10-29 放出的 9 张截图中，4 张无上下文、2 张日期与节目录制时间冲突，因此只能归入单方爆料。</p></div>
+          </details>
+          <details>
+            <summary>录音被剪辑过，还能用来判断事实吗？</summary>
+            <div class="ans"><p>能判断的部分是“哪一段被剪掉了”，而不是“剪掉的内容是什么”。周斯远录音门中，声析机构通过波形连续性定位到 2:31 处的 0.4 秒静音插入，推断缺失约 11 秒。这能说明传播版本不完整，但缺失段落的具体内容，仍需完整录音公开才能确认。</p></div>
+          </details>
+          <details>
+            <summary>带货直播的 GMV 数字为什么经常对不上？</summary>
+            <div class="ans"><p>常见差异来自三个口径：是否计入预售定金、是否扣除退货、是否包含赠品折算金额。800 万 GMV 争议中，代运营方承认 812 万里有 214 万是预售定金，而品牌方后台显示的退货金额为 641 万。三个数字都真实，只是统计口径不同，合同里写清楚按哪个口径结算，纠纷会少很多。</p></div>
+          </details>
+          <details>
+            <summary>选秀票数争议里，公证处的说明有多大作用？</summary>
+            <div class="ans"><p>取决于说明附了什么。10-31 的说明只有 200 字，称服务器日志“连续完整”，但以商业秘密为由拒绝公开日志文件。这类说明能证明流程存在，不能证明票数未被操作。有效的公证材料通常包含日志片段、时间区间、校验值，缺一项，证明力就下降一档。</p></div>
+          </details>
+          <details>
+            <summary>MCN 解约官司，违约金一般怎么算？</summary>
+            <div class="ans"><p>法院通常参考合同约定金额、主播实际收入、公司投入成本和剩余合约期。甜橙 MCN 诉“小鹿不困”一案，MCN 主张 210 万，法院判 62 万，核减的主要依据是公司未能提供足额推广投入凭证，且“限制婚后停播”条款被认定无效。约定金额高，不等于判决金额高。</p></div>
+          </details>
+          <details>
+            <summary>被平台封禁的爆料账号，之前发的内容还可信吗？</summary>
+            <div class="ans"><p>要分内容看，不能整体否定或整体采信。“娱乐八叔”被封的原因是“编造未经证实的信息并引导付费进群”，但其 2025 年发布的两条艺人合约纠纷，后来被判决书部分印证。可行的做法是逐条核对：有原始附件、有当事方回应的保留，纯文字描述的降级处理。</p></div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8 评论 -->
+      <section class="block" id="comments">
+        <div class="block-head">
+          <h2>圈内讨论：读者对具体条目的看法
+            <small>11-01 至 11-08 期间的部分留言</small>
+        </div>
+        <div class="cmt-head">
+          <span class="pill">共 16 条精选</span>
+          <span class="pill">含中性评价与质疑</span>
+        </div>
+        <div class="comments">
+
+          <div class="cmt"><div class="who"><span class="avatar">林</span><span class="name">林间有雾</span><span class="when">11-07</span></div><p>续约邮件这一手挺关键。之前工作室说没见过第 7 条，现在邮件里“条款无异议”五个字摆在那，怎么解释都别扭。</p><span class="on">→ 林雨桐代言合约终止</span></div>
+
+          <div class="cmt"><div class="who"><span class="avatar">磁</span><span class="name">磁带A面</span><span class="when">11-06</span></div><p>0.4 秒静音这个点我反复听了三遍，确实是硬切的。但缺失那 11 秒到底说了啥，现在全靠猜，别急着下结论。</p><span class="on">→ 周斯远录音门</span></div>
+
+          <div class="cmt"><div class="who"><span class="avatar">小</span><span class="name">小鹿不困的观众</span><span class="when">11-05</span></div><p>62 万比 210 万少太多了。判决书里说公司拿不出推广投入凭证，这条我信，她那个号前半年基本靠自己发日常涨粉。</p><span class="on">→ 甜橙MCN 解约案</span></div>
+
+          <div class="cmt"><div class="who"><span class="avatar">算</span><span class="name">算账的老张</span><span class="when">11-04</span></div><p>812 万含 214 万预售定金，这个操作在行业里不算秘密。坑位费按 GMV 谈的时候，合同不写清楚扣不扣定金，后面必吵。</p><span class="on">→ 800 万 GMV 争议</span></div>
+
+          <div class="cmt"><div class="who"><span class="avatar">橘</span><span class="name">橘子汽水没气了</span><span class="when">11-03</span></div><p>AI 换脸那个视频我刷到过，第一眼就觉得脸边缘怪，但评论区全在问链接。现在强制标注算是个办法吧，虽然执行起来难说。</p><span class="on">→ AI 换脸伪造代言</span></div>
+
+          <div class="cmt"><div class="who"><span class="avatar">夜</span><span class="name">夜航船</span><span class="when">11-02</span></div><p>控评组截图那张分工表，格式太整齐了，像模板。不是说一定假，但至少得给个群名和群成员列表吧。</p><span class="on">→ 控评组聊天记录外泄</span></div>
+
+          <div class="cmt"><div class="who"><span class="avatar">山</span><span class="name">山野食记老粉</span><span class="when">11-02</span></div><p>63 条被搬，只下架 51 条，剩下 12 条说加了字幕算二创。加个字幕就能拿走别人拍的素材？这个判定标准有点宽。</p><span class="on">→ 山野食记盗搬事件</span></div>
+
+          <div class="cmt"><div class="who"><span class="avatar">票</span><span class="name">票根收藏家</span><span class="when">11-01</span></div><p>票数在 21:47 到 21:52 回落，缓存延迟解释不了吧，缓存只会卡住不动，不会往回掉。</p><span class="on">→ 选秀总决赛票数争议</span></div>
+
+          <div class="cmt"><div class="who"><span class="avatar">阿</span><span class="name">阿茶不喝茶</span><span class="when">11-01</span></div><p>程亦然那 9 张截图里有两张日期对不上《夏日出发》的官宣时间，这种硬伤一查就出来，爆料的人也太不上心了。</p><span class="on">→ 程亦然前女友爆料</span></div>
+
+          <div class="cmt"><div class="who"><span class="avatar">八</span><span class="name">八卦雷达关不掉</span><span class="when">10-31</span></div><p>娱乐八叔被封，早该封了。去年他说某歌手要退圈，结果人家今年开了 12 场巡演。</p><span class="on">→ 平台封禁爆料账号</span></div>
+
+          <div class="cmt"><div class="who"><span class="avatar">律</span><span class="name">律所实习生小周</span><span class="when">10-30</span></div><p>道德条款能不能覆盖私生活，关键看条款原文怎么写的。现在合约全文没公开，争这个其实没依据。</p><span class="on">→ 林雨桐代言合约终止</span></div>
+
+          <div class="cmt"><div class="who"><span class="avatar">路</span><span class="name">路过的一只鹅</span><span class="when">10-30</span></div><p>说真的，现在看爆料先看有没有判决书或者报警回执，其他的先当故事听。</p></div>
+
+          <div class="cmt"><div class="who"><span class="avatar">磁</span><span class="name">磁悬浮列车</span><span class="when">10-29</span></div><p>声析那家机构之前给别的案子出过意见吗？有没有资质公示？这个我没查到，有知道的说一声。</p><span class="on">→ 周斯远录音门</span></div>
+
+          <div class="cmt"><div class="who"><span class="avatar">吃</span><span class="name">吃瓜不吐皮</span><span class="when">10-28</span></div><p>一天刷八条爆料，最后一条也没记住。还是判决书那种看着踏实。</p></div>
+
+          <div class="cmt"><div class="who"><span class="avatar">橙</span><span class="name">橙子味的猫</span><span class="when">10-28</span></div><p>小鹿那个事，MCN 要 210 万，法院判 62 万，这中间的差价就是合同里那些虚高的违约条款，签的时候真得看仔细。</p><span class="on">→ 甜橙MCN 解约案</span></div>
+
+          <div class="cmt"><div class="who"><span class="avatar">深</span><span class="name">深夜改稿人</span><span class="when">10-27</span></div><p>800 万那场直播我看过回放，主播全程没报具体库存，只说“抢完了”。现在看退货 641 万，一点都不意外。</p><span class="on">→ 800 万 GMV 争议</span></div>
+
+        </div>
+      </section>
+
+      <!-- 9 资讯 -->
+      <section class="block" id="news">
+        <div class="block-head">
+          <h2>相关资讯
+            <small>10-25 至 11-07 的平台规则与司法进展</small>
+          </h2>
+        </div>
+        <div class="news-grid">
+
+          <article class="news">
+            <img src="https://picsum.photos/seed/news-ai-rule/600/400" width="600" height="400" loading="lazy" alt="平台关于 AI 生成内容强制标注的公告页面截图">
+            <div class="nb">
+              <div class="d">2026-11-03</div>
+              <h3><a href="/#news">抖音新增 AI 生成内容标注规则，未标注被举报三次将限流</a></h3>
+              <p>规则 11-03 生效，涉及真人肖像的合成内容须在发布页勾选“AI 生成”。平台同期披露，10 月共处置 1,147 条未标注的合成视频，其中 38 条涉及品牌代言。</p>
+            </div>
+          </article>
+
+          <article class="news">
+            <img src="https://picsum.photos/seed/news-court/600/400" width="600" height="400" loading="lazy" alt="杭州互联网法院外景与 MCN 解约案判决书封面">
+            <div class="nb">
+              <div class="d">2026-10-28</div>
+              <h3><a href="/#news">杭州互联网法院 10 月审结 4 起 MCN 解约案，最高判赔 118 万</a></h3>
+              <p>4 起案件中 3 起核减了合同约定的违约金，核减理由集中在“公司未提供推广投入凭证”。其中一起案件的“限制主播婚育”条款被认定无效。</p>
+            </div>
+          </article>
+
+          <article class="news">
+            <img src="https://picsum.photos/seed/news-copy/600/400" width="600" height="400" loading="lazy" alt="短视频平台版权投诉工单界面，显示逐条判定结果">
+            <div class="nb">
+              <div class="d">2026-11-02</div>
+              <h3><a href="/#news">短视频版权投诉工单首次公开逐条判定理由</a></h3>
+              <p>“山野食记”投诉案中，平台在工单里对 63 条视频逐条给出判定，其中 12 条因“添加解说与字幕”被认定为二次创作。平台称该展示方式 11 月起向所有创作者开放。</p>
+            </div>
+          </article>
+
+          <article class="news">
+            <img src="https://picsum.photos/seed/news-band/600/400" width="600" height="400" loading="lazy" alt="平台公告页面，列出被永久封禁的 6 个娱乐爆料账号">
+            <div class="nb">
+              <div class="d">2026-10-27</div>
+              <h3><a href="/#news">6 个娱乐爆料账号被永久封禁，涉付费进群</a></h3>
+              <p>公告列出的违规类型为“编造未经证实的信息并引导付费进群”，涉及账号粉丝量合计 487 万。平台同时下架 23 个关联小号，其中 9 个注册时间不足 15 天。</p>
+            </div>
+          </article>
+
+          <article class="news">
+            <img src="https://picsum.photos/seed/news-audio/600/400" width="600" height="400" loading="lazy" alt="声纹鉴定机构官网发布的初检意见页面，含波形图">
+            <div class="nb">
+              <div class="d">2026-10-30</div>
+              <h3><a href="/#news">声析机构发布录音剪辑初检意见，指出 0.4 秒静音插入</a></h3>
+              <p>意见书共 3 页，附波形图与时间轴。机构注明“初检仅判断连续性，不判断内容真伪”，完整鉴定需当事方委托。该意见书 48 小时内被 17 家媒体引用。</p>
+            </div>
+          </article>
+
+          <article class="news">
+            <img src="https://picsum.photos/seed/news-gmv/600/400" width="600" height="400" loading="lazy" alt="直播电商合同中关于 GMV 结算口径的条款特写">
+            <div class="nb">
+              <div class="d">2026-10-26</div>
+              <h3><a href="/#news">直播电商合同示范文本征求意见，要求写明 GMV 结算口径</a></h3>
+              <p>征求意见稿第 12 条要求合同明确“是否含预售定金、是否扣除退货、赠品如何折算”。意见反馈截止 11-30，已有 6 家 MCN 提交书面意见。</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 10 榜单 + 时间线 -->
+      <section class="block" id="rank">
+        <div class="block-head">
+          <h2>争议榜与事件时间线
+            <small>榜单按证据完整度与讨论量综合排序，非单纯热度</small>
+          </h2>
+        </div>
+        <div class="two-col">
+          <div>
+            <ol class="rank">
+              <li><span class="no">1</span><span class="rk-t">林雨桐代言合约终止<span class="rk-s">已证实 · 14 张截图</span></span><span class="heat">98</span></li>
+              <li><span class="no">2</span><span class="rk-t">周斯远录音门<span class="rk-s">各执一词 · 2 版音频</span></span><span class="heat">94</span></li>
+              <li><span class="no">3</span><span class="rk-t">甜橙MCN 解约案一审<span class="rk-s">已证实 · 判决书 23 页</span></span><span class="heat">91</span></li>
+              <li><span class="no">4</span><span class="rk-t">800 万 GMV 退货争议<span class="rk-s">各执一词 · 5 张对比表</span></span><span class="heat">88</span></li>
+              <li><span class="no">5</span><span class="rk-t">AI 换脸伪造代言<span class="rk-s">已证实 · 2 份报警回执</span></span><span class="heat">85</span></li>
+              <li><span class="no">6</span><span class="rk-t">控评组聊天记录外泄<span class="rk-s">单方爆料 · 21 张截图</span></span><span class="heat">81</span></li>
+              <li><span class="no">7</span><span class="rk-t">山野食记盗搬 63 条<span class="rk-s">已证实 · 63 组对照</span></span><span class="heat">76</span></li>
+              <li><span class="no">8</span><span class="rk-t">选秀总决赛票数回落<span class="rk-s">存疑区 · 5 分钟抓取</span></span><span class="heat">73</span></li>
+            </ol>
+          </div>
+          <div>
+            <ul class="timeline">
+              <li><time datetime="2026-10-19">10-19</time><b>首条 AI 换脸代言视频出现</b><span>小号发布，播放量 47 万，未标注合成。</span></li>
+              <li><time datetime="2026-10-23">10-23</time><b>第二条伪造视频出现</b><span>涉及另一品牌，播放量 12 万，当晚下架。</span></li>
+              <li><time datetime="2026-10-25">10-25</time><b>山野食记公布时间戳对照</b><span>63 组对照，最早搬运晚于原片 4 小时。</span></li>
+              <li><time datetime="2026-10-28">10-28</time><b>甜橙MCN 解约案一审判决</b><span>赔偿 62 万，限制婚育条款无效。</span></li>
+              <li><time datetime="2026-10-30">10-30</time><b>声析机构发布初检意见</b><span>定位 2:31 剪辑点，缺失约 11 秒。</span></li>
+              <li><time datetime="2026-11-03">11-03</time><b>AI 内容标注规则生效</b><span>未标注被举报三次限流 30 天。</span></li>
+              <li><time datetime="2026-11-07">11-07</time><b>品牌方补充续约邮件</b><span>邮件显示“条款无异议”，与此前说法冲突。</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11 推荐 -->
+      <section class="block" id="reco">
+        <div class="block-head">
+          <h2>延伸索引
+            <small>按具体条目、规则名与类型词进入</small>
+          </h2>
+        </div>
+        <div class="reco">
+          <a href="/#deep"><b>道德条款</b>适用边界</a>
+          <a href="/#deep">GMV 结算口径</a>
+          <a href="/#updates">录音剪辑点识别</a>
+          <a href="/#picks">AI 换脸代言案</a>
+          <a href="/#news">MCN 解约判决</a>
+          <a href="/#faq">聊天截图核查</a>
+          <a href="/#updates">控评组分工表</a>
+          <a href="/#rank">选秀票数抓取</a>
+        </div>
+      </section>
+
+      <!-- 12 投稿 -->
+      <section class="block" id="submit">
+        <div class="submit-panel">
+          <div>
+            <h2>投稿与材料上传</h2>
+            <p>有原始截图、录屏、录音或判决书扫描件的读者，可以提交到待核实区。请尽量附上首发链接与获取时间，缺这两项的材料会先进入“存疑区”，核查后再决定是否公开。</p>
+            <div class="rules">
+              <span>附原始文件</span><span>注明获取时间</span><span>不接受纯文字转述</span><span>涉未成年人内容一律不收录</span>
+            </div>
+          </div>
+          <a class="btn btn-primary" href="/#submit">进入投稿入口</a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- RIGHT SIDEBAR -->
+    <aside class="side right" aria-label="辅助栏">
+      <div class="side-box">
+        <h3>今日新增</h3>
+        <ul class="feed" style="background:transparent;border:0;box-shadow:none">
+          <li style="grid-template-columns:1fr;padding:9px 0;gap:3px">
+            <div><h3 style="font-size:13.5px"><a href="/#updates">林雨桐续约邮件</a></h3>
+            <p style="font-size:12.5px">品牌方补充 2025-09-12 邮件</p></div>
+          </li>
+          <li style="grid-template-columns:1fr;padding:9px 0;gap:3px">
+            <div><h3 style="font-size:13.5px"><a href="/#updates">周斯远录音波形</a></h3>
+            <p style="font-size:12.5px">声析公开 2:31 剪辑点</p></div>
+          </li>
+          <li style="grid-template-columns:1fr;padding:9px 0;gap:3px;border-bottom:0">
+            <div><h3 style="font-size:13.5px"><a href="/#updates">小鹿不困分期方案</a></h3>
+            <p style="font-size:12.5px">62 万赔偿分 12 期支付</p></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="side-box">
+        <h3>待核实区</h3>
+        <ul class="chan-list">
+          <li><a href="/#updates">控评组分工表<span>21 图</span></a></li>
+          <li><a href="/#updates">程亦然聊天截图<span>9 图</span></a></li>
+          <li><a href="/#rank">选秀票数日志<span>待公开</span></a></li>
+          <li><a href="/#updates">某综艺剪辑争议<span>3 条</span></a></li>
+        </ul>
+      </div>
+
+      <div class="side-box">
+        <h3>常用核查工具</h3>
+        <ul class="chan-list">
+          <li><a href="/#deep">波形连续性比对<span>方法</span></a></li>
+          <li><a href="/#faq">截图时间戳核对<span>方法</span></a></li>
+          <li><a href="/#guide">首发账号历史<span>方法</span></a></li>
+          <li><a href="/#news">投诉工单查询<span>入口</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<footer class="site">
+  <div class="foot-in">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#241f16"/>
+            <path d="M18 45 L32 16 L46 45 Z" fill="none" stroke="#e8b04b" stroke-width="3.6" stroke-linejoin="round"/>
+            <circle cx="32" cy="37" r="4" fill="#e8b04b"/>
+          </svg>
+          51hlw黑料网
+        </div>
+        <p class="foot-desc">收录时间跨度自 2021 年 3 月至 2026 年 11 月，条目类型以合约纠纷、直播翻车、数据造假、版权争议为主。工作日每天上午更新前一日新出现的可核查材料，判决书、封禁公告、鉴定意见单独标注日期。</p>
+      </div>
+      <div class="foot-col">
+        <h4>内容频道</h4>
+        <a href="/#channels">艺人合约纠纷</a>
+        <a href="/#channels">直播翻车</a>
+        <a href="/#channels">自媒体造假</a>
+        <a href="/#channels">带货数据注水</a>
+        <a href="/#channels">版权抄袭</a>
+      </div>
+      <div class="foot-col">
+        <h4>核查与阅读</h4>
+        <a href="/#deep">证据层级解析</a>
+        <a href="/#guide">吃瓜顺序指南</a>
+        <a href="/#faq">常见疑问</a>
+        <a href="/#rank">争议榜</a>
+        <a href="/#comments">圈内讨论</a>
+      </div>
+      <div class="foot-col">
+        <h4>参与</h4>
+        <a href="/#submit">投稿爆料</a>
+        <a href="/#submit">材料上传</a>
+        <a href="/#updates">更新动态</a>
+        <a href="/#news">相关资讯</a>
+        <a href="/#reco">延伸索引</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>页面内容为垂类示例条目，涉及人名、品牌、机构均为虚构，如有雷同纯属巧合。最近一次可核对更新：2026-11-07 林雨桐代言续约邮件。</span>
+      <span>51hlw黑料网 · 示例站点</span>
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="回到顶部">↑</button>
+
+<div class="mask" id="mask"></div>
+<aside class="drawer" id="drawer" aria-label="移动端导航" aria-hidden="true">
+  <button class="btn close" id="drawerClose">关闭</button>
+  <h4>主题导航</h4>
+  <a href="/#overview">领域概览</a>
+  <a href="/#picks">爆料精选</a>
+  <a href="/#updates">更新动态</a>
+  <a href="/#channels">分类频道</a>
+  <a href="/#deep">深度解析</a>
+  <a href="/#guide">吃瓜指南</a>
+  <a href="/#faq">常见疑问</a>
+  <a href="/#comments">圈内讨论</a>
+  <a href="/#news">相关资讯</a>
+  <a href="/#rank">争议榜</a>
+  <a href="/#reco">延伸索引</a>
+  <a href="/#submit">投稿爆料</a>
+  <h4>频道索引</h4>
+  <a href="/#channels">艺人合约纠纷</a>
+  <a href="/#channels">直播翻车</a>
+  <a href="/#channels">自媒体造假</a>
+  <a href="/#channels">饭圈互撕</a>
+  <a href="/#channels">带货数据注水</a>
+  <a href="/#channels">私德争议</a>
+  <a href="/#channels">版权抄袭</a>
+  <a href="/#channels">平台封禁</a>
+</aside>
+
+<script>
+(function(){
+  "use strict";
+
+  /* 更新动态搜索 */
+  var input = document.getElementById('updateSearch');
+  var feed = document.getElementById('updateFeed');
+  var empty = document.getElementById('updateEmpty');
+  if (input && feed) {
+    var items = Array.prototype.slice.call(feed.querySelectorAll('li'));
+    input.addEventListener('input', function(){
+      var q = input.value.trim().toLowerCase();
+      var shown = 0;
+      items.forEach(function(li){
+        var text = (li.getAttribute('data-k') || '') + li.textContent.toLowerCase();
+        var hit = !q || text.indexOf(q) !== -1;
+        li.style.display = hit ? '' : 'none';
+        if (hit) shown++;
+      });
+      if (empty) {
+        empty.classList.toggle('show', shown === 0);
+        var sp = empty.querySelector('span');
+        if (sp) sp.textContent = input.value.trim();
+      }
+      feed.style.display = shown === 0 ? 'none' : '';
+    });
+  }
+
+  /* 回到顶部 */
+  var toTop = document.getElementById('toTop');
+  function onScroll(){
+    if (window.scrollY > window.innerHeight * 0.9) {
+      toTop.classList.add('show');
+    } else {
+      toTop.classList.remove('show');
+    }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* 移动端抽屉 */
+  var hamburger = document.getElementById('hamburger');
+  var drawer = document.getElementById('drawer');
+  var mask = document.getElementById('mask');
+  var drawerClose = document.getElementById('drawerClose');
+
+  function openDrawer(){
+    drawer.classList.add('open');
+    mask.classList.add('show');
+    drawer.setAttribute('aria-hidden','false');
+    hamburger.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+    if (drawerClose) drawerClose.focus();
+  }
+  function closeDrawer(){
+    drawer.classList.remove('open');
+    mask.classList.remove('show');
+    drawer.setAttribute('aria-hidden','true');
+    hamburger.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+    hamburger.focus();
+  }
+  if (hamburger) hamburger.addEventListener('click', openDrawer);
+  if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+  if (mask) mask.addEventListener('click', closeDrawer);
+  drawer.addEventListener('click', function(e){
+    var a = e.target.closest('a');
+    if (a) closeDrawer();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+  });
+
+  /* 目录高亮 */
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('#toc a'));
+  var sections = tocLinks.map(function(a){
+    var id = a.getAttribute('href').replace('/#','');
+    return document.getElementById(id);
+  }).filter(Boolean);
+
+  if ('IntersectionObserver' in window && sections.length) {
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) {
+          var id = en.target.id;
+          tocLinks.forEach(function(a){
+            a.classList.toggle('active', a.getAttribute('href') === '/#' + id);
+          });
+        }
+      });
+    }, {rootMargin: '-120px 0px -60% 0px', threshold: 0});
+    sections.forEach(function(s){ obs.observe(s); });
+  }
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "51hlw黑料网",
+  "description": "汇集网络争议事件、爆料存档与当事人回应记录，按时间线整理证据链并核查来源可信度。",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"聊天记录截图能当作爆料证据吗？","acceptedAnswer":{"@type":"Answer","text":"截图只能证明有人制作了这张图，不能证明对话真实发生。可用截图通常需包含完整对话上下文、时间戳与事件时间吻合、至少一位当事人承认对话存在。"}},
+    {"@type":"Question","name":"录音被剪辑过，还能用来判断事实吗？","acceptedAnswer":{"@type":"Answer","text":"能判断的部分是哪一段被剪掉了，而不是剪掉的内容是什么。通过波形连续性可定位剪辑点，但缺失段落的实际内容仍需完整录音公开。"}},
+    {"@type":"Question","name":"带货直播的 GMV 数字为什么经常对不上？","acceptedAnswer":{"@type":"Answer","text":"常见差异来自三个口径：是否计入预售定金、是否扣除退货、是否包含赠品折算金额。合同写明结算口径可减少纠纷。"}},
+    {"@type":"Question","name":"选秀票数争议里，公证处的说明有多大作用？","acceptedAnswer":{"@type":"Answer","text":"取决于说明附了什么材料。只有文字说明、不公开服务器日志，能证明流程存在，不能证明票数未被操作。"}},
+    {"@type":"Question","name":"MCN 解约官司，违约金一般怎么算？","acceptedAnswer":{"@type":"Answer","text":"法院通常参考合同约定金额、主播实际收入、公司投入成本和剩余合约期，约定金额高不等于判决金额高。"}},
+    {"@type":"Question","name":"被平台封禁的爆料账号，之前发的内容还可信吗？","acceptedAnswer":{"@type":"Answer","text":"要分内容看，有原始附件、有当事方回应的保留，纯文字描述的降级处理，不能整体否定或整体采信。"}}
+  ]
+}
+</script>
+
+</body>
+  </html>
