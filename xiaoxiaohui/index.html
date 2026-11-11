@@ -1,0 +1,2070 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小小绘 Twitter - 插画师社群与作品动态聚合</title>
+  <meta name="description" content="小小绘 Twitter 聚合插画师作品、创作动态与社群讨论，涵盖手绘过程、约稿信息、工具评测与新人避坑指南，适合插画爱好者与接稿画师日常浏览。">
+  <meta name="keywords" content="小小绘 Twitter">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f26b4a'/%3E%3Cpath d='M14 44c6-18 16-26 30-26 4 0 8 2 10 6-4 0-6 2-8 6-2 6-8 14-16 18-6 3-12 2-16-4z' fill='%23fff7f2' opacity='.9'/%3E%3Ccircle cx='42' cy='22' r='4' fill='%23fff7f2'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --primary: #d94f2b;
+      --primary-light: #fbe9e3;
+      --primary-dark: #a63a1e;
+      --accent: #2f6f6b;
+      --accent-light: #e2f0ee;
+      --bg: #fdf9f6;
+      --panel: #ffffff;
+      --text: #2b2522;
+      --text-secondary: #6b5e58;
+      --text-tertiary: #9b8b84;
+      --border: #eaded7;
+      --radius-card: 16px;
+      --radius-btn: 10px;
+      --radius-tag: 6px;
+      --shadow-sm: 0 2px 8px rgba(43, 37, 34, 0.06);
+      --shadow-hover: 0 8px 24px rgba(217, 79, 43, 0.12);
+      --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+      --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      --max-width: 1380px;
+      --announce-height: 40px;
+      --header-height: 64px;
+      --sticky-offset: calc(var(--announce-height) + var(--header-height));
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--sticky-offset); }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+
+    /* 吸顶公告条 */
+    .announce-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--announce-height);
+      background: var(--primary);
+      color: #fff;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .announce-inner {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+      white-space: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .announce-inner::-webkit-scrollbar { display: none; }
+    .announce-brand {
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+    .announce-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .announce-date {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    /* 吸顶页头 */
+    .site-header {
+      position: sticky;
+      top: var(--announce-height);
+      z-index: 99;
+      height: var(--header-height);
+      background: rgba(253, 249, 246, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .brand svg { width: 36px; height: 36px; }
+    .brand-text {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary-dark);
+      letter-spacing: 0.3px;
+    }
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .main-nav::-webkit-scrollbar { display: none; }
+    .main-nav a {
+      padding: 6px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      border-radius: var(--radius-btn);
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+    .main-nav a:hover { background: var(--primary-light); color: var(--primary-dark); }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-btn);
+      padding: 6px 12px;
+    }
+    .search-box input {
+      border: none;
+      outline: none;
+      font-size: 13px;
+      width: 140px;
+      background: transparent;
+      color: var(--text);
+    }
+    .search-box input::placeholder { color: var(--text-tertiary); }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: var(--radius-btn);
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+    .btn-ghost {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 16px;
+      border-radius: var(--radius-btn);
+      font-size: 14px;
+      font-weight: 500;
+      transition: border-color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+    .btn-ghost:hover { border-color: var(--primary); background: var(--primary-light); }
+
+    /* 汉堡菜单按钮 (移动端) */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      padding: 8px;
+      border-radius: var(--radius-btn);
+      border: 1px solid var(--border);
+      background: var(--panel);
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* 移动端菜单 */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--sticky-offset);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 98;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu-panel {
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+    .mobile-menu-panel a {
+      display: block;
+      padding: 12px 0;
+      font-size: 15px;
+      font-weight: 500;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu-panel a:last-of-type { border-bottom: none; }
+    .mobile-menu-close {
+      margin-top: 12px;
+      width: 100%;
+      padding: 12px;
+      background: var(--bg);
+      border-radius: var(--radius-btn);
+      font-size: 15px;
+      color: var(--text-secondary);
+    }
+
+    /* 首屏 */
+    .hero {
+      padding: 56px 0 48px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, #fdf9f6 0%, #fbe9e3 55%, #f6d9cf 100%);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -80px;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(217, 79, 43, 0.12), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 4px 14px 4px 8px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .hero h1 {
+      font-size: clamp(32px, 4.2vw, 52px);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--primary);
+      position: relative;
+    }
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 560px;
+      margin-bottom: 28px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .hero-stat-num {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--primary-dark);
+      line-height: 1.2;
+    }
+    .hero-stat-label {
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-visual svg {
+      width: 100%;
+      max-width: 460px;
+      height: auto;
+      filter: drop-shadow(0 12px 32px rgba(217, 79, 43, 0.15));
+    }
+
+    /* 主布局三栏 */
+    .layout-three {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr) 260px;
+      gap: 28px;
+      padding: 40px 0 64px;
+    }
+    .channel-nav {
+      position: sticky;
+      top: calc(var(--sticky-offset) + 20px);
+      align-self: start;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 18px 12px;
+    }
+    .channel-nav h2 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      padding: 0 10px;
+      margin-bottom: 10px;
+    }
+    .channel-nav a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 10px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      border-radius: var(--radius-btn);
+      transition: background 0.2s, color 0.2s;
+    }
+    .channel-nav a:hover,
+    .channel-nav a.active {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+    .channel-nav a .nav-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+    .channel-nav a.active .nav-dot { background: var(--primary); }
+
+    .main-content { min-width: 0; }
+    .side-col { min-width: 0; }
+
+    /* 板块通用 */
+    .section {
+      margin-bottom: 48px;
+    }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .section-header h2 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-header h2::before {
+      content: '';
+      width: 4px;
+      height: 22px;
+      border-radius: 2px;
+      background: var(--primary);
+      flex-shrink: 0;
+    }
+    .section-more {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .section-more:hover { color: var(--primary); }
+
+    /* 概览 */
+    .overview-text {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 24px 28px;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.9;
+    }
+    .overview-text p + p { margin-top: 14px; }
+    .overview-text strong { color: var(--text); font-weight: 700; }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+    .card-img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: var(--bg);
+    }
+    .card-body {
+      padding: 16px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+    .card-type {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 2px 8px;
+      border-radius: var(--radius-tag);
+      align-self: flex-start;
+    }
+    .card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--text);
+    }
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 2px;
+    }
+    .card-tags span {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      background: var(--bg);
+      padding: 1px 7px;
+      border-radius: 4px;
+    }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-top: 4px;
+    }
+    .card-meta .hot {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* 更新列表 */
+    .update-list {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 6px 22px;
+    }
+    .update-item {
+      display: flex;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+    .update-item:last-child { border-bottom: none; }
+    .update-time {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      white-space: nowrap;
+      padding-top: 3px;
+      min-width: 72px;
+    }
+    .update-content { flex: 1; min-width: 0; }
+    .update-content h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 3px;
+      color: var(--text);
+    }
+    .update-content p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .category-item {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 18px 16px;
+      text-align: center;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .category-item:hover {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+    .category-item .cat-icon {
+      font-size: 22px;
+      line-height: 1;
+    }
+    .category-item .cat-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .category-item .cat-count {
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+
+    /* 深度解析 */
+    .deep-dive {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 32px 36px;
+    }
+    .deep-dive h2 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .deep-dive h2::before {
+      content: '';
+      width: 4px;
+      height: 22px;
+      border-radius: 2px;
+      background: var(--primary);
+      flex-shrink: 0;
+    }
+    .deep-dive h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin: 26px 0 10px;
+      color: var(--primary-dark);
+    }
+    .deep-dive h3:first-of-type { margin-top: 0; }
+    .deep-dive p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      margin-bottom: 12px;
+    }
+    .deep-dive ul {
+      margin: 8px 0 16px 20px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    .deep-dive li { margin-bottom: 6px; }
+    .deep-dive .case-box {
+      background: var(--bg);
+      border-left: 3px solid var(--primary);
+      border-radius: 0 var(--radius-tag) var(--radius-tag) 0;
+      padding: 14px 18px;
+      margin: 14px 0;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+    .deep-dive .case-box strong { color: var(--text); }
+
+    /* 体验指南 */
+    .guide-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .guide-step {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 22px 20px;
+      position: relative;
+    }
+    .guide-step-num {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--primary-light);
+      line-height: 1;
+      margin-bottom: 10px;
+      font-family: var(--font-mono);
+    }
+    .guide-step h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .guide-step p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .faq-item {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item[open] { border-color: var(--primary); }
+    .faq-item summary {
+      padding: 16px 22px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--text-tertiary);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .faq-item[open] summary::after {
+      content: '−';
+      color: var(--primary);
+    }
+    .faq-answer {
+      padding: 0 22px 18px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    /* 评论 */
+    .comment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .comment-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 16px 18px;
+      transition: border-color 0.2s;
+    }
+    .comment-card:hover { border-color: var(--primary-light); }
+    .comment-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .comment-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      flex-shrink: 0;
+    }
+    .comment-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .comment-text {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* 相关资讯 */
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+    }
+    .news-item {
+      display: flex;
+      gap: 16px;
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-item:hover { background: var(--bg); }
+    .news-date {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      white-space: nowrap;
+      padding-top: 2px;
+      min-width: 80px;
+    }
+    .news-body h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+    .news-body p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* 相关推荐标签 */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 20px 22px;
+    }
+    .tag-cloud a {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 16px;
+      transition: all 0.2s;
+    }
+    .tag-cloud a:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* 侧栏板块 */
+    .side-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 20px 18px;
+      margin-bottom: 20px;
+    }
+    .side-card h2 {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .side-card h2::before {
+      content: '';
+      width: 3px;
+      height: 14px;
+      border-radius: 2px;
+      background: var(--primary);
+    }
+    .rank-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .rank-item {
+      display: flex;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+    .rank-item:last-child { border-bottom: none; }
+    .rank-num {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      width: 20px;
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+    .rank-item:nth-child(1) .rank-num { color: var(--primary); }
+    .rank-item:nth-child(2) .rank-num { color: var(--primary); opacity: 0.7; }
+    .rank-item:nth-child(3) .rank-num { color: var(--primary); opacity: 0.45; }
+    .rank-body { flex: 1; min-width: 0; }
+    .rank-body h3 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 2px;
+    }
+    .rank-body p {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      line-height: 1.5;
+    }
+
+    .side-timeline {
+      position: relative;
+      padding-left: 16px;
+    }
+    .side-timeline::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: var(--border);
+      border-radius: 1px;
+    }
+    .timeline-item {
+      position: relative;
+      padding-bottom: 16px;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -16px;
+      top: 5px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 2px solid var(--panel);
+      box-shadow: 0 0 0 1px var(--primary-light);
+    }
+    .timeline-date {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      margin-bottom: 2px;
+    }
+    .timeline-text {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    .side-cta {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+      border-radius: var(--radius-card);
+      padding: 24px 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .side-cta h3 {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .side-cta p {
+      font-size: 12px;
+      opacity: 0.85;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .side-cta .btn-white {
+      display: inline-block;
+      background: #fff;
+      color: var(--primary-dark);
+      padding: 8px 22px;
+      border-radius: var(--radius-btn);
+      font-size: 13px;
+      font-weight: 700;
+      transition: opacity 0.2s;
+    }
+    .side-cta .btn-white:hover { opacity: 0.9; }
+
+    /* 页尾 */
+    .site-footer {
+      background: #2b2522;
+      color: #c9bdb6;
+      padding: 48px 0 28px;
+      margin-top: 20px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr repeat(3, 1fr);
+      gap: 36px;
+      margin-bottom: 36px;
+    }
+    .footer-brand .brand-text {
+      color: #fff;
+      font-size: 20px;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .footer-brand p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #9b8b84;
+      max-width: 320px;
+    }
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: #9b8b84;
+      padding: 4px 0;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12px;
+      color: #6b5e58;
+    }
+    .footer-bottom .update-note {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-bottom .update-note::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #4a9b7a;
+    }
+
+    /* 回到顶部 */
+    .back-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-hover);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+      z-index: 97;
+      font-size: 18px;
+    }
+    .back-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .back-top:hover { background: var(--primary-dark); }
+
+    /* 搜索无结果 */
+    .search-empty {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: var(--text-tertiary);
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      border: 1px dashed var(--border);
+    }
+    .search-empty.show { display: block; }
+
+    /* 响应式 */
+    @media (max-width: 1024px) {
+      .layout-three {
+        grid-template-columns: 1fr 260px;
+      }
+      .channel-nav { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .hero-visual svg { max-width: 360px; }
+      .category-grid { grid-template-columns: repeat(2, 1fr); }
+      .guide-steps { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .main-nav { display: none; }
+      .hamburger { display: flex; }
+    }
+    @media (max-width: 740px) {
+      .container { padding: 0 16px; }
+      .layout-three {
+        grid-template-columns: 1fr;
+        padding: 24px 0 48px;
+      }
+      .side-col { margin-top: 8px; }
+      .hero { padding: 36px 0 32px; }
+      .hero-stats { gap: 20px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .category-grid { grid-template-columns: repeat(2, 1fr); }
+      .guide-steps { grid-template-columns: 1fr; }
+      .comment-grid { grid-template-columns: 1fr; }
+      .deep-dive { padding: 24px 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .news-item { flex-direction: column; gap: 4px; }
+      .update-item { flex-direction: column; gap: 4px; }
+      .update-time { padding-top: 0; }
+      .header-actions .btn-ghost { display: none; }
+      .search-box input { width: 100px; }
+      .back-top { right: 16px; bottom: 16px; width: 40px; height: 40px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+      html { scroll-behavior: auto; }
+    }
+    :focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+  <!-- 吸顶公告条 -->
+  <div class="announce-bar">
+    <div class="announce-inner">
+      <span class="announce-brand">小小绘 Twitter</span>
+      <span class="announce-item">
+        <span class="announce-date">11月5日</span>
+        <span>「秋季手绘接力」第4期作品集中上线</span>
+      </span>
+      <span class="announce-item">
+        <span class="announce-date">11月3日</span>
+        <span>约稿避坑指南新增「米画师定金规则」条目</span>
+      </span>
+      <span class="announce-item">
+        <span class="announce-date">11月1日</span>
+        <span>本月「新人画师推荐榜」已收录 37 位创作者</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- 吸顶页头 -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand" aria-label="小小绘 Twitter 首页">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#d94f2b"/>
+          <path d="M14 44c6-18 16-26 30-26 4 0 8 2 10 6-4 0-6 2-8 6-2 6-8 14-16 18-6 3-12 2-16-4z" fill="#fff7f2" opacity=".9"/>
+          <circle cx="42" cy="22" r="4" fill="#fff7f2"/>
+        </svg>
+        <span class="brand-text">小小绘 Twitter</span>
+      </a>
+      <nav class="main-nav" aria-label="主题导航">
+        <a href="#overview">领域概览</a>
+        <a href="#featured">精选作品</a>
+        <a href="#updates">最新动态</a>
+        <a href="#categories">分类导航</a>
+        <a href="#deep-dive">深度解析</a>
+        <a href="#guide">体验指南</a>
+        <a href="#faq">常见问题</a>
+        <a href="#news">相关资讯</a>
+      </nav>
+      <div class="header-actions">
+        <div class="search-box">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" id="searchInput" placeholder="搜索作品或画师" aria-label="搜索作品或画师">
+        </div>
+        <a href="#submit" class="btn-primary">投稿作品</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="打开菜单" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 移动端菜单 -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="移动端导航">
+    <div class="mobile-menu-panel">
+      <a href="#overview">领域概览</a>
+      <a href="#featured">精选作品</a>
+      <a href="#updates">最新动态</a>
+      <a href="#categories">分类导航</a>
+      <a href="#deep-dive">深度解析</a>
+      <a href="#guide">体验指南</a>
+      <a href="#faq">常见问题</a>
+      <a href="#news">相关资讯</a>
+      <a href="#comments">用户评论</a>
+      <a href="#submit">投稿作品</a>
+      <button class="mobile-menu-close" id="menuCloseBtn">关闭菜单</button>
+    </div>
+  </div>
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          2026 年 11 月 · 第 45 周内容更新
+        </div>
+        <h1>小小绘 Twitter</h1>
+        <p class="hero-desc">
+          汇集插画师在社交平台发布的原创作品、手绘过程、接稿经验与工具心得。这里能看到水彩、厚涂、速写、角色设计等方向的具体画师更新，也整理约稿定价、版权确认和新人避坑的实操参考。
+        </p>
+        <div class="hero-actions">
+          <a href="#featured" class="btn-primary">浏览本周精选</a>
+          <a href="#guide" class="btn-ghost">接稿入门指南</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num">1,280+</div>
+            <div class="hero-stat-label">收录作品条目</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">47</div>
+            <div class="hero-stat-label">本周活跃画师</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">11月8日</div>
+            <div class="hero-stat-label">最近更新</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 460 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="30" y="40" width="400" height="280" rx="24" fill="#fff" opacity=".6"/>
+          <rect x="50" y="60" width="170" height="120" rx="14" fill="#fbe9e3"/>
+          <circle cx="120" cy="110" r="32" fill="#d94f2b" opacity=".3"/>
+          <path d="M90 140c12-28 30-38 54-38 10 0 18 4 24 12-8 0-14 6-18 14-6 14-18 28-34 34-12 4-22 0-26-22z" fill="#d94f2b" opacity=".6"/>
+          <rect x="240" y="60" width="170" height="72" rx="14" fill="#e2f0ee"/>
+          <rect x="256" y="78" width="80" height="8" rx="4" fill="#2f6f6b" opacity=".4"/>
+          <rect x="256" y="96" width="120" height="6" rx="3" fill="#2f6f6b" opacity=".2"/>
+          <rect x="256" y="110" width="100" height="6" rx="3" fill="#2f6f6b" opacity=".2"/>
+          <rect x="240" y="148" width="170" height="76" rx="14" fill="#fdf9f6" stroke="#eaded7" stroke-width="1.5"/>
+          <rect x="256" y="166" width="60" height="6" rx="3" fill="#9b8b84" opacity=".4"/>
+          <rect x="256" y="182" width="120" height="5" rx="2.5" fill="#eaded7"/>
+          <rect x="256" y="196" width="90" height="5" rx="2.5" fill="#eaded7"/>
+          <rect x="50" y="200" width="360" height="100" rx="14" fill="#fff" opacity=".8"/>
+          <rect x="70" y="220" width="100" height="60" rx="8" fill="#f6d9cf"/>
+          <rect x="186" y="220" width="200" height="12" rx="6" fill="#eaded7"/>
+          <rect x="186" y="244" width="160" height="8" rx="4" fill="#eaded7" opacity=".6"/>
+          <rect x="186" y="262" width="180" height="8" rx="4" fill="#eaded7" opacity=".4"/>
+          <circle cx="386" cy="96" r="18" fill="#2f6f6b" opacity=".15"/>
+          <circle cx="386" cy="96" r="8" fill="#2f6f6b" opacity=".35"/>
+          <path d="M370 300c14 6 30 8 46 6" stroke="#d94f2b" stroke-width="2" stroke-linecap="round" opacity=".3"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主布局 三栏 -->
+  <div class="container layout-three">
+
+    <!-- 左栏频道索引 -->
+    <aside class="channel-nav" aria-label="频道索引">
+      <h2>频道</h2>
+      <a href="#overview" class="active"><span class="nav-dot"></span>领域概览</a>
+      <a href="#featured"><span class="nav-dot"></span>精选作品</a>
+      <a href="#updates"><span class="nav-dot"></span>最新动态</a>
+      <a href="#categories"><span class="nav-dot"></span>分类导航</a>
+      <a href="#deep-dive"><span class="nav-dot"></span>深度解析</a>
+      <a href="#guide"><span class="nav-dot"></span>体验指南</a>
+      <a href="#faq"><span class="nav-dot"></span>常见问题</a>
+      <a href="#comments"><span class="nav-dot"></span>用户评论</a>
+      <a href="#news"><span class="nav-dot"></span>相关资讯</a>
+      <a href="#related"><span class="nav-dot"></span>相关推荐</a>
+      <a href="#submit"><span class="nav-dot"></span>投稿互动</a>
+    </aside>
+
+    <!-- 中主内容 -->
+    <main class="main-content">
+
+      <!-- 1. 主题领域概览 -->
+      <section id="overview" class="section">
+        <div class="section-header">
+          <h2>插画创作与接稿生态观察</h2>
+        </div>
+        <div class="overview-text">
+          <p>
+            插画在社交平台上的内容形态已经相当细分。以水彩、厚涂、速写、角色设计、场景概念、人体练习为主的技术向作品构成基本盘；约稿展示、稿件进度、接单排期、价格咨询等交易向内容在画师账号中占比越来越高；工具评测、笔刷分享、平板选购、软件快捷键这类器材向内容则长期有稳定搜索量。新人画师关心的往往不是“画得好不好”，而是“怎么被人看到”和“第一单怎么收”。
+          </p>
+          <p>
+            从近期作品动态看，<strong>秋季手绘接力</strong>、<strong>角色设计周练</strong>、<strong>原创OC设定集</strong>是三个更新最密集的方向。10 月下旬到 11 月初，多位画师在社交平台发布万圣节主题稿件，风格从暗黑厚涂到可爱水彩都有，其中角色设计类稿件的互动量明显高于纯练习图。约稿方面，<strong>米画师</strong>、<strong>画加</strong>等平台在 10 月调整了部分品类的默认定金比例，引发不少画师在社交平台讨论合同条款怎么写。
+          </p>
+          <p>
+            工具层面，Procreate 5.4 的笔刷混合功能、Clip Studio Paint 的 3D 头部模型更新、iPad mini 7 的绘画延迟测试是 10 月以来的高频话题。对内容消费者来说，值得关注的不是设备跑分，而是具体画师用某款工具产出的作品效果——同样一支笔刷，在厚涂和赛璐璐两种风格下的表现差异很大，看成品比看参数更直接。
+          </p>
+        </div>
+      </section>
+
+      <!-- 2. 精选内容推荐 -->
+      <section id="featured" class="section">
+        <div class="section-header">
+          <h2>本周值得关注的插画作品</h2>
+          <a href="#updates" class="section-more">查看更新记录 →</a>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <img class="card-img" src="https://picsum.photos/seed/huihua01/400/300" width="400" height="300" loading="lazy" alt="水彩画师「青禾」的秋季街角写生作品">
+            <div class="card-body">
+              <span class="card-type">水彩写生</span>
+              <h3>青禾「梧桐街角」系列</h3>
+              <p class="card-desc">连续 9 天在同一路口写生，记录梧桐叶由绿转黄的过程。画面用留白表现晨雾，笔触比上一组「老巷」更松。</p>
+              <div class="card-tags"><span>水彩</span><span>城市写生</span><span>秋季限定</span></div>
+              <div class="card-meta"><span>11月6日更新</span><span class="hot">♡ 2,847</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card-img" src="https://picsum.photos/seed/role02/400/300" width="400" height="300" loading="lazy" alt="角色设计作品「机械师艾琳」三视图与配色方案">
+            <div class="card-body">
+              <span class="card-type">角色设计</span>
+              <h3>「机械师艾琳」三视图</h3>
+              <p class="card-desc">作者 @鹿几 为原创 OC 做的第四版修改，把护目镜换成单边款式，围裙口袋增加了工具挂环。附配色色卡。</p>
+              <div class="card-tags"><span>OC设定</span><span>三视图</span><span>厚涂</span></div>
+              <div class="card-meta"><span>11月5日更新</span><span class="hot">♡ 1,932</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card-img" src="https://picsum.photos/seed/houtu03/400/300" width="400" height="300" loading="lazy" alt="厚涂练习作品「雨夜便利店」的灯光处理过程">
+            <div class="card-body">
+              <span class="card-type">厚涂练习</span>
+              <h3>「雨夜便利店」光影拆解</h3>
+              <p class="card-desc">从底色到最终稿共 6 步，重点演示玻璃反光与暖色灯箱的对比处理。评论区有人问笔刷参数，作者给了具体数值。</p>
+              <div class="card-tags"><span>厚涂</span><span>光影</span><span>过程图</span></div>
+              <div class="card-meta"><span>11月4日更新</span><span class="hot">♡ 3,105</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card-img" src="https://picsum.photos/seed/sketch04/400/300" width="400" height="300" loading="lazy" alt="人体速写练习「地铁通勤」系列手稿">
+            <div class="card-body">
+              <span class="card-type">人体练习</span>
+              <h3>「地铁通勤」速写 30 张</h3>
+              <p class="card-desc">@阿七不画画 用午休时间在地铁上画的动态速写，重点捕捉站立乘客的重心变化。第 18 张的背包带处理被多人转发。</p>
+              <div class="card-tags"><span>速写</span><span>人体动态</span><span>日常练习</span></div>
+              <div class="card-meta"><span>11月3日更新</span><span class="hot">♡ 1,674</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card-img" src="https://picsum.photos/seed/scene05/400/300" width="400" height="300" loading="lazy" alt="场景概念设计「旧书店二楼」的透视与氛围稿">
+            <div class="card-body">
+              <span class="card-type">场景概念</span>
+              <h3>「旧书店二楼」氛围稿</h3>
+              <p class="card-desc">作者 @木鱼水心 为短篇漫画画的场景测试，用了两点透视，书架排列故意留出视线通道。附透视辅助线截图。</p>
+              <div class="card-tags"><span>场景设计</span><span>透视</span><span>漫画背景</span></div>
+              <div class="card-meta"><span>11月2日更新</span><span class="hot">♡ 982</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card-img" src="https://picsum.photos/seed/oc06/400/300" width="400" height="300" loading="lazy" alt="原创OC「霜降」的设定图与表情差分">
+            <div class="card-body">
+              <span class="card-type">OC设定</span>
+              <h3>「霜降」表情差分 12 张</h3>
+              <p class="card-desc">@栗子饼 给自家 OC 补齐了表情库，从平静到惊讶共 12 种。第 7 张「憋笑」被评论区要求出徽章。</p>
+              <div class="card-tags"><span>表情差分</span><span>原创角色</span><span>赛璐璐</span></div>
+              <div class="card-meta"><span>11月1日更新</span><span class="hot">♡ 2,230</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 3. 最新更新 / 动态 -->
+      <section id="updates" class="section">
+        <div class="section-header">
+          <h2>画师动态与稿件进度</h2>
+        </div>
+        <div class="update-list">
+          <div class="update-item">
+            <div class="update-time">11月8日</div>
+            <div class="update-content">
+              <h3>@青禾 发布「梧桐街角」第 9 天</h3>
+              <p>完成秋季写生系列最后一幅，画面中加了路过的小狗。作者在评论里说这套会整理成明信片。</p>
+            </div>
+          </div>
+          <div class="update-item">
+            <div class="update-time">11月7日</div>
+            <div class="update-content">
+              <h3>@鹿几 开放 12 月约稿排期</h3>
+              <p>角色设计半身 450 元起，三视图 800 元，定金 30%。排期表显示 12 月只剩 3 个名额。</p>
+            </div>
+          </div>
+          <div class="update-item">
+            <div class="update-time">11月6日</div>
+            <div class="update-content">
+              <h3>「角色设计周练」第 14 期主题公布</h3>
+              <p>本期题目是「蒸汽朋克 × 花店」，要求包含一个非人类特征。已有 23 位画师提交作品。</p>
+            </div>
+          </div>
+          <div class="update-item">
+            <div class="update-time">11月5日</div>
+            <div class="update-content">
+              <h3>@阿七不画画 地铁速写被转载</h3>
+              <p>「地铁通勤」系列第 18 张被三位插画博主转发，原作者在评论区补充了笔刷型号和纸张克数。</p>
+            </div>
+          </div>
+          <div class="update-item">
+            <div class="update-time">11月4日</div>
+            <div class="update-content">
+              <h3>米画师更新定金规则说明</h3>
+              <p>平台在帮助中心补充了「定制类稿件定金不低于 30%」的条款解释，多位画师在社交平台转发。</p>
+            </div>
+          </div>
+          <div class="update-item">
+            <div class="update-time">11月3日</div>
+            <div class="update-content">
+              <h3>@木鱼水心 发布透视教程上半篇</h3>
+              <p>用「旧书店二楼」做案例，讲两点透视下书架间距的计算。下半篇预计 11 月 10 日发。</p>
+            </div>
+          </div>
+          <div class="update-item">
+            <div class="update-time">11月2日</div>
+            <div class="update-content">
+              <h3>Procreate 5.4 笔刷混合测试汇总</h3>
+              <p>多位画师上传同一组笔刷在新版本下的对比图，厚涂方向反馈「混色更顺」，赛璐璐方向认为「边缘变软」。</p>
+            </div>
+          </div>
+          <div class="update-item">
+            <div class="update-time">11月1日</div>
+            <div class="update-content">
+              <h3>@栗子饼 「霜降」表情差分完结</h3>
+              <p>12 张表情全部画完，作者发起投票问下一套画「立绘」还是「Q 版」，目前 Q 版领先。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. 分类入口 -->
+      <section id="categories" class="section">
+        <div class="section-header">
+          <h2>按创作方向浏览</h2>
+        </div>
+        <div class="category-grid">
+          <a href="#featured" class="category-item">
+            <span class="cat-icon">🎨</span>
+            <span class="cat-name">水彩与淡彩</span>
+            <span class="cat-count">186 件作品</span>
+          </a>
+          <a href="#featured" class="category-item">
+            <span class="cat-icon">🖌️</span>
+            <span class="cat-name">厚涂与半厚涂</span>
+            <span class="cat-count">243 件作品</span>
+          </a>
+          <a href="#featured" class="category-item">
+            <span class="cat-icon">✏️</span>
+            <span class="cat-name">速写与人体</span>
+            <span class="cat-count">158 件作品</span>
+          </a>
+          <a href="#featured" class="category-item">
+            <span class="cat-icon">🧝</span>
+            <span class="cat-name">角色设计</span>
+            <span class="cat-count">312 件作品</span>
+          </a>
+          <a href="#featured" class="category-item">
+            <span class="cat-icon">🏙️</span>
+            <span class="cat-name">场景概念</span>
+            <span class="cat-count">97 件作品</span>
+          </a>
+          <a href="#featured" class="category-item">
+            <span class="cat-icon">📐</span>
+            <span class="cat-name">透视与构图</span>
+            <span class="cat-count">74 件作品</span>
+          </a>
+          <a href="#featured" class="category-item">
+            <span class="cat-icon">📋</span>
+            <span class="cat-name">约稿展示</span>
+            <span class="cat-count">205 条记录</span>
+          </a>
+          <a href="#featured" class="category-item">
+            <span class="cat-icon">🛠️</span>
+            <span class="cat-name">工具与笔刷</span>
+            <span class="cat-count">89 篇分享</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 5. 深度解析正文 -->
+      <section id="deep-dive" class="section">
+        <div class="deep-dive">
+          <h2>约稿定价与作品判断：几个容易被忽略的细节</h2>
+          <p>
+            把「画得好」直接等同于「约稿值这个价」，是新人画师最容易踩的坑。作品质量和稿件定价之间隔着工作量评估、版权范围、修改次数三道坎，任何一道没谈清楚，后面都容易扯皮。
+          </p>
+
+          <h3>半身像报价的三种算法</h3>
+          <p>
+            目前社交平台上常见的半身像报价有三套算法：按时间（时薪 × 预估工时）、按尺寸（A4 与 A3 差价约 40%）、按用途（个人收藏与商用授权分开计费）。@鹿几 在 11 月 7 日的排期帖里用了第三种，半身像个人用途 450 元，商用另加 200%。这个定价方式的好处是买家知道钱花在哪，坏处是初次约稿的人容易只看到基础价。
+          </p>
+          <div class="case-box">
+            <strong>可核对的时间线：</strong>10 月 28 日，米画师帮助中心更新定金条款；11 月 1 日，画加在创作者群发通知说明「定制类稿件定金不低于 30%」；11 月 4 日，多位画师在社交平台贴出旧合同与新条款的对比截图。同一规则在三处出现，说法一致，可以认定为平台方已公开的事实。至于「30% 是行业底线」的说法，目前只有画加单方面表述，其他平台未见相同措辞。
+          </div>
+
+          <h3>作品集里该放什么、不该放什么</h3>
+          <p>
+            约稿方翻作品集的时间平均不超过 90 秒。前 6 张图决定对方是否继续往下看。把练习图和成稿混排，会让约稿方难以判断交付水平。@阿七不画画 在 11 月 5 日的置顶帖里把作品集分成「完成稿」「过程图」「练习」三个分区，置顶的是三张完成度最高的商稿，练习图放在最下面。这条帖子的收藏量是近期同类内容里最高的，说明分区清晰本身就有需求。
+          </p>
+          <ul>
+            <li>完成稿放前面：至少 3 张，风格统一，分辨率足够看清笔触。</li>
+            <li>过程图单独一组：证明你会拆解步骤，而不是只会画最终效果。</li>
+            <li>练习图放最后：数量和完成度都要控制，别让约稿方误以为这是交付标准。</li>
+          </ul>
+
+          <h3>改稿次数的边界在哪里</h3>
+          <p>
+            「草稿阶段改三次，线稿阶段改一次，上色后不改」是社交平台上流传较广的一条约定。问题在于什么叫「改」——调整构图算改，换配色算不算？@栗子饼 11 月 1 日的表情差分帖里提到，她接稿时会附一张「修改范围示意」，把可改项和不可改项用红绿两色标出来，买家确认后再开工。这张示意图后来被多个画师账号转发，说明大家苦于口头约定久矣。
+          </p>
+          <p>
+            反过来，约稿方也有自己的判断标准。翻看近期评论区，被提及最多的三个信号是：画师是否主动给排期表、是否接受平台担保交易、是否在简介里写明「不接急稿」。三项里有两项满足，多数买家就愿意往下谈。至于价格高低，反而排在后面。
+          </p>
+          <div class="case-box">
+            <strong>两组数据的对比：</strong>10 月 20 日至 11 月 5 日，社交平台带「约稿」标签的帖子中，明确写出排期表的帖子互动量中位数约为 340，未写排期表的约为 120。同一时间段，标注「走平台」的帖子咨询量中位数约为 28 条，未标注的约为 9 条。数据来自公开帖子的可见互动数，不包含私信。
+          </div>
+
+          <h3>工具选择上的两个常见误判</h3>
+          <p>
+            Procreate 5.4 更新后，厚涂方向的画师普遍反馈混色更自然，但赛璐璐方向的画师认为边缘变软之后需要手动修线。同一项功能更新，在不同风格下评价相反，这是工具评测里最容易被忽略的一点。看评测时先确认作者的主攻风格，再看结论，比只看分数可靠。
+          </p>
+          <p>
+            另一个误判来自设备。iPad mini 7 的绘画延迟测试在 10 月底集中出现，多数测试用的是同一款绘画软件和同一支笔刷。但延迟感受和屏幕尺寸、作画距离都有关系，小屏设备在画大场景时容易频繁缩放，这种操作成本不会出现在延迟测试里。选设备前先想清楚自己主要画什么尺寸的图，比看跑分更实际。
+          </p>
+        </div>
+      </section>
+
+      <!-- 6. 体验指南 -->
+      <section id="guide" class="section">
+        <div class="section-header">
+          <h2>内容消费与判断路径</h2>
+        </div>
+        <div class="guide-steps">
+          <div class="guide-step">
+            <div class="guide-step-num">01</div>
+            <h3>先看完成稿，再看过程图</h3>
+            <p>完成稿决定要不要继续了解这个画师，过程图决定能不能从中学到东西。顺序反了，容易在练习图上花太多时间。</p>
+          </div>
+          <div class="guide-step">
+            <div class="guide-step-num">02</div>
+            <h3>用三张图判断风格是否稳定</h3>
+            <p>同一画师的三张完成稿如果笔触、配色、光影逻辑接近，说明交付水平稳定。差异过大时，约稿前要问清楚按哪张的标准来。</p>
+          </div>
+          <div class="guide-step">
+            <div class="guide-step-num">03</div>
+            <h3>约稿先查排期和定金条款</h3>
+            <p>排期表能看出画师当前的工作量，定金比例和修改次数写在简介里的，沟通成本通常更低。两样都没有的，多问一句再决定。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. FAQ -->
+      <section id="faq" class="section">
+        <div class="section-header">
+          <h2>约稿与创作常见问题</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>半身像约稿一般多少钱？定金怎么算？</summary>
+            <div class="faq-answer">社交平台上个人用途的半身像报价集中在 300 至 600 元，角色设计类偏高，速写风格偏低。定金比例 30% 是近期平台条款里的常见下限，米画师和画加在 10 月底到 11 月初都明确了这一条。商用授权通常另计，倍数在 1.5 到 3 倍之间，具体看使用范围。</div>
+          </details>
+          <details class="faq-item">
+            <summary>原创 OC 的设定图需要画三视图吗？</summary>
+            <div class="faq-answer">看用途。自己留存或做头像，一张主视图加表情差分就够。要交给别人画同人或者做周边，三视图能减少来回确认的次数。@鹿几 的「机械师艾琳」做到第四版才定稿，主要改的是配件位置——这种细节单靠一张正面图说不清楚。</div>
+          </details>
+          <details class="faq-item">
+            <summary>Procreate 5.4 的笔刷混合值得升级吗？</summary>
+            <div class="faq-answer">取决于主攻风格。厚涂方向普遍反馈混色更顺，过渡省力；赛璐璐方向认为边缘变软，需要手动修线。11 月 2 日的对比测试帖里，两组画师用同一组笔刷得出的结论相反，原因是平涂对边缘锐度更敏感。升级前先看同风格作者的测试图。</div>
+          </details>
+          <details class="faq-item">
+            <summary>约稿改稿次数一般怎么约定？</summary>
+            <div class="faq-answer">常见约定是草稿阶段 2 至 3 次，线稿阶段 1 次，上色后只改细节。关键在于提前说清楚「改」的范围——构图、配色、配件分别算几次。@栗子饼 的做法是附一张修改范围示意图，红绿两色标出可改项，确认后再开工，这种做法在 11 月初被多个画师转发参考。</div>
+          </details>
+          <details class="faq-item">
+            <summary>水彩写生从什么题材开始练比较好？</summary>
+            <div class="faq-answer">街角和日常静物是多数画师建议的起点，原因是轮廓清晰、光源相对稳定。@青禾 的「梧桐街角」系列在同一路口画了 9 天，重点练的是同一场景在不同光线下的色彩变化。比起换题材，定点重复更容易看出进步。</div>
+          </details>
+          <details class="faq-item">
+            <summary>作品集里放多少张图合适？</summary>
+            <div class="faq-answer">完成稿 6 到 10 张比较常见，风格统一比数量重要。练习图可以放，但建议单独分组，不要和完成稿混排。11 月 5 日的一条置顶帖把作品集分为完成稿、过程图、练习三个分区，收藏量在同期同类内容中居前，说明约稿方需要快速区分交付水平和练习记录。</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8. 用户评论 -->
+      <section id="comments" class="section">
+        <div class="section-header">
+          <h2>画师与约稿方的讨论</h2>
+        </div>
+        <div class="comment-grid">
+          <div class="comment-card">
+            <div class="comment-head"><div class="comment-avatar">青</div><span class="comment-name">青禾的笔</span></div>
+            <p class="comment-text">梧桐街角第 9 张那只小狗画得太活了，毛的走向一看就是观察过的。明信片出了我要。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head"><div class="comment-avatar">鹿</div><span class="comment-name">鹿几的排期表</span></div>
+            <p class="comment-text">三视图做到第四版还没定，配件越加越多，最后反而第一版的护目镜最顺眼。这钱花得值不值另说。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head"><div class="comment-avatar">阿</div><span class="comment-name">阿七不画画</span></div>
+            <p class="comment-text">地铁上画速写，最怕被画的人突然下车。第 18 张那个背包带其实是画错了，将错就错改成了背带裤。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head"><div class="comment-avatar">木</div><span class="comment-name">木鱼水心</span></div>
+            <p class="comment-text">透视教程下半篇在画了，书架间距那个公式其实有个前提条件没写上，先记着。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head"><div class="comment-avatar">栗</div><span class="comment-name">栗子饼</span></div>
+            <p class="comment-text">表情差分第 7 张憋笑被要求出徽章，我真出了你们买吗，先问清楚。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head"><div class="comment-avatar">路</div><span class="comment-name">路过看画</span></div>
+            <p class="comment-text">Procreate 更完混色是顺了，但我的笔刷全要重新调，赛璐璐线稿变糊，又调回去了。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head"><div class="comment-avatar">小</div><span class="comment-name">小满未满</span></div>
+            <p class="comment-text">约稿问了三家，只有一家主动给了排期表，直接选那家。价格不是最便宜的，但沟通最省心。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head"><div class="comment-avatar">夜</div><span class="comment-name">夜航船</span></div>
+            <p class="comment-text">雨夜便利店那张玻璃反光处理得真细，暖光从货架透出来那点感觉，我截了图当参考。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head"><div class="comment-avatar">三</div><span class="comment-name">三分钟热度</span></div>
+            <p class="comment-text">定金 30% 这事我上个月刚踩过坑，口头说 20%，出草稿了又变 30%，白纸黑字太重要了。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head"><div class="comment-avatar">纸</div><span class="comment-name">纸飞机飞了</span></div>
+            <p class="comment-text">秋天写生是真的难，叶子颜色一小时一变，青禾能蹲九天真有耐心。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head"><div class="comment-avatar">半</div><span class="comment-name">半糖去冰</span></div>
+            <p class="comment-text">角色设计周练这期蒸汽朋克加花店，我想到的都是铁皮花盆，已经能预见到一片撞题。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head"><div class="comment-avatar">老</div><span class="comment-name">老陈看画</span></div>
+            <p class="comment-text">工具评测不看风格就是耍流氓，同一支笔刷厚涂和赛璐璐结论完全反过来，深有体会。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head"><div class="comment-avatar">冬</div><span class="comment-name">冬眠中</span></div>
+            <p class="comment-text">作品集分区那个建议好，我练习图混在完成稿里半年了，难怪咨询少。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head"><div class="comment-avatar">柠</div><span class="comment-name">柠檬不酸</span></div>
+            <p class="comment-text">旧书店的透视辅助线能公开吗，书架那条灭线我一直画歪。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. 相关资讯 -->
+      <section id="news" class="section">
+        <div class="section-header">
+          <h2>近期平台与社群动态</h2>
+        </div>
+        <div class="news-list">
+          <article class="news-item">
+            <div class="news-date">11月6日</div>
+            <div class="news-body">
+              <h3>米画师「定制类定金不低于30%」条款正式生效</h3>
+              <p>平台帮助中心同步更新了条款解释页面，列举了三种不适用情形：单张头像、模板改色、二次购买同款。画加在 11 月 1 日已先行通知创作者群。</p>
+            </div>
+          </article>
+          <article class="news-item">
+            <div class="news-date">11月4日</div>
+            <div class="news-body">
+              <h3>Procreate 5.4 发布笔刷混合更新，画师测试结论分化</h3>
+              <p>官方更新说明提到混色算法调整，未涉及界面变化。社交平台两天内出现 40 余组对比测试，厚涂方向好评居多，赛璐璐方向反馈边缘锐度下降。</p>
+            </div>
+          </article>
+          <article class="news-item">
+            <div class="news-date">11月2日</div>
+            <div class="news-body">
+              <h3>「角色设计周练」第 14 期收到 23 份投稿</h3>
+              <p>本期主题「蒸汽朋克 × 花店」，发起人要求作品包含一个非人类特征。投稿截止 11 月 12 日，目前三份带机械义肢设定的作品互动量居前。</p>
+            </div>
+          </article>
+          <article class="news-item">
+            <div class="news-date">10月30日</div>
+            <div class="news-body">
+              <h3>iPad mini 7 绘画延迟实测汇总帖获 1,200 次转发</h3>
+              <p>测试使用 Procreate 与同一支 Apple Pencil，在 12 组线条练习中记录延迟帧数。评论区补充了屏幕尺寸对缩放操作频率的影响，原帖未覆盖这一点。</p>
+            </div>
+          </article>
+          <article class="news-item">
+            <div class="news-date">10月27日</div>
+            <div class="news-body">
+              <h3>「秋季手绘接力」第 4 期完成交接</h3>
+              <p>本期共 18 位画师参与，主题为「街角与落叶」，接力的第 9 棒由 @青禾 完成，下一棒交给 @阿七不画画，预计 11 月 9 日发布。</p>
+            </div>
+          </article>
+          <article class="news-item">
+            <div class="news-date">10月25日</div>
+            <div class="news-body">
+              <h3>画加上线「修改范围模板」工具</h3>
+              <p>创作者可在后台生成一张标注可改项与不可改项的示意图，随稿件一起发送。上线三天内使用量超过 800 次，模板内置了草稿、线稿、上色三个阶段的默认选项。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 10. 相关推荐 -->
+      <section id="related" class="section">
+        <div class="section-header">
+          <h2>继续浏览的方向</h2>
+        </div>
+        <div class="tag-cloud">
+          <a href="#featured">水彩写生练习</a>
+          <a href="#featured">厚涂光影拆解</a>
+          <a href="#featured">角色三视图模板</a>
+          <a href="#featured">人体动态速写</a>
+          <a href="#featured">场景透视辅助线</a>
+          <a href="#guide">约稿排期表模板</a>
+          <a href="#guide">定金比例与修改次数</a>
+          <a href="#news">Procreate 5.4 笔刷测试</a>
+          <a href="#news">米画师定金新规</a>
+          <a href="#featured">OC 表情差分</a>
+        </div>
+      </section>
+
+      <!-- 11. 补充板块：热门榜单 + 投稿互动 -->
+      <section id="submit" class="section">
+        <div class="section-header">
+          <h2>参与与投稿</h2>
+        </div>
+        <div class="side-cta" style="margin-bottom:20px; text-align:left; padding:28px 30px;">
+          <h3 style="font-size:18px;">投稿你的作品或约稿经验</h3>
+          <p style="font-size:13px; opacity:.85; margin-bottom:16px; max-width:560px;">欢迎提交原创插画、过程拆解或约稿避坑记录。稿件经整理后会出现在精选作品或动态列表中，并标注作者账号。投稿时请附上作品完成时间与使用工具。</p>
+          <a href="#submit" class="btn-white" style="background:#fff; color:var(--primary-dark); padding:10px 26px; border-radius:var(--radius-btn); font-weight:700; font-size:14px;">填写投稿信息</a>
+        </div>
+        <div class="side-card">
+          <h2>本周互动量榜单</h2>
+          <div class="rank-list">
+            <div class="rank-item">
+              <div class="rank-num">1</div>
+              <div class="rank-body">
+                <h3>@青禾「梧桐街角」第 9 天</h3>
+                <p>互动 2,847 · 水彩写生</p>
+              </div>
+            </div>
+            <div class="rank-item">
+              <div class="rank-num">2</div>
+              <div class="rank-body">
+                <h3>@鹿几「机械师艾琳」三视图</h3>
+                <p>互动 1,932 · 角色设计</p>
+              </div>
+            </div>
+            <div class="rank-item">
+              <div class="rank-num">3</div>
+              <div class="rank-body">
+                <h3>@栗子饼「霜降」表情差分</h3>
+                <p>互动 2,230 · 赛璐璐</p>
+              </div>
+            </div>
+            <div class="rank-item">
+              <div class="rank-num">4</div>
+              <div class="rank-body">
+                <h3>@阿七不画画「地铁通勤」第 18 张</h3>
+                <p>互动 1,674 · 速写</p>
+              </div>
+            </div>
+            <div class="rank-item">
+              <div class="rank-num">5</div>
+              <div class="rank-body">
+                <h3>@木鱼水心「旧书店二楼」氛围稿</h3>
+                <p>互动 982 · 场景概念</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 搜索无结果 -->
+      <div class="search-empty" id="searchEmpty">没有找到匹配的作品或画师，试试「水彩」「角色设计」或「Procreate」。</div>
+
+    </main>
+
+    <!-- 右辅助栏 -->
+    <aside class="side-col" aria-label="辅助信息">
+      <div class="side-card">
+        <h2>近期更新条目</h2>
+        <div class="side-timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">11月8日</div>
+            <div class="timeline-text">「梧桐街角」系列完结，共 9 张</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">11月7日</div>
+            <div class="timeline-text">@鹿几 开放 12 月约稿，剩余 3 个名额</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">11月6日</div>
+            <div class="timeline-text">米画师定金条款生效，新增三种不适用情形</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">11月4日</div>
+            <div class="timeline-text">Procreate 5.4 笔刷混合更新，测试帖集中出现</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">11月1日</div>
+            <div class="timeline-text">画加上线修改范围模板工具</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h2>新人画师推荐</h2>
+        <div class="rank-list">
+          <div class="rank-item">
+            <div class="rank-num">01</div>
+            <div class="rank-body">
+              <h3>@小满未满</h3>
+              <p>水彩静物 · 更新频率稳定</p>
+            </div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-num">02</div>
+            <div class="rank-body">
+              <h3>@夜航船</h3>
+              <p>厚涂夜景 · 光影处理突出</p>
+            </div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-num">03</div>
+            <div class="rank-body">
+              <h3>@半糖去冰</h3>
+              <p>角色设计 · 机械设定方向</p>
+            </div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-num">04</div>
+            <div class="rank-body">
+              <h3>@纸飞机飞了</h3>
+              <p>速写日常 · 地铁通勤题材</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="side-cta">
+        <h3>约稿避坑手册</h3>
+        <p>定金比例、修改次数、版权范围，三条线各有各的写法。整理了一版可对照的清单。</p>
+        <a href="#guide" class="btn-white">查看指南</a>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- 页尾 -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="brand-text">小小绘 Twitter</span>
+          <p>覆盖 2026 年 9 月至 11 月的插画作品与约稿动态，条目类型包括完成稿、过程图、约稿排期、平台规则变更和工具测试记录。每周三与周日集中更新一次，画师排期类信息随发随录。</p>
+        </div>
+        <div class="footer-col">
+          <h4>创作方向</h4>
+          <a href="#featured">水彩与淡彩</a>
+          <a href="#featured">厚涂与半厚涂</a>
+          <a href="#featured">速写与人体</a>
+          <a href="#featured">角色设计</a>
+          <a href="#featured">场景概念</a>
+        </div>
+        <div class="footer-col">
+          <h4>实用内容</h4>
+          <a href="#guide">约稿入门指南</a>
+          <a href="#faq">定金与改稿问答</a>
+          <a href="#news">平台规则动态</a>
+          <a href="#deep-dive">定价与作品判断</a>
+          <a href="#related">工具笔刷索引</a>
+        </div>
+        <div class="footer-col">
+          <h4>参与</h4>
+          <a href="#submit">投稿作品</a>
+          <a href="#submit">互动榜单</a>
+          <a href="#comments">用户评论</a>
+          <a href="#categories">分类导航</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 小小绘 Twitter · 内容聚合示例页面</span>
+        <span class="update-note">最近核对：2026 年 11 月 8 日 · 「梧桐街角」系列完结条目</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 回到顶部 -->
+  <button class="back-top" id="backTop" aria-label="回到顶部">↑</button>
+
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "小小绘 Twitter",
+    "description": "聚合插画师作品、创作动态与社群讨论，涵盖手绘过程、约稿信息、工具评测与新人避坑指南。",
+    "inLanguage": "zh-CN"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "半身像约稿一般多少钱？定金怎么算？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "社交平台上个人用途的半身像报价集中在 300 至 600 元，角色设计类偏高，速写风格偏低。定金比例 30% 是近期平台条款里的常见下限，米画师和画加在 10 月底到 11 月初都明确了这一条。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "原创 OC 的设定图需要画三视图吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "看用途。自己留存或做头像，一张主视图加表情差分就够。要交给别人画同人或者做周边，三视图能减少来回确认的次数。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Procreate 5.4 的笔刷混合值得升级吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "取决于主攻风格。厚涂方向普遍反馈混色更顺，过渡省力；赛璐璐方向认为边缘变软，需要手动修线。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "约稿改稿次数一般怎么约定？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "常见约定是草稿阶段 2 至 3 次，线稿阶段 1 次，上色后只改细节。关键在于提前说清楚「改」的范围。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "水彩写生从什么题材开始练比较好？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "街角和日常静物是多数画师建议的起点，原因是轮廓清晰、光源相对稳定。比起换题材，定点重复更容易看出进步。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "作品集里放多少张图合适？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "完成稿 6 到 10 张比较常见，风格统一比数量重要。练习图可以放，但建议单独分组，不要和完成稿混排。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script>
+    (function() {
+      // 汉堡菜单
+      const hamburger = document.getElementById('hamburgerBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuClose = document.getElementById('menuCloseBtn');
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+
+      function openMenu() {
+        mobileMenu.classList.add('open');
+        hamburger.setAttribute('aria-expanded', 'true');
+        hamburger.setAttribute('aria-label', '关闭菜单');
+      }
+      function closeMenu() {
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', '打开菜单');
+      }
+
+      hamburger.addEventListener('click', function() {
+        if (mobileMenu.classList.contains('open')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+      menuClose.addEventListener('click', closeMenu);
+      mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+      mobileMenu.addEventListener('click', function(e) {
+        if (e.target === mobileMenu) closeMenu();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+          closeMenu();
+        }
+      });
+
+      // 回到顶部
+      const backTop = document.getElementById('backTop');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > window.innerHeight) {
+          backTop.classList.add('visible');
+        } else {
+          backTop.classList.remove('visible');
+        }
+      }, { passive: true });
+      backTop.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // 搜索筛选 (简单本地查找)
+      const searchInput = document.getElementById('searchInput');
+      const searchEmpty = document.getElementById('searchEmpty');
+      const cards = document.querySelectorAll('.card');
+      const updateItems = document.querySelectorAll('.update-item');
+
+      function filterContent() {
+        const q = searchInput.value.trim().toLowerCase();
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          const match = !q || text.includes(q);
+          card.style.display = match ? '' : 'none';
+          if (match) visibleCount++;
+        });
+        updateItems.forEach(item => {
+          const text = item.textContent.toLowerCase();
+          const match = !q || text.includes(q);
+          item.style.display = match ? '' : 'none';
+          if (match) visibleCount++;
+        });
+
+        searchEmpty.classList.toggle('show', visibleCount === 0 && q.length > 0);
+      }
+      searchInput.addEventListener('input', filterContent);
+
+      // 频道导航高亮
+      const sections = document.querySelectorAll('.main-content section[id]');
+      const navLinks = document.querySelectorAll('.channel-nav a');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            navLinks.forEach(link => {
+              link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+            });
+          }
+        });
+      }, { rootMargin: '-20% 0px -60% 0px' });
+      sections.forEach(s => observer.observe(s));
+    })();
+  </script>
+</body>
+        </html>
